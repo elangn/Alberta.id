@@ -7,7 +7,8 @@ const Navbar = () => {
         <div className="container">
           <div className="upper-box ">
             <div className="upper-box1">
-              <i className="fa-solid fa-phone text-light "> +62 811-1122</i>
+              <i className="fa-solid fa-phone text-light me-1"> </i>
+              <span>+62 811-1122</span>
             </div>
             <div className="upper-box2">
               <i className="fa-brands fa-twitter text-light me-3 "></i>
@@ -22,7 +23,9 @@ const Navbar = () => {
         <div className="container">
           <a className="navbar-brand" href="#">
             <img src="img/sunrise.png" alt="" className="me-2" />
-            Cozy Tour
+            <span>
+              Cozy <span className="nav-brand1"> Tour</span>
+            </span>
           </a>
           <button
             className="navbar-toggler"

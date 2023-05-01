@@ -21,10 +21,19 @@ body {
   font-size: 10px;
 }
 
+.upper .upper-box1 span {
+  color: white;
+  font-size: 9px;
+}
+
 /* navbar */
-.navbar a {
-  /* font-size: 16px; */
-  /* font-weight: bold; */
+.navbar span {
+  font-weight: bold;
+}
+
+.navbar .nav-brand1 {
+  background-color: yellow;
+  font-size: 14px;
 }
 
 .navbar img {
@@ -33,10 +42,9 @@ body {
 
 .navbar li {
   font-size: 12px;
-  /* font-weight: bold; */
+  font-weight: bold;
 }
 
 /* carousel  */
 .carousel .carousel-inner {
-  height: 500px;
 }
