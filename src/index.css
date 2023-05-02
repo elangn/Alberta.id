@@ -2,14 +2,9 @@
   font-family: "Roboto", sans-serif;
 }
 
-body {
-  background-color: grey;
-}
-
 /* upper  */
 .upper {
   background-color: rgb(2, 15, 57);
-  /* background-color: black; */
 }
 
 .upper .upper-box {
@@ -41,10 +36,107 @@ body {
 }
 
 .navbar li {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
 }
 
 /* carousel  */
 .carousel .carousel-inner {
 }
+
+/* category */
+.category {
+  margin: 50px;
+}
+
+.category p:nth-child(1) img {
+  width: 20px;
+}
+
+.box-category {
+  text-align: center;
+}
+
+.category .box-category p:nth-child(2) {
+  color: grey;
+  font-size: 12px;
+}
+
+.category .box-category p:nth-child(2) {
+  color: grey;
+  font-size: 11px;
+}
+
+.category .box-category p:nth-child(3) {
+  font-weight: bold;
+}
+
+.category .box-category2 .tab-category {
+  background-color: rgba(154, 189, 232, 0.324);
+}
+
+.category .row {
+  display: flex;
+  justify-content: center;
+}
+
+.category .box-category2 img:hover {
+  opacity: 50%;
+  transition: 0.7s;
+}
+
+/* promo  */
+
+.promo .card .diskon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+.promo h2 {
+  font-weight: bold;
+  font-size: 24px;
+  color: rgb(2, 15, 57);
+}
+
+.promo p {
+  font-size: 14px;
+}
+
+/* benefit at page Home  */
+
+.benefit {
+  margin-top: 50px;
+  padding: 50px 0;
+  background-color: rgba(117, 212, 244, 0.265);
+}
+
+.benefit h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.benefit p {
+  color: grey;
+}
+
+.benefit-box {
+  display: flex;
+
+  justify-content: center;
+  gap: 50px;
+}
+
+.benefit .benefit-box .nomer {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(120, 200, 0);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+/* .benefit .box-nomer {
+  display: flex;
+} */

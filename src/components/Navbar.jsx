@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <>
-      <div className="upper pt-0 mt-0">
+      <div className="upper pt-0 mt-0 ">
         <div className="container">
           <div className="upper-box ">
             <div className="upper-box1">
@@ -22,9 +22,9 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-light ">
         <div className="container">
           <a className="navbar-brand" href="#">
-            <img src="img/sunrise.png" alt="" className="me-2" />
+            <img src="img/airplane2.png" alt="" className="me-2" />
             <span>
-              Cozy <span className="nav-brand1"> Tour</span>
+              Prontera <span className="nav-brand1"> .id</span>
             </span>
           </a>
           <button
@@ -42,25 +42,20 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item me-2">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link " aria-current="page" href="#">
                   Home
                 </a>
               </li>
               <li className="nav-item  me-2">
                 <a className="nav-link" href="#">
-                  Features
+                  Explore
                 </a>
               </li>
               <li className="nav-item  me-2">
                 <a className="nav-link" href="#">
-                  Pricing
+                  About Us
                 </a>
               </li>
-              {/* <li className="nav-item ">
-                <a className="nav-link" href="#">
-                  Login
-                </a>
-              </li> */}
               <button className="btn btn-sm btn-outline-primary">
                 {" "}
                 Login{" "}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Hero = () => {
+const Carousel = () => {
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
   const [hero, setHero] = useState([]);
 
@@ -13,7 +13,7 @@ const Hero = () => {
         },
       })
       .then(function (response) {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setHero(response.data.data);
       })
       .catch(function (error) {
@@ -21,8 +21,6 @@ const Hero = () => {
         console.log(error);
       });
   }, []);
-
-  console.log(hero);
 
   return (
     <>
@@ -78,4 +76,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Carousel;
