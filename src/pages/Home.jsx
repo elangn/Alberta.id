@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import Categoty from "../components/Categoty";
 import Carousel from "../components/Carousel";
 import Promo from "../components/Promo";
+import Popular from "../components/Popular";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -63,6 +65,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <Popular />
+      <Footer />
     </>
   );
 };
