@@ -13,15 +13,13 @@ const Popular = () => {
         },
       })
       .then(function (response) {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setPopular(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
-
-  console.log(popular);
 
   return (
     <div className="popular">

@@ -24,14 +24,6 @@ const Carousel = () => {
 
   return (
     <>
-      {/* {hero.map((item, i) => {
-        return (
-          <div key={i}>
-            <img src={item.imageUrl} alt="" />
-          </div>
-        );
-      })} */}
-
       <div
         id="carouselExampleControls"
         className="carousel slide"
@@ -45,13 +37,6 @@ const Carousel = () => {
               </div>
             );
           })}
-
-          {/* <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..." />
-          </div>
-          <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..." />
-          </div> */}
         </div>
         <button
           className="carousel-control-prev"

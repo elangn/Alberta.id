@@ -1,17 +1,17 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Categoty from "../components/Categoty";
 import Carousel from "../components/Carousel";
 import Promo from "../components/Promo";
 import Popular from "../components/Popular";
 import Footer from "../components/Footer";
+import Category from "../components/Category";
 
 const Home = () => {
   return (
     <>
       <Navbar />
       <Carousel />
-      <Categoty />
+      <Category />
       <Promo />
 
       <div className="benefit">

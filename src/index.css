@@ -95,6 +95,10 @@ body {
 
 /* promo  */
 
+.promo {
+  margin: 50px 0;
+}
+
 .promo .card .diskon {
   position: absolute;
   top: 5px;
