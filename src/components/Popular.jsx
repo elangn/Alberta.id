@@ -50,16 +50,22 @@ const Popular = () => {
                       <p> {item.title} </p>
                       <p>
                         <i className="fa-solid fa-star text-warning pe-1"></i>
-                        {item.rating}
+                        {item.rating} <span className="text-secondary">/5</span>{" "}
+                        . {item.total_reviews}
                       </p>
                     </div>
 
                     <div className="card-body py-0">
-                      <p className="card-text my-0">
+                      <p className="card-text mb-1">
                         <img src="img/pin.png" alt="" />
                         {item.city}, {item.province}
                       </p>
-                      <p className="card-text mt-1 mb-3 ">Rp. {item.price}</p>
+                      {/* <p className="card-text mt-1 mb-3 ">Rp. {item.price}</p> */}
+
+                      <p>
+                        {" "}
+                        More <i className="fa-solid fa-circle-arrow-right"></i>
+                      </p>
                     </div>
                   </div>
                 </div>
