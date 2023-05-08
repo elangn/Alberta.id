@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-// import Home from "./pages/Home.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import Error from "./pages/error";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,22 @@ const router = createBrowserRouter([
     element: (
       <>
         <Explore />
+      </>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <>
+        <Login />
+      </>
+    ),
+  },
+  {
+    path: "/register",
+    element: (
+      <>
+        <Register />
       </>
     ),
   },
