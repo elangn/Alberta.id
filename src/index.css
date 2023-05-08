@@ -105,18 +105,34 @@ body {
 }
 
 .register .register-box {
-  height: 500px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* .register .register-box .card {
+.register .card-body-flex {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
 }
 
-.register .card-body {
-  display: flex;
-} */
+.register .card-body-flex .card-body1 {
+  width: 50%;
+}
+
+.register .card-body-flex .card-body2 {
+  width: 50%;
+}
+
+.register .card-body-flex input {
+  width: 100%;
+}
+
+.register .err-msg {
+  color: red;
+  font-size: 12px;
+}
 
 /* carousel  */
 
