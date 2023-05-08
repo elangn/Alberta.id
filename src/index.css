@@ -55,8 +55,9 @@ body {
 /* Login Page  */
 
 .login {
-  /* background-image: url("img/bg.jpg"); */
-  background-color: grey;
+  background-image: url("img/bg-login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .login-box {
@@ -101,7 +102,9 @@ body {
 /* register page  */
 
 .register {
-  background-color: grey;
+  background-image: url("img/bg-login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .register .register-box {

@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const isLogin = JSON.parse(localStorage.getItem("token"));
+  const account = JSON.parse(localStorage.getItem("account"));
+
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
   return (
     <>
       <div className="upper pt-0 mt-0 ">
@@ -59,11 +65,29 @@ const Navbar = () => {
                 </a>
               </li>
 
-              <li className="nav-item  me-2">
+              {/* <li className="nav-item  me-2">
                 <Link to={`/login`} className="nav-link">
                   Login
                 </Link>
-              </li>
+              </li> */}
+
+              {isLogin ? (
+                <>
+                  <li>
+                    <Link className="nav-link" onClick={handleLogout}>
+                      hi, {account.name}
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item  me-2">
+                    <Link to={`/login`} className="nav-link">
+                      Login
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

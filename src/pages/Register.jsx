@@ -76,7 +76,7 @@ const Register = () => {
       <div className="register">
         <div className="container">
           <div className="register-box ">
-            <div className="card" style={{ width: "600px" }}>
+            <div className="card" style={{ width: "500px" }}>
               <div className="card-body">
                 <h4 className="fw-bold text-center mb-4"> REGISTER</h4>
                 <form onSubmit={formik.handleSubmit}>

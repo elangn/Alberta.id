@@ -40,6 +40,7 @@ const Login = () => {
         .then(function (response) {
           // console.log(response);
           localStorage.setItem("token", JSON.stringify(response.data.token));
+          localStorage.setItem("account", JSON.stringify(response.data.data));
           navigate("/");
         })
         .catch(function (error) {
