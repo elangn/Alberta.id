@@ -102,8 +102,21 @@ body {
 
 .register {
   background-color: grey;
-  height: 600px;
 }
+
+.register .register-box {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .register .register-box .card {
+}
+
+.register .card-body {
+  display: flex;
+} */
 
 /* carousel  */
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const isLogin = JSON.parse(localStorage.getItem("token"));
   return (
     <>
       <div className="upper pt-0 mt-0 ">
