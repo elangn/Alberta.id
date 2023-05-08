@@ -32,8 +32,8 @@ const Carousel = () => {
         <div className="carousel-inner">
           {hero.map((item, i) => {
             return (
-              <div className="carousel-item active" key={i}>
-                <img src={item.imageUrl} className="d-block w-100" alt="..." />
+              <div className="carousel-item active h-50" key={i}>
+                <img src={item.imageUrl} className="d-block w-100 " alt="..." />
               </div>
             );
           })}

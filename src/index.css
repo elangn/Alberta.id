@@ -30,6 +30,10 @@ body {
 
 /* navbar */
 
+/* .navbar .nav-item:nth-child(3) {
+  border-right: 1px solid grey;
+} */
+
 .navbar span {
   font-weight: bold;
 }
@@ -48,7 +52,61 @@ body {
   font-weight: bold;
 }
 
+/* Login Page  */
+
+.login {
+  /* background-image: url("img/bg.jpg"); */
+  background-color: grey;
+}
+
+.login-box {
+  display: flex;
+  align-items: center;
+  height: 600px;
+  justify-content: center;
+}
+
+.login .login-box h3 {
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+/* .login .login-box label {
+  font-weight: bold;
+} */
+
+.login .login-box input {
+  width: 100%;
+  padding: 0 10px;
+}
+
+.login .login-box button {
+  width: 100%;
+}
+
+.login .login-box .card-body p {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.login .error-msg {
+  font-size: 12px;
+  color: red;
+  margin: 0;
+  padding: 0;
+}
+
+/* register page  */
+
+.register {
+  background-color: grey;
+  height: 600px;
+}
+
 /* carousel  */
+
 .carousel .carousel-inner {
 }
 
@@ -56,10 +114,6 @@ body {
 .category {
   margin: 50px;
 }
-
-/* .category .card img {
-  width: 100px;
-} */
 
 .category p:nth-child(1) img {
   width: 20px;
@@ -192,6 +246,30 @@ body {
 .popular i {
   color: rgb(1, 181, 25);
   font-size: 11px;
+}
+
+/* activity (Trip) */
+
+.activity h2 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.activity .card-body img {
+  width: 12px;
+}
+
+.activity .card-box p {
+  font-size: 14px;
+}
+
+.activity .card-body p {
+  font-size: 14px;
+}
+
+.activity .card-body i {
+  color: green;
+  font-size: 12px;
 }
 
 /* footer */
