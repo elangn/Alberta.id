@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Category from "../components/Category";
 import Popular from "../components/Popular";
+import Activity from "../components/Activity";
 
 const Explore = () => {
   return (
@@ -11,6 +12,8 @@ const Explore = () => {
 
       <Popular />
       <Category />
+
+      <Activity />
 
       <Footer />
     </>

@@ -53,14 +53,16 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item  me-2">
-                <a className="nav-link" href="#">
+                <a className="nav-link " href="#">
                   About Us
                 </a>
               </li>
-              <button className="btn btn-sm btn-outline-primary">
-                {" "}
-                Login{" "}
-              </button>
+
+              <li className="nav-item  me-2">
+                <Link to={`/login`} className="nav-link">
+                  Login
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

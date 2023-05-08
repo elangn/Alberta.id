@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Popular = () => {
-  const [popular, setPopular] = useState([]);
+const Activity = () => {
+  const [activity, setActivity] = useState([]);
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
 
   useEffect(() => {
@@ -13,28 +13,25 @@ const Popular = () => {
         },
       })
       .then(function (response) {
-        // console.log(response.data.data);
-        setPopular(response.data.data);
-      })
-      .catch(function (error) {
-        console.log(error);
+        // console.log(response);
+        setActivity(response.data.data);
       });
   }, []);
 
   return (
-    <div className="popular">
+    <div className="activity">
       <div className="container">
-        <h2>Popular Destination</h2>
+        <h2> Trip </h2>
         <p className="text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe
-          dolorum omnis similique fuga, quod, reiciendis temporibus quae
-          quisquam in at, illo ex animi obcaecati? Et excepturi reprehenderit
-          molestiae aspernatur.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+          eveniet, temporibus odit saepe quidem error natus ratione nam vel
+          provident autem! Laudantium ut soluta eligendi unde numquam deleniti
+          rerum tenetur!
         </p>
 
-        <div className="popular-box">
+        <div className="activity-box">
           <div className="row">
-            {popular.map((item, i) => {
+            {activity.map((item, i) => {
               return (
                 <div className="col-sm-3" key={i}>
                   <div className="card">
@@ -43,6 +40,7 @@ const Popular = () => {
                       className="card-img-top"
                       alt="..."
                     />
+
                     <div
                       className="card-box d-flex px-2 mt-2 justify-content-between
                     "
@@ -77,4 +75,4 @@ const Popular = () => {
   );
 };
 
-export default Popular;
+export default Activity;
