@@ -52,6 +52,22 @@ body {
   font-weight: bold;
 }
 
+.navbar .dropdown .btn {
+  border: none;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: grey;
+}
+
+.navbar i {
+  font-size: 12px;
+}
+
+.navbar .avatar {
+  border-radius: 50%;
+}
+
 /* Login Page  */
 
 .login {
@@ -135,6 +151,33 @@ body {
 .register .err-msg {
   color: red;
   font-size: 12px;
+}
+
+/* update Profile page  */
+.update-profile {
+  height: 600px;
+}
+
+.update-profile .kiri {
+  background-color: rgb(224, 243, 247);
+}
+
+.update-profile .kiri ul {
+  list-style: none;
+  padding-top: 20px;
+}
+
+.update-profile .kiri ul li a {
+  text-decoration: none;
+}
+
+.update-profile .kanan .card {
+  width: 500px;
+}
+
+.update-profile .kanan img {
+  width: 100%;
+  border-radius: 50%;
 }
 
 /* carousel  */

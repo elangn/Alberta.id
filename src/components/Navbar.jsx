@@ -1,12 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const isLogin = JSON.parse(localStorage.getItem("token"));
   const account = JSON.parse(localStorage.getItem("account"));
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.clear();
+    navigate("/login");
     window.location.reload();
   };
   return (
@@ -73,11 +75,40 @@ const Navbar = () => {
 
               {isLogin ? (
                 <>
-                  <li>
-                    <Link className="nav-link" onClick={handleLogout}>
-                      hi, {account.name}
-                    </Link>
-                  </li>
+                  <div className="dropdown">
+                    <button
+                      className="btn  dropdown-toggle"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <img
+                        src={account.profilePictureUrl}
+                        alt=""
+                        className=" avatar me-2"
+                      />
+                      {account.name}
+                    </button>
+                    <ul className="dropdown-menu">
+                      <li>
+                        <Link to={"/update-profile"} className="dropdown-item">
+                          <i className="fa-solid fa-user me-1"> </i> Update
+                          Profile
+                        </Link>
+                      </li>
+
+                      <li>
+                        <a
+                          className="dropdown-item"
+                          href="#"
+                          onClick={handleLogout}
+                        >
+                          <i className="fa-solid fa-right-from-bracket me-1"></i>
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </>
               ) : (
                 <>
