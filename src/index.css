@@ -71,7 +71,7 @@ body {
 /* Login Page  */
 
 .login {
-  background-image: url("img/bg-login.jpg");
+  background-image: url("img/bg3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -118,7 +118,7 @@ body {
 /* register page  */
 
 .register {
-  background-image: url("img/bg-login.jpg");
+  background-image: url("img/bg2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
