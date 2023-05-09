@@ -52,11 +52,28 @@ body {
   font-weight: bold;
 }
 
+.navbar .dropdown .btn {
+  border: none;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: grey;
+}
+
+.navbar i {
+  font-size: 12px;
+}
+
+.navbar .avatar {
+  border-radius: 50%;
+}
+
 /* Login Page  */
 
 .login {
-  /* background-image: url("img/bg.jpg"); */
-  background-color: grey;
+  background-image: url("img/bg3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .login-box {
@@ -101,8 +118,66 @@ body {
 /* register page  */
 
 .register {
-  background-color: grey;
+  background-image: url("img/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.register .register-box {
   height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register .card-body-flex {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
+.register .card-body-flex .card-body1 {
+  width: 50%;
+}
+
+.register .card-body-flex .card-body2 {
+  width: 50%;
+}
+
+.register .card-body-flex input {
+  width: 100%;
+}
+
+.register .err-msg {
+  color: red;
+  font-size: 12px;
+}
+
+/* update Profile page  */
+.update-profile {
+  height: 600px;
+}
+
+.update-profile .kiri {
+  background-color: rgb(224, 243, 247);
+}
+
+.update-profile .kiri ul {
+  list-style: none;
+  padding-top: 20px;
+}
+
+.update-profile .kiri ul li a {
+  text-decoration: none;
+}
+
+.update-profile .kanan .card {
+  width: 500px;
+}
+
+.update-profile .kanan img {
+  width: 100%;
+  border-radius: 50%;
 }
 
 /* carousel  */

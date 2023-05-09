@@ -8,6 +8,7 @@ import Explore from "./pages/Explore";
 import Error from "./pages/error";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import UpdateProfile from "./pages/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <Register />
+      </>
+    ),
+  },
+  {
+    path: "/update-profile",
+    element: (
+      <>
+        <UpdateProfile />
       </>
     ),
   },
