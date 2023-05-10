@@ -378,6 +378,11 @@ body {
 
 .navbar-admin .navbar a {
   color: white;
+  text-decoration: none;
+}
+
+.navbar-admin li {
+  margin-bottom: 20px;
 }
 
 .navbar-admin .navbar img {
@@ -402,6 +407,10 @@ body {
 }
 
 /* Dashboard - admin page */
+.dashboard-admin {
+}
+
+/* user - admin page  */
 
 @media screen and (min-width: 576px) {
   .navbar-admin .navbar .container-fluid,
@@ -421,5 +430,9 @@ body {
   .dashboard-admin {
     margin-left: 200px;
     height: 300vh;
+  }
+
+  .user-admin {
+    margin-left: 200px;
   }
 }

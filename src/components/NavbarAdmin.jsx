@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavbarAdmin = () => {
   const isLogin = JSON.parse(localStorage.getItem("token"));
@@ -25,30 +26,20 @@ const NavbarAdmin = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ">
               <li className="nav-item ">
-                <a className="nav-link " aria-current="page" href="#">
-                  Dashboard
-                </a>
+                <Link to={"/dashboard"}> Dashboard</Link>
               </li>
               <li className="nav-item ">
-                <a className="nav-link " aria-current="page" href="#">
-                  Promo
-                </a>
+                <Link> Promo</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link " href="#">
-                  Activity
-                </a>
+                <Link> Activity </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link " href="#">
-                  User
-                </a>
+                <Link to={"/user-admin"}>User</Link>
               </li>
+
               <li className="nav-item">
-                <a className="nav-link "> Banner</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link "> </a>
+                <Link> Banner</Link>
               </li>
               <li className="nav-item dropdown">
                 <a

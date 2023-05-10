@@ -8,7 +8,10 @@ const DashboardAdmin = () => {
 
       <div className="dashboard-admin">
         <div className="container">
-          <h3> DASHBOARD </h3>
+          <h3>
+            {" "}
+            <i className="fa-solid fa-gauge"></i> DASHBOARD{" "}
+          </h3>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore
             nihil temporibus rem. Dolore voluptate facilis quidem consectetur
