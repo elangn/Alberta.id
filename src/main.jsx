@@ -9,6 +9,7 @@ import Error from "./pages/error";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import UpdateProfile from "./pages/UpdateProfile";
+import DashboardAdmin from "./pages/DashboardAdmin";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <UpdateProfile />
+      </>
+    ),
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <>
+        <DashboardAdmin />
       </>
     ),
   },

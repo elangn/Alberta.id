@@ -44,7 +44,9 @@ body {
 }
 
 .navbar img {
+  object-fit: cover;
   width: 30px;
+  height: 30px;
 }
 
 .navbar li {
@@ -175,8 +177,18 @@ body {
   width: 500px;
 }
 
+.update-profile .kanan .nama {
+  font-size: 22px;
+}
+
+.update-profile .kanan .detil {
+  font-size: 14px;
+}
+
 .update-profile .kanan img {
-  width: 100%;
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
 }
 
@@ -358,4 +370,56 @@ body {
   color: white;
   font-size: 12px;
   text-align: center;
+}
+
+/*  CSS ADMIN  */
+
+/* navbar - admin */
+
+.navbar-admin .navbar a {
+  color: white;
+}
+
+.navbar-admin .navbar img {
+  border-radius: 50%;
+}
+
+.navbar-admin .navbar .navbar-brand {
+  border-bottom: 1px solid red;
+  width: 100%;
+}
+
+.navbar-admin .navbar a span {
+  color: orange;
+}
+
+.navbar-admin .navbar .dropdown-menu a {
+  color: rgb(45, 45, 45);
+}
+
+.navbar-admin .navbar {
+  background-color: #222937;
+}
+
+/* Dashboard - admin page */
+
+@media screen and (min-width: 576px) {
+  .navbar-admin .navbar .container-fluid,
+  .navbar-admin .navbar-expand-lg .navbar-collapse,
+  .navbar-admin .navbar-expand-lg .navbar-nav {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .navbar-admin .navbar {
+    width: 200px;
+    height: 100vh;
+    align-items: start;
+    position: fixed;
+  }
+
+  .dashboard-admin {
+    margin-left: 200px;
+    height: 300vh;
+  }
 }
