@@ -4,9 +4,11 @@ import Footer from "../components/Footer";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -36,7 +38,7 @@ const Register = () => {
       role: Yup.string()
         .max(10, "Must be 10 digit or more")
         .required("Required"),
-      profilePicture: Yup.string().max(10, "Must be 10 digit or more"),
+      profilePicture: Yup.string(),
     }),
     onSubmit: (values) => {
       // alert(JSON.stringify(values, null, 2));
@@ -62,7 +64,8 @@ const Register = () => {
         .then(function (response) {
           // console.log(response);
           alert("sukes membuat akun");
-          window.location.reload();
+          // window.location.reload();
+          navigate("/login");
         })
         .catch(function (error) {
           alert("masih error cuy");
