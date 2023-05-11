@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavbarAdmin = () => {
   const isLogin = JSON.parse(localStorage.getItem("token"));
   const account = JSON.parse(localStorage.getItem("account"));
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+    // window.location.reload();
+  };
 
   return (
     <div className="navbar-admin ">
@@ -71,7 +78,11 @@ const NavbarAdmin = () => {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a
+                      className="dropdown-item"
+                      href="#"
+                      onClick={handleLogout}
+                    >
                       <i className="fa-solid fa-right-from-bracket me-1"></i>
                       Logout
                     </a>

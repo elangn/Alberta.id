@@ -11,6 +11,7 @@ const Navbar = () => {
     navigate("/login");
     window.location.reload();
   };
+
   return (
     <>
       <div className="upper pt-0 mt-0 ">
@@ -66,12 +67,6 @@ const Navbar = () => {
                   About Us
                 </a>
               </li>
-
-              {/* <li className="nav-item  me-2">
-                <Link to={`/login`} className="nav-link">
-                  Login
-                </Link>
-              </li> */}
 
               {isLogin ? (
                 <>

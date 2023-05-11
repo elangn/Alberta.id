@@ -39,34 +39,6 @@ const Category = () => {
         </div>
 
         <div className="box-category2 mt-4">
-          {/* <div className="row">
-            <div className="col-sm-1 text-center">
-              <div className="box-2">
-                <a href="">
-                  <img src="img/beach.png" alt="" className="w-100" />
-                </a>
-                <p>Beach</p>
-              </div>
-            </div>
-
-            <div className="col-sm-1 text-center">
-              <div className="box2">
-                <a href="">
-                  <img src="img/mountain.png" alt="" className="w-100" />
-                </a>
-                <p>Mountain</p>
-              </div>
-            </div>
-
-            <div className="col-sm-1 text-center">
-              <div className="box2">
-                <a href="">
-                  <img src="img/park.png" alt="" className="w-100" />{" "}
-                </a>
-                <p>Park</p>
-              </div>
-            </div>
-          </div> */}
           <div className="row">
             {category.map((item, i) => {
               return (

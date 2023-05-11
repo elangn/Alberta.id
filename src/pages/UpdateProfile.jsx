@@ -47,6 +47,24 @@ const UpdateProfile = () => {
           // localStorage.removeItem("account");
           // localStorage.setItem("account", JSON.stringify(response));
           // localStorage.getItem("account");
+          axios
+            .get(`${baseUrl}/api/v1/user`, {
+              headers: {
+                apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+                Authorization: `Bearer ${isLogin}`,
+              },
+            })
+            .then(function (response) {
+              console.log(response);
+              localStorage.setItem(
+                "account",
+                JSON.stringify(response.data.data)
+              );
+              window.location.reload();
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
         })
         .catch(function (error) {
           console.log(error);
