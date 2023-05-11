@@ -79,6 +79,7 @@ const UpdateProfile = () => {
         <div className="container">
           <div className="update-profile-box">
             <h5 className="mt-4"> Update Profile </h5>
+
             <div className="row">
               <div className="kiri col-sm-2">
                 <ul>

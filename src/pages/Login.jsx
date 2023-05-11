@@ -41,7 +41,15 @@ const Login = () => {
           // console.log(response);
           localStorage.setItem("token", JSON.stringify(response.data.token));
           localStorage.setItem("account", JSON.stringify(response.data.data));
-          navigate("/");
+          const account = JSON.parse(localStorage.getItem("account"));
+          // const account = JSON.parse(localStorage.getItem("account"));
+          // navigate("/");
+
+          if (account.role == "admin") {
+            navigate("/dashboard");
+          } else {
+            navigate("/");
+          }
         })
         .catch(function (error) {
           console.log(error);
