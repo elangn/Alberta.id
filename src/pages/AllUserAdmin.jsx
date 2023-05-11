@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavbarAdmin from "../components/NavbarAdmin";
 import axios from "axios";
-import { useFormik } from "formik";
 
 const AllUserAdmin = () => {
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
@@ -9,27 +8,7 @@ const AllUserAdmin = () => {
   const account = JSON.parse(localStorage.getItem("account"));
 
   const [user, setUser] = useState([]);
-
-  const formik = useFormik({
-    initialValues: {
-      role: "",
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-      axios
-        .post(`${baseUrl}//api/v1/update-user-role/{{USER_ID}}`, {
-          role: values.role,
-        })
-        .then(function (response) {
-          console.log(response);
-          alert("sukses merubah role");
-          window.location.reload();
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
-  });
+  const [role, setRole] = useState([]);
 
   useEffect(() => {
     axios
@@ -79,27 +58,70 @@ const AllUserAdmin = () => {
                       <td>{item.role}</td>
                       <td>
                         {/* {item.id} */}
-                        <form onSubmit={formik.handleSubmit}>
-                          {/* <label htmlFor="role">Edit Role</label> */}
 
-                          <select
-                            id="role"
-                            name="role"
-                            type="text"
-                            onChange={formik.handleChange}
-                            value={formik.values.role}
-                          >
-                            <option value="user">user</option>
-                            <option value="admin">admin</option>
-                          </select>
-
+                        <select id="">
+                          <option value="user">user</option>
+                          <option value="admin">admin</option>
+                        </select>
+                      </td>
+                      <td>
+                        <div>
+                          {/* Button trigger modal */}
                           <button
-                            type="submit"
-                            className="btn btn-success ms-2"
+                            type="button"
+                            className="btn btn-primary"
+                            data-bs-toggle="modal"
+                            data-bs-target={`#user${item.id}`}
                           >
-                            {item.name}
+                            Launch demo modal
                           </button>
-                        </form>
+                          {/* Modal */}
+                          <div
+                            className="modal fade"
+                            id={`user${item.id}`}
+                            tabIndex={-1}
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div className="modal-dialog">
+                              <div className="modal-content">
+                                <div className="modal-header">
+                                  <h1
+                                    className="modal-title fs-5"
+                                    id="exampleModalLabel"
+                                  >
+                                    Modal title
+                                  </h1>
+                                  <button
+                                    type="button"
+                                    className="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                  />
+                                </div>
+                                <div className="modal-body">
+                                  {item.name}
+                                  <p>{item.id}</p>
+                                </div>
+                                <div className="modal-footer">
+                                  <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    Close
+                                  </button>
+                                  <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                  >
+                                    Save changes
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </td>
                     </tr>
                   );
