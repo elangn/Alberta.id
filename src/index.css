@@ -414,11 +414,11 @@ body {
 
 /* Banner - admin page */
 
-.table img {
+/* .table img {
   width: 50px;
   border-radius: 50%;
   object-fit: cover;
-}
+} */
 
 @media screen and (min-width: 576px) {
   .navbar-admin .navbar .container-fluid,

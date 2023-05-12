@@ -8,7 +8,7 @@ const AllUserAdmin = () => {
   const account = JSON.parse(localStorage.getItem("account"));
 
   const [user, setUser] = useState([]);
-  const [role, setRole] = useState([]);
+  const [roleCreate, setRoleCreate] = useState("");
 
   useEffect(() => {
     axios
@@ -19,13 +19,43 @@ const AllUserAdmin = () => {
         },
       })
       .then(function (response) {
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setUser(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    setRoleCreate(e.target.value);
+  };
+
+  // const handleSubmit = (e) => {
+  //   console.log(roleCreate);
+  //   // bikin di handle change
+
+  //   axios
+  //     .post(
+  //       `${baseUrl}/api/v1/update-user-role/${userID}`,
+  //       {
+  //         role: roleCreate,
+  //       },
+  //       {
+  //         headers: {
+  //           apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+  //           Authorization: `Bearer ${isLogin}`,
+  //         },
+  //       }
+  //     )
+  //     .then(function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
     <>
@@ -56,72 +86,28 @@ const AllUserAdmin = () => {
                         <p className="my-0"> {item.email}</p>
                       </td>
                       <td>{item.role}</td>
-                      <td>
-                        {/* {item.id} */}
 
-                        <select id="">
+                      <td>
+                        <select
+                          value={item.role}
+                          onChange={handleChange}
+                          type="text"
+                          id="role"
+                          name="role"
+                        >
+                          <option value=""> -- pilih role -- </option>
                           <option value="user">user</option>
                           <option value="admin">admin</option>
                         </select>
-                      </td>
-                      <td>
-                        <div>
-                          {/* Button trigger modal */}
-                          <button
-                            type="button"
-                            className="btn btn-primary"
-                            data-bs-toggle="modal"
-                            data-bs-target={`#user${item.id}`}
-                          >
-                            Launch demo modal
-                          </button>
-                          {/* Modal */}
-                          <div
-                            className="modal fade"
-                            id={`user${item.id}`}
-                            tabIndex={-1}
-                            aria-labelledby="exampleModalLabel"
-                            aria-hidden="true"
-                          >
-                            <div className="modal-dialog">
-                              <div className="modal-content">
-                                <div className="modal-header">
-                                  <h1
-                                    className="modal-title fs-5"
-                                    id="exampleModalLabel"
-                                  >
-                                    Modal title
-                                  </h1>
-                                  <button
-                                    type="button"
-                                    className="btn-close"
-                                    data-bs-dismiss="modal"
-                                    aria-label="Close"
-                                  />
-                                </div>
-                                <div className="modal-body">
-                                  {item.name}
-                                  <p>{item.id}</p>
-                                </div>
-                                <div className="modal-footer">
-                                  <button
-                                    type="button"
-                                    className="btn btn-secondary"
-                                    data-bs-dismiss="modal"
-                                  >
-                                    Close
-                                  </button>
-                                  <button
-                                    type="button"
-                                    className="btn btn-primary"
-                                  >
-                                    Save changes
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+
+                        {/* <button
+                          onClick={handleSubmit}
+                          className="btn btn-success btn-sm ms-2"
+                          type="submit"
+                          value="submit"
+                        >
+                          Submit
+                        </button> */}
                       </td>
                     </tr>
                   );
