@@ -14,7 +14,7 @@ const Popular = () => {
       })
       .then(function (response) {
         // console.log(response.data.data);
-        setPopular(response.data.data);
+        setPopular(response.data.data.slice(0, 2));
       })
       .catch(function (error) {
         console.log(error);

@@ -36,17 +36,17 @@ const NavbarAdmin = () => {
                 <Link to={"/dashboard"}> Dashboard</Link>
               </li>
               <li className="nav-item ">
-                <Link> Promo</Link>
+                <Link to={"/promo-admin"}> Promo</Link>
               </li>
               <li className="nav-item">
-                <Link> Activity </Link>
+                <Link to={"/activity-admin"}> Activity </Link>
               </li>
               <li className="nav-item">
-                <Link to={"/user-admin"}>User</Link>
+                <Link to={"/all-user-admin"}>All Users</Link>
               </li>
 
               <li className="nav-item">
-                <Link> Banner</Link>
+                <Link to={"/banner-admin"}> Banner</Link>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -64,20 +64,20 @@ const NavbarAdmin = () => {
                   {account.name}
                 </a>
                 <ul className="dropdown-menu">
-                  <li>
+                  <li className="my-0">
                     <a className="dropdown-item" href="#">
                       Action
                     </a>
                   </li>
-                  <li>
+                  <li className="my-0">
                     <a className="dropdown-item" href="#">
                       Another action
                     </a>
                   </li>
-                  <li>
+                  <li className="my-0">
                     <hr className="dropdown-divider" />
                   </li>
-                  <li>
+                  <li className="my-0">
                     <a
                       className="dropdown-item"
                       href="#"

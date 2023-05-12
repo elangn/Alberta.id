@@ -10,7 +10,10 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import UpdateProfile from "./pages/UpdateProfile";
 import DashboardAdmin from "./pages/DashboardAdmin";
-import UserAdmin from "./pages/UserAdmin";
+import AllUserAdmin from "./pages/AllUserAdmin";
+import BannerAdmin from "./pages/BannerAdmin";
+import PromoAdmin from "./pages/PromoAdmin";
+import ActivityAdmin from "./pages/ActivityAdmin";
 
 const router = createBrowserRouter([
   {
@@ -63,10 +66,35 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/user-admin",
+    path: "/all-user-admin",
     element: (
       <>
-        <UserAdmin />
+        <AllUserAdmin />
+      </>
+    ),
+  },
+  {
+    path: "/banner-admin",
+    element: (
+      <>
+        <BannerAdmin />
+      </>
+    ),
+  },
+
+  {
+    path: "/promo-admin",
+    element: (
+      <>
+        <PromoAdmin />
+      </>
+    ),
+  },
+  {
+    path: "/activity-admin",
+    element: (
+      <>
+        <ActivityAdmin />
       </>
     ),
   },
