@@ -2,29 +2,32 @@ import React, { useEffect, useState } from "react";
 import NavbarAdmin from "../components/NavbarAdmin";
 import axios from "axios";
 
-const BannerAdmin = () => {
+const CategoryAdmin = () => {
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
-  const isLogin = JSON.parse(localStorage.getItem("token"));
   const account = JSON.parse(localStorage.getItem("account"));
+  const isLogin = JSON.parse(localStorage.getItem("token"));
 
-  const [banner, setBanner] = useState([]);
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${baseUrl}/api/v1/banners`, {
+      .get(`${baseUrl}/api/v1/categories`, {
         headers: {
           apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
         },
       })
       .then(function (response) {
-        console.log(response.data.data);
-        setBanner(response.data.data);
+        console.log(response);
+        setCategory(response.data.data);
+      })
+      .catch(function (error) {
+        console.log("error");
       });
   }, []);
 
-  const handleDelete = (bannerId) => {
+  const handleDelete = (categoryId) => {
     axios
-      .delete(`${baseUrl}/api/v1/delete-banner/${bannerId}`, {
+      .delete(`${baseUrl}/api/v1/delete-category/${categoryId}`, {
         headers: {
           apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
           Authorization: `Bearer ${isLogin}`,
@@ -32,16 +35,16 @@ const BannerAdmin = () => {
       })
       .then(function (response) {
         console.log(response);
-        alert("promo berhasil dihapus");
+        alert("category berhasil dihapus");
         axios
-          .get(`${baseUrl}/api/v1/banners`, {
+          .get(`${baseUrl}/api/v1/categories`, {
             headers: {
               apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
             },
           })
           .then(function (response) {
             // console.log(response);
-            setBanner(response.data.data);
+            setCategory(response.data.data);
           })
           .catch(function (error) {
             console.log(error);
@@ -55,15 +58,17 @@ const BannerAdmin = () => {
   return (
     <>
       <NavbarAdmin />
-      <div className="banner-admin">
+
+      <div className="category-admin">
         <div className="container">
           <h4>
-            <img src="./img/advertisement.png" alt="" className="me-2" /> Manage
-            Banner
+            {" "}
+            <img src="./img/categories.png" alt="" className="me-2" /> Manage
+            Category
           </h4>
           <hr />
-          <div className="banner-admin-box">
-            <table className="table ">
+          <div className="category-admin-box">
+            <table className="table">
               <thead className="table-dark">
                 <tr>
                   <th scope="col">Image</th>
@@ -72,7 +77,7 @@ const BannerAdmin = () => {
                 </tr>
               </thead>
               <tbody>
-                {banner.map((item, i) => {
+                {category.map((item, i) => {
                   return (
                     <tr key={i}>
                       <th scope="row">
@@ -81,8 +86,8 @@ const BannerAdmin = () => {
                       <td>{item.name}</td>
                       <td>
                         <button
-                          className="btn btn-danger btn-sm"
                           onClick={() => handleDelete(item.id)}
+                          className="btn btn-danger btn-sm"
                         >
                           Delete
                         </button>
@@ -93,10 +98,11 @@ const BannerAdmin = () => {
               </tbody>
             </table>
           </div>
+          <hr />
         </div>
       </div>
     </>
   );
 };
 
-export default BannerAdmin;
+export default CategoryAdmin;

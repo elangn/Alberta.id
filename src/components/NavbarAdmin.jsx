@@ -48,6 +48,10 @@ const NavbarAdmin = () => {
               <li className="nav-item">
                 <Link to={"/banner-admin"}> Banner</Link>
               </li>
+
+              <li className="nav-item">
+                <Link to={"/category-admin"}> Category</Link>
+              </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
@@ -66,12 +70,12 @@ const NavbarAdmin = () => {
                 <ul className="dropdown-menu">
                   <li className="my-0">
                     <a className="dropdown-item" href="#">
-                      Action
+                      Update Profile
                     </a>
                   </li>
                   <li className="my-0">
                     <a className="dropdown-item" href="#">
-                      Another action
+                      Go to User Page
                     </a>
                   </li>
                   <li className="my-0">

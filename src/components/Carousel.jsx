@@ -7,7 +7,7 @@ const Carousel = () => {
 
   useEffect(() => {
     axios
-      .get(`${baseUrl}/api/v1/banners`, {
+      .get(`${baseUrl}/api/v1/banner/e30b52ee-5a47-4b9c-beba-46547b63cba9`, {
         headers: {
           apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
         },
@@ -23,41 +23,11 @@ const Carousel = () => {
   }, []);
 
   return (
-    <>
-      <div
-        id="carouselExampleControls"
-        className="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div className="carousel-inner">
-          {hero.map((item, i) => {
-            return (
-              <div className="carousel-item active h-50" key={i}>
-                <img src={item.imageUrl} className="d-block w-100 " alt="..." />
-              </div>
-            );
-          })}
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev"
-        >
-          <span className="carousel-control-prev-icon" aria-hidden="true" />
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="next"
-        >
-          <span className="carousel-control-next-icon" aria-hidden="true" />
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
-    </>
+    <div className="carousel">
+      <img src={hero.imageUrl} alt="" />
+      {/* <p> Alberta.id</p>
+      <p> Unforgotable Journey</p> */}
+    </div>
   );
 };
 

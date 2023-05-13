@@ -33,7 +33,7 @@ const Activity = () => {
           <div className="row">
             {activity.map((item, i) => {
               return (
-                <div className="col-sm-3" key={i}>
+                <div className="col-sm-3 mb-4" key={i}>
                   <div className="card">
                     <img
                       src={item.category.imageUrl}
