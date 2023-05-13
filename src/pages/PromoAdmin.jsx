@@ -66,7 +66,7 @@ const PromoAdmin = () => {
 
           <div className="promo-admin-box mt-4 pt-4">
             <table className="table">
-              <thead>
+              <thead className="table-dark">
                 <tr>
                   <th scope="col">Image</th>
                   <th scope="col">Title</th>

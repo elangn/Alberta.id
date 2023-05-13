@@ -14,6 +14,7 @@ import AllUserAdmin from "./pages/AllUserAdmin";
 import BannerAdmin from "./pages/BannerAdmin";
 import PromoAdmin from "./pages/PromoAdmin";
 import ActivityAdmin from "./pages/ActivityAdmin";
+import CategoryAdmin from "./pages/CategoryAdmin";
 
 const router = createBrowserRouter([
   {
@@ -95,6 +96,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <ActivityAdmin />
+      </>
+    ),
+  },
+  {
+    path: "/category-admin",
+    element: (
+      <>
+        <CategoryAdmin />
       </>
     ),
   },

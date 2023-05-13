@@ -25,18 +25,49 @@ const ActivityAdmin = () => {
       });
   }, []);
 
+  const handleDelete = (activityId) => {
+    axios
+      .delete(`${baseUrl}/api/v1/delete-activity/${activityId}`, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        console.log(response);
+        alert("activity berhasil dihapus");
+        axios
+          .get(`${baseUrl}/api/v1/activities`, {
+            headers: {
+              apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            },
+          })
+          .then(function (response) {
+            // console.log(response);
+            setActivity(response.data.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <NavbarAdmin />
       <div className="activity-admin">
         <div className="container">
           <h4>
-            <img src="./img/ticket.png" alt="" /> Manage Activity
+            <img src="./img/ticket.png" alt="" className="me-2" /> Manage
+            Activity
           </h4>
           <hr />
           <div className="activity-admin-box">
             <table className="table">
-              <thead>
+              <thead className="table-dark">
                 <tr>
                   <th scope="col">Image</th>
                   <th scope="col">Title</th>
@@ -107,9 +138,11 @@ const ActivityAdmin = () => {
                           </div>
                         </div>
 
-                        <button className="btn btn-danger btn-sm">
-                          {" "}
-                          Delete{" "}
+                        <button
+                          className="btn btn-danger btn-sm"
+                          onClick={() => handleDelete(item.id)}
+                        >
+                          Delete
                         </button>
                       </td>
                     </tr>

@@ -103,7 +103,7 @@ const AllUserAdmin = () => {
 
           <div className="all-user-box">
             <table className="table">
-              <thead>
+              <thead className="table-dark">
                 <tr>
                   <th scope="col">Username</th>
                   <th scope="col">Email</th>
@@ -129,23 +129,11 @@ const AllUserAdmin = () => {
                           onChange={(e) =>
                             handleChange(item.id, e.target.value)
                           }
-                          // type="text"
-                          // id="role"
-                          // name="role"
                         >
                           {/* <option value=""> -- pilih role -- </option> */}
                           <option value="user">user</option>
                           <option value="admin">admin</option>
                         </select>
-
-                        {/* <button
-                          onClick={handleSubmit}
-                          className="btn btn-success btn-sm ms-2"
-                          type="submit"
-                          value="submit"
-                        >
-                          Submit
-                        </button> */}
                       </td>
                     </tr>
                   );

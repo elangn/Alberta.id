@@ -8,6 +8,7 @@ body {
 /* upper  */
 .upper {
   background-color: rgb(11, 32, 101);
+  /* background-color: #222937 */
 }
 
 .upper img {
@@ -433,6 +434,19 @@ body {
 
 /* Dashboard - admin page */
 .dashboard-admin {
+  padding: 20px;
+}
+
+.dashboard-admin h4 img {
+  width: 50px;
+}
+
+.dashboard-admin .dashboard-admin-box {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* All User - admin page  */
@@ -485,6 +499,19 @@ body {
   width: 150px;
 }
 
+/* category - admin page */
+
+.category-admin {
+  padding: 20px;
+}
+
+.category-admin h4 img {
+  width: 40px;
+}
+
+.category-admin .category-admin-box table img {
+  width: 150px;
+}
 @media screen and (min-width: 576px) {
   .navbar-admin .navbar .container-fluid,
   .navbar-admin .navbar-expand-lg .navbar-collapse,
@@ -502,7 +529,6 @@ body {
 
   .dashboard-admin {
     margin-left: 200px;
-    height: 300vh;
   }
 
   .all-user-admin {
@@ -518,6 +544,10 @@ body {
   }
 
   .activity-admin {
+    margin-left: 200px;
+  }
+
+  .category-admin {
     margin-left: 200px;
   }
 }
