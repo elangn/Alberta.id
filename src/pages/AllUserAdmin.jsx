@@ -8,7 +8,6 @@ const AllUserAdmin = () => {
   const account = JSON.parse(localStorage.getItem("account"));
 
   const [user, setUser] = useState([]);
-  const [roleCreate, setRoleCreate] = useState("");
 
   useEffect(() => {
     axios
@@ -27,9 +26,43 @@ const AllUserAdmin = () => {
       });
   }, []);
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-    setRoleCreate(e.target.value);
+  const handleChange = (userId, newRole) => {
+    // console.log(e.target.value);
+
+    axios
+      .post(
+        `${baseUrl}/api/v1/update-user-role/${userId}`,
+        {
+          role: newRole,
+        },
+        {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            Authorization: `Bearer ${isLogin}`,
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        alert("role berhasil diubah");
+        axios
+          .get(`${baseUrl}/api/v1/all-user`, {
+            headers: {
+              apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+              Authorization: `Bearer ${isLogin}`,
+            },
+          })
+          .then(function (response) {
+            // console.log(response.data.data);
+            setUser(response.data.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   // const handleSubmit = (e) => {
@@ -62,7 +95,10 @@ const AllUserAdmin = () => {
       <NavbarAdmin />
       <div className="all-user-admin">
         <div className="container">
-          <h4> Manage User</h4>
+          <h4>
+            {" "}
+            <img src="./img/users.png" alt="" className="me-2" /> Manage User
+          </h4>
           <hr />
 
           <div className="all-user-box">
@@ -90,12 +126,14 @@ const AllUserAdmin = () => {
                       <td>
                         <select
                           value={item.role}
-                          onChange={handleChange}
-                          type="text"
-                          id="role"
-                          name="role"
+                          onChange={(e) =>
+                            handleChange(item.id, e.target.value)
+                          }
+                          // type="text"
+                          // id="role"
+                          // name="role"
                         >
-                          <option value=""> -- pilih role -- </option>
+                          {/* <option value=""> -- pilih role -- </option> */}
                           <option value="user">user</option>
                           <option value="admin">admin</option>
                         </select>

@@ -66,12 +66,12 @@ const NavbarAdmin = () => {
                 <ul className="dropdown-menu">
                   <li className="my-0">
                     <a className="dropdown-item" href="#">
-                      Action
+                      Update Profile
                     </a>
                   </li>
                   <li className="my-0">
                     <a className="dropdown-item" href="#">
-                      Another action
+                      Go to User Page
                     </a>
                   </li>
                   <li className="my-0">

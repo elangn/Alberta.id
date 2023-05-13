@@ -194,7 +194,10 @@ body {
 
 /* carousel  */
 
-.carousel .carousel-inner {
+.carousel img {
+  object-fit: cover;
+  width: 100%;
+  height: 500px;
 }
 
 /* category */
@@ -231,6 +234,13 @@ body {
 .category .row {
   display: flex;
   justify-content: center;
+}
+
+.category .box-category2 img {
+  object-fit: cover;
+  height: 100px;
+  /* width: 50px;
+  height: 200px; */
 }
 
 .category .box-category2 img:hover {
@@ -317,6 +327,11 @@ body {
   margin: 50px 0;
 }
 
+.popular .card img {
+  object-fit: cover;
+  height: 150px;
+}
+
 .popular h2 {
   font-size: 22px;
   font-weight: bold;
@@ -328,6 +343,7 @@ body {
 
 .popular .popular-box p img {
   width: 15px;
+  height: auto;
 }
 
 .popular i {
@@ -342,8 +358,16 @@ body {
   font-weight: bold;
 }
 
+.activity .card img {
+  width: 100%;
+  height: 150px;
+
+  object-fit: cover;
+}
+
 .activity .card-body img {
   width: 12px;
+  height: auto;
 }
 
 .activity .card-box p {
@@ -390,6 +414,7 @@ body {
 }
 
 .navbar-admin .navbar .navbar-brand {
+  padding-bottom: 20px;
   border-bottom: 1px solid red;
   width: 100%;
 }
@@ -412,13 +437,53 @@ body {
 
 /* All User - admin page  */
 
-/* Banner - admin page */
+.all-user-admin {
+  padding: 20px;
+}
 
-/* .table img {
+.all-user-admin h4 img {
   width: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-} */
+}
+
+/* promo - admin page  */
+
+.promo-admin {
+  padding: 20px;
+}
+
+.promo-admin h4 img {
+  width: 50px;
+}
+
+.promo-admin .promo-admin-box table tbody img {
+  width: 150px;
+}
+
+/* Activity - admin page */
+
+.activity-admin {
+  padding: 20px;
+}
+.activity-admin h4 img {
+  width: 50px;
+}
+
+.activity-admin .activity-admin-box img {
+  width: 150px;
+}
+
+/* Banner - admin page */
+.banner-admin {
+  padding: 20px;
+}
+
+.banner-admin h4 img {
+  width: 50px;
+}
+
+.banner-admin .banner-admin-box table img {
+  width: 150px;
+}
 
 @media screen and (min-width: 576px) {
   .navbar-admin .navbar .container-fluid,
