@@ -289,7 +289,6 @@ const BannerAdmin = () => {
                               <div className="modal-body">
                                 <form action="">
                                   <form action="">
-                                    {item.name} <br />
                                     <label htmlFor=""> Name </label> <br />
                                     <input
                                       type="text"

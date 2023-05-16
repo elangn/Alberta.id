@@ -416,7 +416,6 @@ const PromoAdmin = () => {
                                 />
                               </div>
                               <div className="modal-body">
-                                {item.title}
                                 <form action="">
                                   <label htmlFor=""> Title</label> <br />
                                   <input
