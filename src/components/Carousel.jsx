@@ -25,8 +25,8 @@ const Carousel = () => {
   return (
     <div className="carousel">
       <img src={hero.imageUrl} alt="" />
-      {/* <p> Alberta.id</p>
-      <p> Unforgotable Journey</p> */}
+      <h3 className="fw-bold"> Alberta.id</h3>
+      <h4 className="fw-bold"> Unforgotable Journey</h4>
     </div>
   );
 };

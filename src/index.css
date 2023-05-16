@@ -201,6 +201,10 @@ body {
   height: 500px;
 }
 
+.carousel h3 {
+  position: absolute;
+}
+
 /* category */
 .category {
   margin: 50px;
@@ -449,6 +453,11 @@ body {
   flex-direction: column;
 }
 
+.navbar-admin .aka {
+  font-weight: normal;
+  padding: 15px;
+}
+
 /* All User - admin page  */
 
 .all-user-admin {
@@ -463,6 +472,7 @@ body {
 
 .promo-admin {
   padding: 20px;
+  /* background-color: red; */
 }
 
 .promo-admin h4 img {
