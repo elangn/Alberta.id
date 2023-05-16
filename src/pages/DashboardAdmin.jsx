@@ -16,8 +16,8 @@ const DashboardAdmin = () => {
           </h4>
           <hr />
           <div className="dashboard-admin-box ">
-            <img src={account.profilePictureUrl} alt="" />
-            <p> Hi, admin {account.name}</p>
+            <img src={account.profilePictureUrl} alt="" className="mb-4" />
+            <p className="my-0"> Hi, admin {account.name}</p>
             <p> Selamat datang kembali di Sys Admin Alberta.id</p>
           </div>
         </div>

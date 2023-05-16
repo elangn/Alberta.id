@@ -48,8 +48,7 @@ const Activity = () => {
                       <p> {item.title} </p>
                       <p>
                         <i className="fa-solid fa-star text-warning pe-1"></i>
-                        {item.rating} <span className="text-secondary">/5</span>{" "}
-                        . {item.total_reviews}
+                        {item.rating}
                       </p>
                     </div>
 
