@@ -9,6 +9,7 @@ const ActivityAdmin = () => {
 
   const [activity, setActivity] = useState([]);
 
+  // state create
   const [categoryId, setCategoryId] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -23,6 +24,22 @@ const ActivityAdmin = () => {
   const [province, setProvince] = useState("");
   const [city, setCity] = useState("");
   const [location_maps, setLocation_Maps] = useState("");
+
+  // state update
+  const [EditCategoryId, setEditCategoryId] = useState("");
+  const [editTitle, setEditTitle] = useState("");
+  const [editDescription, setEditDescription] = useState("");
+  const [editImageUrls, setEditImageUrl] = useState("");
+  const [editImageUrls2, setEditImageUrl2] = useState("");
+  const [editPrice, setEditPrice] = useState(0);
+  const [editPrice_discount, setEditPrice_Discount] = useState(0);
+  const [editRating, setEditRating] = useState(0);
+  const [editTotal_reviews, setEditTotal_Reviews] = useState(0);
+  const [editFacilities, setEditFacilities] = useState("");
+  const [editAddress, setEditAddress] = useState("");
+  const [editProvince, setEditProvince] = useState("");
+  const [editCity, setEditCity] = useState("");
+  const [editLocation_maps, setEditLocation_Maps] = useState("");
 
   useEffect(() => {
     axios
@@ -39,6 +56,8 @@ const ActivityAdmin = () => {
         console.log("error");
       });
   }, []);
+
+  // handle create
 
   const handleCategoryId = (e) => {
     console.log(e.target.value);
@@ -79,11 +98,6 @@ const ActivityAdmin = () => {
     console.log(e.target.value);
     setRating(e.target.value);
   };
-
-  // const handleRating = (e) => {
-  //   console.log(e.target.value);
-  //   setRating(e.target.value);
-  // };
 
   const handleReview = (e) => {
     console.log(e.target.value);
@@ -162,6 +176,125 @@ const ActivityAdmin = () => {
       });
   };
 
+  // handle edit
+  const handleEditCategoryId = (e) => {
+    console.log(e.target.value);
+    setEditCategoryId(e.target.value);
+  };
+
+  const handleEditTitle = (e) => {
+    console.log(e.target.value);
+    setEditTitle(e.target.value);
+  };
+
+  const handleEditDescription = (e) => {
+    console.log(e.target.value);
+    setEditDescription(e.target.value);
+  };
+
+  const handleEditImageUrl = (e) => {
+    console.log(e.target.value);
+    setEditImageUrl(e.target.value);
+  };
+
+  const handleEditImageUrl2 = (e) => {
+    console.log(e.target.value);
+    setEditImageUrl2(e.target.value);
+  };
+
+  const handleEditPrice = (e) => {
+    console.log(e.target.value);
+    setEditPrice(e.target.value);
+  };
+
+  const handleEditDiscountPrice = (e) => {
+    console.log(e.target.value);
+    setEditPrice_Discount(e.target.value);
+  };
+
+  const handleEditRating = (e) => {
+    console.log(e.target.value);
+    setEditRating(e.target.value);
+  };
+
+  const handleEditReview = (e) => {
+    console.log(e.target.value);
+    setEditTotal_Reviews(e.target.value);
+  };
+
+  const handleEditFacilities = (e) => {
+    console.log(e.target.value);
+    setEditFacilities(e.target.value);
+  };
+
+  const handleEditAddress = (e) => {
+    console.log(e.target.value);
+    setEditAddress(e.target.value);
+  };
+
+  const handleEditProvince = (e) => {
+    console.log(e.target.value);
+    setEditProvince(e.target.value);
+  };
+
+  const handleEditCity = (e) => {
+    console.log(e.target.value);
+    setEditCity(e.target.value);
+  };
+
+  const handleEditMap = (e) => {
+    console.log(e.target.value);
+    setEditLocation_Maps(e.target.value);
+  };
+
+  const handleEditSubmit = (activityId) => {
+    axios
+      .post(
+        `${baseUrl}/api/v1/update-activity/${activityId}`,
+        {
+          categoryId: EditCategoryId,
+          title: editTitle,
+          description: editDescription,
+          imageUrls: [editImageUrls, editImageUrls2],
+          price: parseInt(editPrice),
+          price_discount: parseInt(editPrice_discount),
+          rating: parseInt(editRating),
+          total_reviews: parseInt(editTotal_reviews),
+          facilities: editFacilities,
+          address: editAddress,
+          province: editProvince,
+          city: editCity,
+          location_maps: editLocation_maps,
+        },
+        {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            Authorization: `Bearer ${isLogin}`,
+          },
+        }
+      )
+      .then(function (response) {
+        alert("berhasil update Activity");
+        axios
+          .get(`${baseUrl}/api/v1/activities`, {
+            headers: {
+              apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            },
+          })
+          .then(function (response) {
+            // console.log(response.data.data);
+            setActivity(response.data.data);
+          })
+          .catch(function (error) {
+            console.log("error");
+          });
+      })
+      .catch(function (error) {
+        console.log("error");
+      });
+  };
+
+  // handle delete
   const handleDelete = (activityId) => {
     axios
       .delete(`${baseUrl}/api/v1/delete-activity/${activityId}`, {
@@ -445,14 +578,14 @@ const ActivityAdmin = () => {
                           type="button"
                           className="btn btn-primary btn-sm me-2"
                           data-bs-toggle="modal"
-                          data-bs-target="#exampleModal"
+                          data-bs-target={`#activity${item.id}`}
                         >
                           Update
                         </button>
                         {/* Modal */}
                         <div
                           className="modal fade"
-                          id="exampleModal"
+                          id={`activity${item.id}`}
                           tabIndex={-1}
                           aria-labelledby="exampleModalLabel"
                           aria-hidden="true"
@@ -464,7 +597,7 @@ const ActivityAdmin = () => {
                                   className="modal-title fs-5"
                                   id="exampleModalLabel"
                                 >
-                                  Modal title
+                                  Update Activity
                                 </h1>
                                 <button
                                   type="button"
@@ -473,7 +606,173 @@ const ActivityAdmin = () => {
                                   aria-label="Close"
                                 />
                               </div>
-                              <div className="modal-body">...</div>
+                              <div className="modal-body">
+                                {item.title}
+                                <form action="">
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Category Id
+                                  </label>
+                                  <br />
+                                  <input
+                                    type="text"
+                                    className="mb-2"
+                                    onChange={handleEditCategoryId}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Title
+                                  </label>
+                                  <br />
+                                  <input
+                                    type="text"
+                                    className="mb-2"
+                                    onChange={handleEditTitle}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Description
+                                  </label>
+                                  <br />
+                                  <textarea
+                                    name=""
+                                    id=""
+                                    cols="50"
+                                    rows="3"
+                                    className="mb-2"
+                                    onChange={handleEditDescription}
+                                  ></textarea>
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Image Url
+                                  </label>
+                                  <br />
+                                  <input
+                                    type="text"
+                                    className="mb-2 w-75"
+                                    onChange={handleEditImageUrl}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Image Url 2
+                                  </label>
+                                  <br />
+                                  <input
+                                    type="text"
+                                    className="mb-2 w-75"
+                                    onChange={handleEditImageUrl2}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Price
+                                  </label>
+                                  <br />
+                                  <input
+                                    type="number"
+                                    className="mb-2"
+                                    onChange={handleEditPrice}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Discount Price
+                                  </label>
+                                  <br />
+                                  <input
+                                    type="number"
+                                    className="mb-2"
+                                    onChange={handleEditDiscountPrice}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Rating
+                                  </label>
+                                  <br />
+                                  <input
+                                    type="number"
+                                    className="mb-2"
+                                    onChange={handleEditRating}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Total Reviews
+                                  </label>
+                                  <br />
+                                  <input
+                                    type="number"
+                                    className="mb-2"
+                                    onChange={handleEditReview}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Facilities
+                                  </label>
+                                  <br />
+                                  <input
+                                    type="text"
+                                    className="mb-2"
+                                    onChange={handleEditFacilities}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Address
+                                  </label>
+                                  <br />
+                                  <textarea
+                                    name=""
+                                    id=""
+                                    cols="50"
+                                    rows="2"
+                                    className="mb-2"
+                                    onChange={handleEditAddress}
+                                  ></textarea>{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Province
+                                  </label>{" "}
+                                  <br />
+                                  <input
+                                    type="text"
+                                    className="mb-2"
+                                    onChange={handleEditProvince}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    City
+                                  </label>{" "}
+                                  <br />
+                                  <input
+                                    type="text"
+                                    className="mb-2"
+                                    onChange={handleEditCity}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor="" className="mb-1">
+                                    {" "}
+                                    Map Location
+                                  </label>
+                                  <br />
+                                  <textarea
+                                    name=""
+                                    id=""
+                                    cols="50"
+                                    rows="2"
+                                    className="mb-2"
+                                    onChange={handleEditMap}
+                                  ></textarea>
+                                </form>
+                              </div>
                               <div className="modal-footer">
                                 <button
                                   type="button"
@@ -485,8 +784,9 @@ const ActivityAdmin = () => {
                                 <button
                                   type="button"
                                   className="btn btn-primary"
+                                  onClick={() => handleEditSubmit(item.id)}
                                 >
-                                  Save changes
+                                  Submit
                                 </button>
                               </div>
                             </div>
