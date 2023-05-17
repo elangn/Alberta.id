@@ -195,14 +195,29 @@ body {
 
 /* carousel  */
 
-.carousel img {
-  object-fit: cover;
-  width: 100%;
-  height: 500px;
+.carousel {
+  height: 600px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(img/background.jpg);
+  background-position: center;
+  /* filter: brightness(60%); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.carousel h3 {
-  position: absolute;
+.carousel h2 {
+  color: white;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.carousel h4 {
+  color: rgb(210, 196, 196);
+  font-size: 20px;
 }
 
 /* category */

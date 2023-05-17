@@ -7,7 +7,7 @@ const Carousel = () => {
 
   useEffect(() => {
     axios
-      .get(`${baseUrl}/api/v1/banner/e30b52ee-5a47-4b9c-beba-46547b63cba9`, {
+      .get(`${baseUrl}/api/v1/banner/04c2064a-56ec-4543-8eac-7e0fe4e345a4`, {
         headers: {
           apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
         },
@@ -24,9 +24,9 @@ const Carousel = () => {
 
   return (
     <div className="carousel">
-      <img src={hero.imageUrl} alt="" />
-      <h3 className="fw-bold"> Alberta.id</h3>
-      <h4 className="fw-bold"> Unforgotable Journey</h4>
+      <h2> Alberta.id</h2>
+      <h4> Unforgettable Journey</h4>
+      <p></p>
     </div>
   );
 };

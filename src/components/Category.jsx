@@ -14,7 +14,7 @@ const Category = () => {
       })
       .then(function (response) {
         // console.log(response.data.data);
-        setCategory(response.data.data.slice(0, 3));
+        setCategory(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
