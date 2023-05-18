@@ -43,9 +43,9 @@ const NavbarAdmin = () => {
                 <Link to={"/promo-admin"}> Promo</Link>
               </li>
               <li className="nav-item">
-                <li className="nav-item">
-                  <Link to={"/category-admin"}> Category</Link>
-                </li>
+                <Link to={"/category-admin"}> Category</Link>
+              </li>
+              <li className="nav-item">
                 <Link to={"/activity-admin"}> Activity </Link>
               </li>
 
@@ -69,9 +69,10 @@ const NavbarAdmin = () => {
                 </a>
                 <ul className="dropdown-menu">
                   <li className="my-0">
-                    <a className="dropdown-item" href="#">
+                    <Link to={"/update-profile-admin"} className="aka">
+                      {" "}
                       Update Profile
-                    </a>
+                    </Link>
                   </li>
                   <li className="my-0">
                     <Link to={"/"} className="aka">

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-const Carousel = () => {
+const Hero = () => {
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
   const [hero, setHero] = useState([]);
 
@@ -23,12 +24,14 @@ const Carousel = () => {
   }, []);
 
   return (
-    <div className="carousel">
+    <div className="hero">
       <h2> Alberta.id</h2>
-      <h4> Unforgettable Journey</h4>
-      <p></p>
+      <h4> Unforgettable Journey. Explore with us and book it out of here </h4>
+      <Link to={"/explore"} className="btn btn-outline-light ">
+        Discover More
+      </Link>
     </div>
   );
 };
 
-export default Carousel;
+export default Hero;

@@ -288,22 +288,20 @@ const BannerAdmin = () => {
                               </div>
                               <div className="modal-body">
                                 <form action="">
-                                  <form action="">
-                                    <label htmlFor=""> Name </label> <br />
-                                    <input
-                                      type="text"
-                                      className="mb-2"
-                                      onChange={handleEditName}
-                                    />{" "}
-                                    <br />
-                                    <label htmlFor=""> Image Url </label> <br />
-                                    <input
-                                      type="text"
-                                      className="w-75"
-                                      onChange={handleEditImage}
-                                    />{" "}
-                                    <br />
-                                  </form>
+                                  <label htmlFor=""> Name </label> <br />
+                                  <input
+                                    type="text"
+                                    className="mb-2"
+                                    onChange={handleEditName}
+                                  />{" "}
+                                  <br />
+                                  <label htmlFor=""> Image Url </label> <br />
+                                  <input
+                                    type="text"
+                                    className="w-75"
+                                    onChange={handleEditImage}
+                                  />{" "}
+                                  <br />
                                 </form>
                               </div>
                               <div className="modal-footer">

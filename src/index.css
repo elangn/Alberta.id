@@ -74,7 +74,7 @@ body {
 /* Login Page  */
 
 .login {
-  background-image: url("img/bg3.jpg");
+  background-image: url("img/login.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -121,7 +121,8 @@ body {
 /* register page  */
 
 .register {
-  background-image: url("img/bg2.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("img/register.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -193,9 +194,9 @@ body {
   border-radius: 50%;
 }
 
-/* carousel  */
+/* hero  */
 
-.carousel {
+.hero {
   height: 600px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url(img/background.jpg);
@@ -209,13 +210,13 @@ body {
   flex-direction: column;
 }
 
-.carousel h2 {
+.hero h2 {
   color: white;
-  font-size: 48px;
+  font-size: 40px;
   font-weight: bold;
 }
 
-.carousel h4 {
+.hero h4 {
   color: rgb(210, 196, 196);
   font-size: 20px;
 }
@@ -272,6 +273,11 @@ body {
 
 .promo {
   margin: 50px 0;
+}
+
+.promo .promo-box .card-img-top {
+  height: 150px;
+  object-fit: cover;
 }
 
 .promo .card .diskon {
@@ -468,6 +474,10 @@ body {
   flex-direction: column;
 }
 
+.dashboard-admin .dashboard-admin-box img {
+  width: 200px;
+}
+
 .navbar-admin .aka {
   font-weight: normal;
   padding: 15px;
@@ -537,6 +547,34 @@ body {
 .category-admin .category-admin-box table img {
   width: 150px;
 }
+
+/* update profile - page admin */
+
+.update-profile-admin {
+  padding: 20px;
+}
+
+.update-profile-admin h4 img {
+  width: 50px;
+}
+
+.update-profile-admin .update-box1 img {
+  width: 100px;
+}
+
+.update-profile-admin .update-box1 h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.update-profile-admin .update-box1 p {
+  font-size: 14px;
+}
+
+.update-profile-admin .update-box1 .card {
+  width: 400px;
+}
+
 @media screen and (min-width: 576px) {
   .navbar-admin .navbar .container-fluid,
   .navbar-admin .navbar-expand-lg .navbar-collapse,
@@ -573,6 +611,10 @@ body {
   }
 
   .category-admin {
+    margin-left: 200px;
+  }
+
+  .update-profile-admin {
     margin-left: 200px;
   }
 }

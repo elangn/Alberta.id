@@ -131,6 +131,7 @@ const AllUserAdmin = () => {
                           }
                         >
                           {/* <option value=""> -- pilih role -- </option> */}
+                          <option value="">-- select role -- </option>
                           <option value="user">user</option>
                           <option value="admin">admin</option>
                         </select>

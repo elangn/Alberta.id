@@ -195,6 +195,7 @@ const Register = () => {
                         value={formik.values.role}
                         className="mb-2"
                       >
+                        <option value="">-- select role --</option>
                         <option value="user">user</option>
                         <option value="admin">admin</option>
                       </select>
