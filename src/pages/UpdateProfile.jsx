@@ -12,10 +12,10 @@ const UpdateProfile = () => {
 
   const formik = useFormik({
     initialValues: {
-      name: "",
-      email: "",
-      profilePictureUrl: "",
-      phoneNumber: "",
+      name: account.name,
+      email: account.email,
+      profilePictureUrl: account.profilePictureUrl,
+      phoneNumber: account.phoneNumber,
     },
     validationSchema: Yup.object({
       name: Yup.string().max(15, "Must be 15 characters or less"),
@@ -129,7 +129,7 @@ const UpdateProfile = () => {
                             name="name"
                             type="text"
                             onChange={formik.handleChange}
-                            value={formik.values.name}
+                            // value={formik.values.name}
                             className="w-100"
                           />
 
@@ -150,7 +150,7 @@ const UpdateProfile = () => {
                             name="email"
                             type="email"
                             onChange={formik.handleChange}
-                            value={formik.values.email}
+                            // value={formik.values.email}
                             className="w-100"
                           />
 
@@ -173,7 +173,7 @@ const UpdateProfile = () => {
                             name="profilePictureUrl"
                             type="text"
                             onChange={formik.handleChange}
-                            value={formik.values.profilePictureUrl}
+                            // value={formik.values.profilePictureUrl}
                             className="w-100"
                           />
                           {formik.touched.profilePictureUrl &&
@@ -194,7 +194,7 @@ const UpdateProfile = () => {
                             name="phoneNumber"
                             type="text"
                             onChange={formik.handleChange}
-                            value={formik.values.phoneNumber}
+                            // value={formik.values.phoneNumber}
                             className="w-100"
                           />
                           {formik.touched.phoneNumber &&

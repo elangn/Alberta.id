@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Carousel from "../components/Carousel";
 import Promo from "../components/Promo";
 import Popular from "../components/Popular";
 import Footer from "../components/Footer";
 import Category from "../components/Category";
+import Hero from "../components/Hero";
 
 const Home = () => {
   return (
     <>
       <Navbar />
-      <Carousel />
+      <Hero />
       <Category />
       <Promo />
 
