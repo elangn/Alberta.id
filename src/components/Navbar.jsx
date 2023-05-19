@@ -68,6 +68,18 @@ const Navbar = () => {
                 </a>
               </li>
 
+              {/* tes */}
+
+              {account && account.role == "admin" ? (
+                <li className="nav-item  me-2">
+                  <Link to={`/dashboard`} className="nav-link">
+                    Admin Page
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
+
               {isLogin ? (
                 <>
                   <div className="dropdown">

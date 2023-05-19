@@ -296,33 +296,36 @@ const ActivityAdmin = () => {
 
   // handle delete
   const handleDelete = (activityId) => {
-    axios
-      .delete(`${baseUrl}/api/v1/delete-activity/${activityId}`, {
-        headers: {
-          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-          Authorization: `Bearer ${isLogin}`,
-        },
-      })
-      .then(function (response) {
-        console.log(response);
-        alert("activity berhasil dihapus");
-        axios
-          .get(`${baseUrl}/api/v1/activities`, {
-            headers: {
-              apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-            },
-          })
-          .then(function (response) {
-            // console.log(response);
-            setActivity(response.data.data);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const teks = "apa anda yakin ? ";
+    if (confirm(teks) == true) {
+      axios
+        .delete(`${baseUrl}/api/v1/delete-activity/${activityId}`, {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            Authorization: `Bearer ${isLogin}`,
+          },
+        })
+        .then(function (response) {
+          console.log(response);
+          alert("activity berhasil dihapus");
+          axios
+            .get(`${baseUrl}/api/v1/activities`, {
+              headers: {
+                apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+              },
+            })
+            .then(function (response) {
+              // console.log(response);
+              setActivity(response.data.data);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -570,7 +573,6 @@ const ActivityAdmin = () => {
                       <th scope="row">
                         <img src={item.imageUrls} alt="" />
                       </th>
-                      <td>{item.title}</td>
                       <td>{item.category.name}</td>
                       <td>
                         {/* Button trigger modal */}
