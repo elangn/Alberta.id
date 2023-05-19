@@ -35,7 +35,11 @@ const Promo = () => {
             {promo.map((item, i) => {
               return (
                 <div className="col-sm-3 " key={i}>
-                  <div className="card">
+                  <div
+                    className="card"
+                    data-bs-toggle="modal"
+                    data-bs-target={`#promo${item.id}`}
+                  >
                     <img
                       src={item.imageUrl}
                       className="card-img-top"
@@ -61,19 +65,10 @@ const Promo = () => {
                   </div>
 
                   <div>
-                    {/* Button trigger modal */}
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      Launch demo modal
-                    </button>
                     {/* Modal */}
                     <div
                       className="modal fade"
-                      id="exampleModal"
+                      id={`promo${item.id}`}
                       tabIndex={-1}
                       aria-labelledby="exampleModalLabel"
                       aria-hidden="true"
@@ -81,12 +76,12 @@ const Promo = () => {
                       <div className="modal-dialog">
                         <div className="modal-content">
                           <div className="modal-header">
-                            <h1
+                            <h3
                               className="modal-title fs-5"
                               id="exampleModalLabel"
                             >
-                              Modal title
-                            </h1>
+                              {item.title}
+                            </h3>
                             <button
                               type="button"
                               className="btn-close"
@@ -94,7 +89,29 @@ const Promo = () => {
                               aria-label="Close"
                             />
                           </div>
-                          <div className="modal-body">{item.promo_code}</div>
+                          <div className="modal-body cek">
+                            <img src={item.imageUrl} alt="" />
+                            <hr />
+                            <p className="my-0">
+                              {" "}
+                              Description : {item.description}
+                            </p>
+                            <p className="my-0">
+                              {" "}
+                              Promo code : {item.promo_code}
+                            </p>
+                            <p className="my-0">
+                              {" "}
+                              Promo discount price : {
+                                item.promo_discount_price
+                              }{" "}
+                            </p>
+                            <p className="my-0">
+                              {" "}
+                              Minimun discount price :{" "}
+                              {item.minimum_claim_price}
+                            </p>
+                          </div>
                           <div className="modal-footer">
                             <button
                               type="button"

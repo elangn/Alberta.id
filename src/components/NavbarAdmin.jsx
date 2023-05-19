@@ -68,13 +68,13 @@ const NavbarAdmin = () => {
                   {account.name}
                 </a>
                 <ul className="dropdown-menu">
-                  <li className="my-0">
+                  <li className="my-2">
                     <Link to={"/update-profile-admin"} className="aka">
                       {" "}
                       Update Profile
                     </Link>
                   </li>
-                  <li className="my-0">
+                  <li className="my-2">
                     <Link to={"/"} className="aka">
                       {" "}
                       Go to User Page

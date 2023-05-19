@@ -130,33 +130,36 @@ const CategoryAdmin = () => {
 
   // handle delete
   const handleDelete = (categoryId) => {
-    axios
-      .delete(`${baseUrl}/api/v1/delete-category/${categoryId}`, {
-        headers: {
-          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-          Authorization: `Bearer ${isLogin}`,
-        },
-      })
-      .then(function (response) {
-        console.log(response);
-        alert("category berhasil dihapus");
-        axios
-          .get(`${baseUrl}/api/v1/categories`, {
-            headers: {
-              apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-            },
-          })
-          .then(function (response) {
-            // console.log(response);
-            setCategory(response.data.data);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const text = confirm("apa anda yakin ? ");
+    if (text == true) {
+      axios
+        .delete(`${baseUrl}/api/v1/delete-category/${categoryId}`, {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            Authorization: `Bearer ${isLogin}`,
+          },
+        })
+        .then(function (response) {
+          console.log(response);
+          alert("category berhasil dihapus");
+          axios
+            .get(`${baseUrl}/api/v1/categories`, {
+              headers: {
+                apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+              },
+            })
+            .then(function (response) {
+              // console.log(response);
+              setCategory(response.data.data);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   };
 
   return (
