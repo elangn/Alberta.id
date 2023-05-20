@@ -73,7 +73,7 @@ body {
 /* Login Page  */
 
 .login {
-  background-image: url("img/login.jpg");
+  background-image: url("../public/img/login.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -81,7 +81,7 @@ body {
 .login-box {
   display: flex;
   align-items: center;
-  height: 600px;
+  height: 100vh;
   justify-content: center;
 }
 
@@ -121,13 +121,13 @@ body {
 
 .register {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("img/register.jpg");
+    url("../public/img/register.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .register .register-box {
-  height: 600px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
