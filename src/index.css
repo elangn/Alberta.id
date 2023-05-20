@@ -1,4 +1,4 @@
-*,
+navbacourageous-buttercream-3754a1*,
 body {
   font-family: "Roboto", sans-serif;
   padding: 0;
@@ -37,15 +37,14 @@ body {
 
 .navbar span {
   font-weight: bold;
+  font-size: 18px;
 }
 
-.navbar .nav-brand1 {
-  background-color: yellow;
+/* .navbar .nav-brand1 {
   font-size: 14px;
-}
+} */
 
 .navbar img {
-  object-fit: cover;
   width: 30px;
   height: 30px;
 }
@@ -159,7 +158,7 @@ body {
 
 /* update Profile page  */
 .update-profile {
-  height: 600px;
+  min-height: 600px;
 }
 
 .update-profile .kiri {
@@ -227,7 +226,7 @@ body {
 }
 
 .category p:nth-child(1) img {
-  width: 20px;
+  width: 25px;
 }
 
 .box-category {
@@ -236,16 +235,12 @@ body {
 
 .category .box-category p:nth-child(2) {
   color: grey;
-  font-size: 12px;
-}
-
-.category .box-category p:nth-child(2) {
-  color: grey;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .category .box-category p:nth-child(3) {
   font-weight: bold;
+  font-size: 18px;
 }
 
 .category .box-category2 .tab-category {
@@ -260,13 +255,11 @@ body {
 .category .box-category2 img {
   object-fit: cover;
   height: 100px;
-  /* width: 50px;
-  height: 200px; */
+  transition: 0.7s;
 }
 
 .category .box-category2 img:hover {
   opacity: 70%;
-  transition: 0.7s;
 }
 
 /* promo  */
@@ -280,9 +273,16 @@ body {
   object-fit: cover;
 }
 
-.promo .promo-box .card-img-top:hover {
-  opacity: 70%;
+.promo .promo-box .card {
   transition: 0.7s;
+  border: none;
+}
+
+.promo .promo-box .card:hover {
+  /* opacity: 70%; */
+
+  transform: scale(1.05);
+  background-color: rgba(150, 162, 240, 0.531);
 }
 
 .promo .card .diskon {
@@ -315,6 +315,8 @@ body {
 
 .promo p:nth-child(3) {
   color: rgb(11, 11, 141);
+  /* color: rgb(12, 195, 91); */
+  font-weight: bold;
 }
 
 .promo .modal-body img {
@@ -330,23 +332,28 @@ body {
 .benefit {
   margin-top: 50px;
   padding: 50px 0;
-  background-color: rgba(118, 204, 232, 0.205);
+  /* background-color: rgba(118, 204, 232, 0.205); */
 }
 
 .benefit h2 {
-  font-size: 22px;
+  font-size: 38px;
   font-weight: bold;
 }
+
+/* .benefit .sub-judul {
+  font-size: 20px;
+} */
 
 .benefit p {
   color: grey;
 }
 
 .benefit-box {
-  display: flex;
+  /* display: flex; */
+  padding-top: 30px;
 
-  justify-content: center;
-  gap: 50px;
+  /* justify-content: center;
+  gap: 50px; */
 }
 
 .benefit .benefit-box .nomer {
@@ -360,10 +367,21 @@ body {
   border-radius: 50%;
 }
 
+.benefit .box-gambar img {
+  object-fit: cover;
+  height: 450px;
+}
+
+/* recidencies */
+
 /* popular */
 
 .popular {
   margin: 50px 0;
+}
+
+.popular .card {
+  border: none;
 }
 
 .popular .card img {
@@ -377,7 +395,7 @@ body {
 }
 
 .popular h2 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -402,8 +420,12 @@ body {
 /* activity (Trip) */
 
 .activity h2 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
+}
+
+.activity .card {
+  border: none;
 }
 
 .activity .card img {
@@ -450,6 +472,10 @@ body {
   color: white;
   font-size: 12px;
   text-align: center;
+}
+
+.footer .box-3 {
+  text-align: end;
 }
 
 /*  CSS ADMIN  */
@@ -574,9 +600,14 @@ body {
   width: 40px;
 }
 
-.category-admin .category-admin-box table img {
-  width: 150px;
+.category .loop-box img {
+  border-radius: 10px;
+  object-fit: cover;
+  height: 100px;
+  /* width: 50%; */
 }
+
+/* coba slider carousel */
 
 /* update profile - page admin */
 
@@ -603,6 +634,144 @@ body {
 
 .update-profile-admin .update-box1 .card {
   width: 400px;
+}
+
+@media (max-width: 992px) {
+  .benefit .box-gambar img {
+    object-fit: cover;
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  /*  hero  */
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero h4 {
+    font-size: 18px;
+  }
+
+  .hero .btn {
+    font-size: 14px;
+  }
+
+  /* benefit */
+
+  .benefit {
+    text-align: center;
+  }
+
+  .benefit-box {
+    padding-top: 0px;
+
+    justify-content: center;
+    gap: 50px;
+  }
+
+  .benefit h2 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  .benefit .box-gambar img {
+    object-fit: cover;
+    height: 450px;
+  }
+}
+
+@media (max-width: 576px) {
+  /* navbar */
+
+  .navbar img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .navbar span {
+    font-size: 16px;
+  }
+
+  /* hero */
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero h4 {
+    font-size: 14px;
+  }
+
+  .hero .btn {
+    font-size: 12px;
+  }
+
+  /* footer */
+
+  .footer .box-3 {
+    text-align: center;
+  }
+
+  /* category */
+
+  .category p:nth-child(1) img {
+    width: 22px;
+  }
+
+  .category .box-category p:nth-child(3) {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .category .box-category p:nth-child(2) {
+    color: grey;
+    font-size: 14px;
+  }
+
+  /* promo */
+
+  .promo h2 {
+    font-size: 22px;
+  }
+
+  /* benefit */
+
+  .benefit h2 {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  /* popular  */
+
+  .popular h2 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  /* activity */
+
+  .activity h2 {
+    font-size: 22px;
+  }
+
+  .activity p {
+    font-size: 14px;
+  }
+
+  /* update profile */
+
+  .update-profile .kanan .card {
+    width: 100%;
+  }
+
+  /* update profile - admin page  */
+
+  .update-profile-admin .update-box1 .card {
+    width: 100%;
+  }
+
+  /*  */
 }
 
 @media screen and (min-width: 576px) {

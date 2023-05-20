@@ -53,6 +53,7 @@ const UpdateProfileAdmin = () => {
       )
       .then(function (response) {
         console.log(response);
+        alert("update profile sukses");
         axios
           .get(`${baseUrl}/api/v1/user`, {
             headers: {

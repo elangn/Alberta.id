@@ -21,19 +21,14 @@ const Activity = () => {
   return (
     <div className="activity">
       <div className="container">
-        <h2> Trip </h2>
-        <p className="text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-          eveniet, temporibus odit saepe quidem error natus ratione nam vel
-          provident autem! Laudantium ut soluta eligendi unde numquam deleniti
-          rerum tenetur!
-        </p>
+        <h2> Destinations </h2>
+        <p className="text-secondary">Explore all destinations</p>
 
         <div className="activity-box">
           <div className="row">
             {activity.map((item, i) => {
               return (
-                <div className="col-sm-3 mb-4" key={i}>
+                <div className="col-sm-6 col-md-3 mb-4" key={i}>
                   <div
                     className="card"
                     data-bs-toggle="modal"
@@ -49,8 +44,8 @@ const Activity = () => {
                       className="card-box d-flex px-2 mt-2 justify-content-between
                     "
                     >
-                      <p> {item.title} </p>
-                      <p>
+                      <p className="fw-bold  mb-2"> {item.title} </p>
+                      <p className="my-0">
                         <i className="fa-solid fa-star text-warning pe-1"></i>
                         {item.rating}
                       </p>
@@ -58,7 +53,7 @@ const Activity = () => {
 
                     <div className="card-body py-0">
                       <p className="card-text mb-1">
-                        <img src="img/pin.png" alt="" />
+                        <img src="img/pin.png" alt="" className="me-1" />
                         {item.city}, {item.province}
                       </p>
                       {/* <p className="card-text mt-1 mb-3 ">Rp. {item.price}</p> */}

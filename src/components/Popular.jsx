@@ -26,19 +26,17 @@ const Popular = () => {
       <div className="container">
         <h2>Popular Destination</h2>
         <p className="text-secondary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum saepe
-          dolorum omnis similique fuga, quod, reiciendis temporibus quae
-          quisquam in at, illo ex animi obcaecati? Et excepturi reprehenderit
-          molestiae aspernatur.
+          Top destination in Alberta.id, don't worry about your dream
+          destination with us
         </p>
 
         <div className="popular-box">
           <div className="row">
             {popular.map((item, i) => {
               return (
-                <div className="col-sm-3" key={i}>
+                <div className="col-sm-6 col-md-3" key={i}>
                   <div
-                    className="card "
+                    className="card my-2"
                     data-bs-toggle="modal"
                     data-bs-target={`#popularh${item.id}`}
                   >
@@ -51,16 +49,16 @@ const Popular = () => {
                       className="card-box d-flex px-2 mt-2 justify-content-between
                     "
                     >
-                      <p> {item.title} </p>
-                      <p>
+                      <p className="fw-bold mb-2"> {item.title} </p>
+                      <p className="my-0">
                         <i className="fa-solid fa-star text-warning pe-1"></i>
-                        {item.rating} {item.total_reviews}
+                        {item.rating}
                       </p>
                     </div>
 
                     <div className="card-body py-0">
                       <p className="card-text mb-1">
-                        <img src="img/pin.png" alt="" />
+                        <img src="img/pin.png" alt="" className="me-1" />
                         {item.city}, {item.province}
                       </p>
                       {/* <p className="card-text mt-1 mb-3 ">Rp. {item.price}</p> */}

@@ -296,6 +296,7 @@ const BannerAdmin = () => {
                                     type="text"
                                     className="mb-2"
                                     onChange={handleEditName}
+                                    value={editName}
                                   />{" "}
                                   <br />
                                   <label htmlFor=""> Image Url </label> <br />
@@ -303,6 +304,7 @@ const BannerAdmin = () => {
                                     type="text"
                                     className="w-75"
                                     onChange={handleEditImage}
+                                    // value={editimage}
                                   />{" "}
                                   <br />
                                 </form>

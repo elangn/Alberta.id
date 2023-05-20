@@ -16,6 +16,7 @@ import PromoAdmin from "./pages/PromoAdmin";
 import ActivityAdmin from "./pages/ActivityAdmin";
 import CategoryAdmin from "./pages/CategoryAdmin";
 import UpdateProfileAdmin from "./pages/UpdateProfileAdmin";
+import Residencies from "./components/Residencies";
 
 const router = createBrowserRouter([
   {
@@ -113,6 +114,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <UpdateProfileAdmin />
+      </>
+    ),
+  },
+  {
+    path: "/r",
+    element: (
+      <>
+        <Residencies />
       </>
     ),
   },
