@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
-import Error from "./pages/error";
+// import Error from "./pages/error";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import UpdateProfile from "./pages/UpdateProfile";
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
         <Home />
       </>
     ),
-    errorElement: <Error />,
+    // errorElement: <Error />,
   },
   {
     path: "/explore",
