@@ -1,7 +1,7 @@
 import React from "react";
 
 const Error = () => {
-  return <div>error cuy balik lagi ntaran ye</div>;
+  return <div> Error silakan di coba lagi</div>;
 };
 
 export default Error;

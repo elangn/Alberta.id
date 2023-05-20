@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-// import "swiper/css/scrollbar";
 
 const Category = () => {
   const [category, setCategory] = useState([]);
@@ -45,29 +42,27 @@ const Category = () => {
         </div>
 
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          navigation
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
           breakpoints={{
             480: {
               slidesPerView: 2,
-              spaceBetween: 10,
+              // spaceBetween: 10,
             },
             768: {
-              slidesPerView: 4,
-              spaceBetween: 10,
+              slidesPerView: 3,
+              // spaceBetween: 10,
             },
             968: {
-              slidesPerView: 5,
-              spaceBetween: 10,
+              slidesPerView: 4,
+              // spaceBetween: 10,
             },
           }}
+          className="slider"
         >
+          <SliderButtons />
           {category.map((item, i) => {
             return (
               <SwiperSlide key={i}>
-                <div className="loop-box">
+                <div className="c-wrapper">
                   <img src={item.imageUrl} alt="" />
                   <p>{item.name}</p>
                 </div>
@@ -81,3 +76,24 @@ const Category = () => {
 };
 
 export default Category;
+
+const SliderButtons = () => {
+  const swiper = useSwiper();
+  return (
+    <div className="r-button">
+      <button
+        onClick={() => swiper.slidePrev()}
+        className="btn btn-primary me-2 btn-sm"
+      >
+        {" "}
+        &lt;
+      </button>
+      <button
+        onClick={() => swiper.slideNext()}
+        className="btn btn-primary btn-sm"
+      >
+        &gt;
+      </button>
+    </div>
+  );
+};
