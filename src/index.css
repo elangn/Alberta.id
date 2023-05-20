@@ -198,7 +198,7 @@ body {
 .hero {
   height: 600px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(img/background.jpg);
+    url("../public/img/background.jpg");
   background-position: center;
   /* filter: brightness(60%); */
   background-size: cover;
