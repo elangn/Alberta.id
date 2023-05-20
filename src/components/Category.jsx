@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import "swiper/css";
 
 const Category = () => {
   const [category, setCategory] = useState([]);
@@ -14,7 +17,7 @@ const Category = () => {
       })
       .then(function (response) {
         // console.log(response.data.data);
-        setCategory(response.data.data.slice(0, 6));
+        setCategory(response.data.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -38,119 +41,59 @@ const Category = () => {
           <p> CHOOSE CATEGORY</p>
         </div>
 
-        {/* carousel */}
-        <div className="box-category2 mt-4">
-          <div
-            id="popular-movies"
-            className="carousel slide popular-movies"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <div className="row">
-                  {category.map((item, i) => {
-                    return (
-                      <div key={i} className="col-6 col-md-4 col-lg-2">
-                        <img
-                          src={item.imageUrl}
-                          className="card-img-top"
-                          alt="..."
-                        />
-                      </div>
-                    );
-                  })}
+        <Swiper
+          breakpoints={{
+            480: {
+              slidesPerView: 2,
+              // spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3,
+              // spaceBetween: 10,
+            },
+            968: {
+              slidesPerView: 4,
+              // spaceBetween: 10,
+            },
+          }}
+          className="slider"
+        >
+          <SliderButtons />
+          {category.map((item, i) => {
+            return (
+              <SwiperSlide key={i}>
+                <div className="c-wrapper">
+                  <img src={item.imageUrl} alt="" />
+                  <p>{item.name}</p>
                 </div>
-              </div>
-              {/* <div className="carousel-item">
-                <div className="row">
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular5.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular6.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular7.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular8.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular9.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular10.jpg" />
-                  </div>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="row">
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular11.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular12.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular13.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular14.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular15.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular16.jpg" />
-                  </div>
-                </div>
-              </div>
-              <div className="carousel-item">
-                <div className="row">
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular17.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular18.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular19.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular20.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular21.jpg" />
-                  </div>
-                  <div className="col-6 col-md-4 col-lg-2">
-                    <img src="img/popular22.jpg" />
-                  </div>
-                </div>
-              </div> */}
-            </div>
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#popular-movies"
-              data-bs-slide="prev"
-            >
-              <span className="carousel-control-prev-icon" aria-hidden="true" />
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#popular-movies"
-              data-bs-slide="next"
-            >
-              <span className="carousel-control-next-icon" aria-hidden="true" />
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </div>
   );
 };
 
 export default Category;
+
+const SliderButtons = () => {
+  const swiper = useSwiper();
+  return (
+    <div className="r-button">
+      <button
+        onClick={() => swiper.slidePrev()}
+        className="btn btn-primary me-2 btn-sm"
+      >
+        {" "}
+        &lt;
+      </button>
+      <button
+        onClick={() => swiper.slideNext()}
+        className="btn btn-primary btn-sm"
+      >
+        &gt;
+      </button>
+    </div>
+  );
+};

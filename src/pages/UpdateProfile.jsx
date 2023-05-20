@@ -24,7 +24,7 @@ const UpdateProfile = () => {
       phoneNumber: Yup.string().max(15, "Must be 15 characters or less"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
 
       axios
         .post(
@@ -44,9 +44,7 @@ const UpdateProfile = () => {
         )
         .then(function (response) {
           console.log(response);
-          // localStorage.removeItem("account");
-          // localStorage.setItem("account", JSON.stringify(response));
-          // localStorage.getItem("account");
+          alert("update profile sukses");
           axios
             .get(`${baseUrl}/api/v1/user`, {
               headers: {
@@ -81,7 +79,7 @@ const UpdateProfile = () => {
             <h5 className="mt-4"> Update Profile </h5>
 
             <div className="row">
-              <div className="kiri col-sm-2">
+              <div className="kiri col-sm-2 my-2">
                 <ul>
                   <li>
                     <a href=""> Edit </a>
@@ -130,7 +128,7 @@ const UpdateProfile = () => {
                             type="text"
                             onChange={formik.handleChange}
                             // value={formik.values.name}
-                            className="w-100"
+                            className="w-75"
                           />
 
                           {formik.touched.name && formik.errors.name ? (

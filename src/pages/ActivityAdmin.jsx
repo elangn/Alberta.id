@@ -573,6 +573,7 @@ const ActivityAdmin = () => {
                       <th scope="row">
                         <img src={item.imageUrls} alt="" />
                       </th>
+                      <td> {item.title}</td>
                       <td>{item.category.name}</td>
                       <td>
                         {/* Button trigger modal */}

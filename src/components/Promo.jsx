@@ -34,9 +34,9 @@ const Promo = () => {
           <div className="row">
             {promo.map((item, i) => {
               return (
-                <div className="col-sm-3 " key={i}>
+                <div className="col-sm-6 col-md-3" key={i}>
                   <div
-                    className="card"
+                    className="card my-2"
                     data-bs-toggle="modal"
                     data-bs-target={`#promo${item.id}`}
                   >
@@ -47,7 +47,7 @@ const Promo = () => {
                     />
                     <p className="diskon bg-warning  ">{item.promo_code}</p>
                     <div className="card-body">
-                      <p className="card-text">{item.title}</p>
+                      <p className="card-text fw-bold mb-1">{item.title}</p>
                       <p className="my-0">
                         {" "}
                         <img

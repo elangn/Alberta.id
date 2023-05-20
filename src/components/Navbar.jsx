@@ -35,7 +35,7 @@ const Navbar = () => {
           <a className="navbar-brand" href="#">
             <img src="img/airplane2.png" alt="" className="me-2" />
             <span>
-              Alberta <span className="nav-brand1"> .id</span>
+              Alberta<span className="nav-brand1">.id</span>
             </span>
           </a>
           <button
