@@ -33,10 +33,9 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-light ">
         <div className="container">
           <a className="navbar-brand" href="#">
-            <img src="img/airplane2.png" alt="" className="me-2" />
-            <span>
+            <Link to={"/"} className="nav-brand0">
               Alberta<span className="nav-brand1">.id</span>
-            </span>
+            </Link>
           </a>
           <button
             className="navbar-toggler"

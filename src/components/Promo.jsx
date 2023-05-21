@@ -59,7 +59,7 @@ const Promo = () => {
                       </p>
                       <p className="mb-0">
                         {" "}
-                        Rp. {item.promo_discount_price} ,-
+                        IDR {item.promo_discount_price} ,-
                       </p>
                     </div>
                   </div>
@@ -82,12 +82,6 @@ const Promo = () => {
                             >
                               {item.title}
                             </h3>
-                            <button
-                              type="button"
-                              className="btn-close"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                            />
                           </div>
                           <div className="modal-body cek">
                             <img src={item.imageUrl} alt="" />
@@ -119,9 +113,6 @@ const Promo = () => {
                               data-bs-dismiss="modal"
                             >
                               Close
-                            </button>
-                            <button type="button" className="btn btn-primary">
-                              Save changes
                             </button>
                           </div>
                         </div>

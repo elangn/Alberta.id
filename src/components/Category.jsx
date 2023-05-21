@@ -29,8 +29,8 @@ const Category = () => {
 
   return (
     <div className="category ">
-      <div className="container">
-        <div className="box-category">
+      <div className="container ">
+        <div className="box-category ">
           <p className="my-1">
             {" "}
             ---------
@@ -41,35 +41,45 @@ const Category = () => {
           <p> CHOOSE CATEGORY</p>
         </div>
 
-        <Swiper
-          breakpoints={{
-            480: {
-              slidesPerView: 2,
-              // spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 3,
-              // spaceBetween: 10,
-            },
-            968: {
-              slidesPerView: 4,
-              // spaceBetween: 10,
-            },
-          }}
-          className="slider"
-        >
-          <SliderButtons />
-          {category.map((item, i) => {
-            return (
-              <SwiperSlide key={i}>
-                <div className="c-wrapper">
-                  <img src={item.imageUrl} alt="" />
-                  <p>{item.name}</p>
-                </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+        <div className="box-category2 ">
+          <Swiper
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              468: {
+                slidesPerView: 2,
+                // spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 3,
+                // spaceBetween: 10,
+              },
+              968: {
+                slidesPerView: 4,
+                // spaceBetween: 10,
+              },
+            }}
+            className="slider "
+          >
+            <SliderButtons />
+            {category.map((item, i) => {
+              return (
+                <SwiperSlide key={i}>
+                  <div className="card c-wrapper">
+                    <img
+                      src={item.imageUrl}
+                      className="card-img-top"
+                      alt="..."
+                    />
+
+                    <p className="card-text"> {item.name} </p>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
       </div>
     </div>
   );
@@ -83,11 +93,11 @@ const SliderButtons = () => {
     <div className="r-button">
       <button
         onClick={() => swiper.slidePrev()}
-        className="btn btn-primary me-2 btn-sm"
+        className="btn  btn-primary  me-2 btn-sm"
       >
-        {" "}
         &lt;
       </button>
+
       <button
         onClick={() => swiper.slideNext()}
         className="btn btn-primary btn-sm"

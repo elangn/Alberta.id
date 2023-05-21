@@ -170,7 +170,7 @@ const CategoryAdmin = () => {
         <div className="container">
           <h4>
             {" "}
-            <img src="./img/categories.png" alt="" className="me-2" /> Manage
+            <img src="./img/categories.png" alt="" className="me-2 " /> Manage
             Category
           </h4>
           <hr />

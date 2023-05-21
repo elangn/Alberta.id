@@ -63,7 +63,7 @@ const NavbarAdmin = () => {
                   <img
                     src={account.profilePictureUrl}
                     alt=""
-                    className="me-2"
+                    className="me-2 "
                   />
                   {account.name}
                 </a>
