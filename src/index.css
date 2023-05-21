@@ -95,12 +95,7 @@ body {
   margin-top: 10px;
 }
 
-/* .login .login-box label {
-  font-weight: bold;
-} */
-
 .login .login-box input {
-  width: 100%;
   padding: 0 10px;
 }
 
@@ -157,6 +152,10 @@ body {
 .register .err-msg {
   color: red;
   font-size: 12px;
+}
+
+.register .form-control {
+  margin-bottom: 0;
 }
 
 /* update Profile page  */

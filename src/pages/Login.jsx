@@ -68,46 +68,64 @@ const Login = () => {
                 <h3 className="text-center"> Login</h3>
 
                 <form onSubmit={formik.handleSubmit}>
-                  <label htmlFor="email" className="mb-1 ">
+                  <label htmlFor="email" className="mb-1 form-label">
                     Email
                   </label>
-                  <br />
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    onChange={formik.handleChange}
-                    value={formik.values.email}
-                    className="mb-2
-                   "
-                  />
+
+                  <div className="input-group mb-3">
+                    <span className="input-group-text" id="basic-addon1">
+                      <i className="fa-solid fa-envelope"></i>
+                    </span>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
+                      className="form-control"
+                      placeholder="Email Address"
+                    />
+                  </div>
 
                   {formik.touched.email && formik.errors.email ? (
                     <div className="error-msg">{formik.errors.email}</div>
                   ) : null}
-                  <br />
 
                   <label htmlFor="password" className="mb-1 text-bold">
                     Password{" "}
                   </label>
-                  <br />
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    onChange={formik.handleChange}
-                    value={formik.values.password}
-                    className="mb-3"
-                  />
+
+                  <div className="input-group mb-4">
+                    <span className="input-group-text" id="basic-addon1">
+                      <i className="fa-solid fa-lock"></i>
+                    </span>
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      onChange={formik.handleChange}
+                      value={formik.values.password}
+                      className="form-control "
+                      placeholder="Password"
+                    />
+                  </div>
 
                   {formik.touched.password && formik.errors.password ? (
                     <div className="error-msg">{formik.errors.password}</div>
                   ) : null}
 
-                  <br />
-                  <br />
+                  <div className=" form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="exampleCheck1"
+                    />
+                    <label className="form-check-label" htmlFor="exampleCheck1">
+                      Remember Me
+                    </label>
+                  </div>
 
-                  <button type="submit" className="btn btn-success">
+                  <button type="submit" className="btn btn-success mt-4">
                     Submit
                   </button>
 

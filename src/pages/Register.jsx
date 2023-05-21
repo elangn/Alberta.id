@@ -82,26 +82,32 @@ const Register = () => {
             <div className="card" style={{ width: "500px" }}>
               <div className="card-body">
                 <h4 className="fw-bold text-center mb-4"> REGISTER</h4>
+
                 <form onSubmit={formik.handleSubmit}>
                   <div className="card-body-flex">
                     <div className="card-body1">
-                      <label htmlFor="email">Email </label>
-                      <br />
+                      <label htmlFor="email" className="mb-1 form-label">
+                        Email{" "}
+                      </label>
                       <input
                         id="email"
                         name="email"
                         type="email"
                         onChange={formik.handleChange}
                         value={formik.values.email}
-                        className="mb-2"
+                        className="  form-control  mb-0"
                       />
 
                       {formik.touched.email && formik.errors.email ? (
-                        <div className="err-msg">{formik.errors.email}</div>
+                        <div className="err-msg my-0">
+                          {formik.errors.email}
+                        </div>
                       ) : null}
                       <br />
 
-                      <label htmlFor="name">Name</label>
+                      <label htmlFor="name" className="mb-1 form-label">
+                        Name
+                      </label>
                       <br />
                       <input
                         id="name"
@@ -109,15 +115,17 @@ const Register = () => {
                         type="text"
                         onChange={formik.handleChange}
                         value={formik.values.name}
-                        className="mb-2"
+                        className=" form-control"
                       />
 
                       {formik.touched.name && formik.errors.name ? (
-                        <div className="err-msg">{formik.errors.name}</div>
+                        <div className="err-msg my-0">{formik.errors.name}</div>
                       ) : null}
                       <br />
 
-                      <label htmlFor="phoneNumber">Phone Number</label>
+                      <label htmlFor="phoneNumber" className="mb-1">
+                        Phone Number
+                      </label>
                       <br />
                       <input
                         id="phoneNumber"
@@ -125,12 +133,12 @@ const Register = () => {
                         type="text"
                         onChange={formik.handleChange}
                         value={formik.values.phoneNumber}
-                        className="mb-2"
+                        className="form-control"
                       />
 
                       {formik.touched.phoneNumber &&
                       formik.errors.phoneNumber ? (
-                        <div className="err-msg">
+                        <div className="err-msg my-0">
                           {formik.errors.phoneNumber}
                         </div>
                       ) : null}
@@ -139,23 +147,28 @@ const Register = () => {
                     </div>
 
                     <div className="card-body2">
-                      <label htmlFor="password">Password</label>
-                      <br />
+                      <label htmlFor="password" className="mb-1">
+                        Password
+                      </label>
                       <input
                         id="password"
                         name="password"
                         type="password"
                         onChange={formik.handleChange}
                         value={formik.values.password}
-                        className="mb-2"
+                        className="form-control"
                       />
 
                       {formik.touched.password && formik.errors.password ? (
-                        <div className="err-msg">{formik.errors.password}</div>
+                        <div className="err-msg my-0">
+                          {formik.errors.password}
+                        </div>
                       ) : null}
 
                       <br />
-                      <label htmlFor="repeatPassword">Repeat Password</label>
+                      <label htmlFor="repeatPassword" className="mb-1">
+                        Repeat Password
+                      </label>
                       <br />
                       <input
                         id="repeatPassword"
@@ -163,45 +176,38 @@ const Register = () => {
                         type="password"
                         onChange={formik.handleChange}
                         value={formik.values.repeatPassword}
-                        className="mb-2"
+                        className=" form-control"
                       />
 
                       {formik.touched.repeatPassword &&
                       formik.errors.repeatPassword ? (
-                        <div className="err-msg">
+                        <div className="err-msg my-0">
                           {formik.errors.repeatPassword}
                         </div>
                       ) : null}
 
                       <br />
 
-                      <label htmlFor="role">Role</label>
+                      <label htmlFor="role" className="mb-1">
+                        Role
+                      </label>
                       <br />
-                      {/* <input
-                        id="role"
-                        name="role"
-                        type="text"
-                        onChange={formik.handleChange}
-                        value={formik.values.role}
-                        className="mb-2"
-                      /> */}
 
-                      {/* coba */}
                       <select
                         id="role"
                         name="role"
                         type="text"
                         onChange={formik.handleChange}
                         value={formik.values.role}
-                        className="mb-2"
+                        className="form-select "
                       >
-                        <option value="">-- select role --</option>
+                        <option>-- select role --</option>
                         <option value="user">user</option>
                         <option value="admin">admin</option>
                       </select>
 
                       {formik.touched.role && formik.errors.role ? (
-                        <div className="err-msg">{formik.errors.role}</div>
+                        <div className="err-msg my-0">{formik.errors.role}</div>
                       ) : null}
 
                       <br />
@@ -217,7 +223,7 @@ const Register = () => {
                     type="text"
                     onChange={formik.handleChange}
                     value={formik.values.profilePicture}
-                    className="mb-4 w-100"
+                    className="mb-4 w-75 form-control"
                   />
 
                   {formik.touched.profilePicture &&
