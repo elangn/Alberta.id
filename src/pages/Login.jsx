@@ -65,7 +65,7 @@ const Login = () => {
           <div className="login-box">
             <div className="card " style={{ width: "300px" }}>
               <div className="card-body ">
-                <h3 className="text-center"> Login</h3>
+                <h3 className="text-center mb-4"> Login</h3>
 
                 <form onSubmit={formik.handleSubmit}>
                   <label htmlFor="email" className="mb-1 form-label">
@@ -88,7 +88,7 @@ const Login = () => {
                   </div>
 
                   {formik.touched.email && formik.errors.email ? (
-                    <div className="error-msg">{formik.errors.email}</div>
+                    <div className="error-msg my-0 ">{formik.errors.email}</div>
                   ) : null}
 
                   <label htmlFor="password" className="mb-1 text-bold">
@@ -96,7 +96,7 @@ const Login = () => {
                   </label>
 
                   <div className="input-group mb-4">
-                    <span className="input-group-text" id="basic-addon1">
+                    <span className="input-group-text " id="basic-addon1">
                       <i className="fa-solid fa-lock"></i>
                     </span>
                     <input
@@ -105,13 +105,15 @@ const Login = () => {
                       type="password"
                       onChange={formik.handleChange}
                       value={formik.values.password}
-                      className="form-control "
+                      className="form-control"
                       placeholder="Password"
                     />
                   </div>
 
                   {formik.touched.password && formik.errors.password ? (
-                    <div className="error-msg">{formik.errors.password}</div>
+                    <div className="error-msg my-0">
+                      {formik.errors.password}
+                    </div>
                   ) : null}
 
                   <div className=" form-check">
@@ -126,11 +128,11 @@ const Login = () => {
                   </div>
 
                   <button type="submit" className="btn btn-success mt-4">
-                    Submit
+                    Login
                   </button>
 
                   <p>
-                    don't have an account ?{" "}
+                    Don't have an account ?{" "}
                     <Link to={"/register"}> Register</Link> here
                   </p>
                 </form>

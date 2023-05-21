@@ -17,6 +17,7 @@ import ActivityAdmin from "./pages/ActivityAdmin";
 import CategoryAdmin from "./pages/CategoryAdmin";
 import UpdateProfileAdmin from "./pages/UpdateProfileAdmin";
 import Residencies from "./components/Residencies";
+import Register2 from "./pages/Register2";
 
 const router = createBrowserRouter([
   {
@@ -122,6 +123,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <Residencies />
+      </>
+    ),
+  },
+  {
+    path: "/register2",
+    element: (
+      <>
+        <Register2 />
       </>
     ),
   },

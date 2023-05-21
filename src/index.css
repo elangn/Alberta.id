@@ -79,6 +79,7 @@ body {
   background-image: url("../public/img/login.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: antiquewhite;
 }
 
 .login-box {
@@ -113,6 +114,10 @@ body {
   color: red;
   margin: 0;
   padding: 0;
+}
+
+.login .card {
+  padding: 10px;
 }
 
 /* register page  */
@@ -156,6 +161,70 @@ body {
 
 .register .form-control {
   margin-bottom: 0;
+}
+
+.register .card {
+  padding: 20px;
+}
+
+/* register 2 */
+
+.register2 {
+}
+
+.register2 .kiri {
+  /* background-color: red; */
+}
+.register2 .kiri img {
+  width: 100%;
+  filter: brightness(70%);
+  object-fit: cover;
+  height: 100%;
+}
+
+.register2 .kanan {
+  /* height: 100vh; */
+  width: 500px;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.kanan .wrapper h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.kanan .wrapper span {
+  color: orange;
+}
+
+.kanan .wrapper form {
+  padding: 10px;
+  width: 300px;
+  /* background-color: bisque; */
+  text-align: start;
+}
+
+.kanan .wrapper input {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.kanan .wrapper button {
+  background-color: orange;
+}
+
+.kanan .wrapper .form-check-input {
+  border: 1px solid black;
+}
+.kanan .wrapper .oek {
+  text-decoration: none;
+  color: green;
+  font-weight: bold;
 }
 
 /* update Profile page  */
