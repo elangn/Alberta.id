@@ -363,12 +363,6 @@ const ActivityAdmin = () => {
                       <h1 className="modal-title fs-5" id="exampleModalLabel">
                         Add new Activity
                       </h1>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      />
                     </div>
                     <div className="modal-body">
                       <form action="">
@@ -602,15 +596,8 @@ const ActivityAdmin = () => {
                                 >
                                   Update Activity
                                 </h1>
-                                <button
-                                  type="button"
-                                  className="btn-close"
-                                  data-bs-dismiss="modal"
-                                  aria-label="Close"
-                                />
                               </div>
                               <div className="modal-body">
-                                {item.title}
                                 <form action="">
                                   <label htmlFor="" className="mb-1">
                                     {" "}

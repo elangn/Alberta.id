@@ -518,6 +518,7 @@ body {
 
 .navbar-admin .navbar img {
   border-radius: 50%;
+  width: 30px;
 }
 
 .navbar-admin .navbar .navbar-brand {
@@ -537,6 +538,8 @@ body {
 .navbar-admin .navbar {
   background-color: #222937;
 }
+
+.navbar-admin 
 
 /* Dashboard - admin page */
 .dashboard-admin {
@@ -625,10 +628,9 @@ body {
   width: 50px;
 }
 
-/* .category-admin tbody img {
+.category-admin tbody img {
   width: 150px;
-/* } */
-*/
+}
 
 /* update profile - page admin */
 

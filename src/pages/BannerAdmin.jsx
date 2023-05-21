@@ -159,8 +159,7 @@ const BannerAdmin = () => {
           </h4>
           <hr />
           <div className="banner-admin-box">
-            {/* <button className="btn btn-success mb-4"> Add New Banner </button>
-             */}
+            {/* <button className="btn btn-success mb-4"> Add New Banner </button> */}
 
             <div>
               {/* Button trigger modal */}
@@ -186,12 +185,6 @@ const BannerAdmin = () => {
                       <h1 className="modal-title fs-5" id="exampleModalLabel">
                         Add new Banner
                       </h1>
-                      <button
-                        type="button"
-                        className="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      />
                     </div>
                     <div className="modal-body">
                       <form action="">
@@ -282,12 +275,6 @@ const BannerAdmin = () => {
                                 >
                                   Update Banner
                                 </h1>
-                                <button
-                                  type="button"
-                                  className="btn-close"
-                                  data-bs-dismiss="modal"
-                                  aria-label="Close"
-                                />
                               </div>
                               <div className="modal-body">
                                 <form action="">
