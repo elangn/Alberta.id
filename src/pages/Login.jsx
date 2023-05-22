@@ -133,7 +133,7 @@ const Login = () => {
 
                   <p>
                     Don't have an account ?{" "}
-                    <Link to={"/register"}> Register</Link> here
+                    <Link to={"/register2"}> Register</Link> here
                   </p>
                 </form>
               </div>

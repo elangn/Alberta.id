@@ -32,11 +32,10 @@ const Navbar = () => {
 
       <nav className="navbar navbar-expand-lg bg-light ">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <Link to={"/"} className="nav-brand0">
-              Alberta<span className="nav-brand1">.id</span>
-            </Link>
-          </a>
+          <Link to={"/"} className="nav-brand0">
+            Alberta<span className="nav-brand1">.id</span>
+          </Link>
+
           <button
             className="navbar-toggler"
             type="button"

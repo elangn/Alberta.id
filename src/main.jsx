@@ -45,14 +45,14 @@ const router = createBrowserRouter([
       </>
     ),
   },
-  {
-    path: "/register",
-    element: (
-      <>
-        <Register />
-      </>
-    ),
-  },
+  // {
+  //   path: "/register",
+  //   element: (
+  //     <>
+  //       <Register />
+  //     </>
+  //   ),
+  // },
   {
     path: "/update-profile",
     element: (

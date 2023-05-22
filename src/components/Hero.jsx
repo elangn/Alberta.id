@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -14,7 +13,7 @@ const Hero = () => {
         <Link to={"/explore"} className="btn btn-outline-light me-3">
           Discover More
         </Link>
-        <Link to={"/register"} className="btn btn-success ">
+        <Link to={"/register2"} className="btn btn-success ">
           Register
         </Link>
       </div>

@@ -172,9 +172,6 @@ body {
 .register2 {
 }
 
-.register2 .kiri {
-  /* background-color: red; */
-}
 .register2 .kiri img {
   width: 100%;
   filter: brightness(70%);
@@ -774,6 +771,12 @@ body {
   .benefit .box-gambar img {
     object-fit: cover;
     height: 450px;
+  }
+
+  /* register2 */
+
+  .register2 .kanan .wrapper {
+    margin-left: auto;
   }
 }
 

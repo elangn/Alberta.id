@@ -217,7 +217,6 @@ const Register = () => {
                   <label htmlFor="profilePicture">Profile Picture</label>
                   <br />
                   <input
-                    as="select"
                     id="profilePicture"
                     name="profilePicture"
                     type="text"
