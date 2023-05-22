@@ -8,7 +8,7 @@ const NavbarAdmin = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login");
+    navigate("/login2");
     // window.location.reload();
   };
 

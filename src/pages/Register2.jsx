@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 const Register2 = () => {
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
@@ -210,10 +211,11 @@ const Register2 = () => {
 
               <p>
                 {" "}
-                Already have an account ? <span className="oek">
+                Already have an account ?{" "}
+                <Link to={"/login2"} className="link">
                   {" "}
-                  Log in
-                </span>{" "}
+                  <span className="oek">Log in</span>
+                </Link>
               </p>
             </div>
           </div>

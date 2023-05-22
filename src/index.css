@@ -73,98 +73,62 @@ body {
   width: 50px;
 }
 
-/* Login Page  */
+/* login 2 */
 
-.login {
-  background-image: url("../public/img/login.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: antiquewhite;
-}
-
-.login-box {
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  justify-content: center;
-}
-
-.login .login-box h3 {
-  font-weight: bold;
-  font-size: 22px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-}
-
-.login .login-box input {
-  padding: 0 10px;
-}
-
-.login .login-box button {
+.login2 .kiri img {
   width: 100%;
+  filter: brightness(70%);
+  object-fit: cover;
+  height: 100%;
 }
 
-.login .login-box .card-body p {
-  font-size: 12px;
-  margin-top: 10px;
+.login2 .kanan {
+  height: 100vh;
+  width: 500px;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
 }
 
-.login .error-msg {
-  font-size: 12px;
-  color: red;
-  margin: 0;
-  padding: 0;
+.login2 .kanan .wrapper h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 50px;
 }
 
-.login .card {
+.login2 .kanan .wrapper span {
+  color: orange;
+}
+
+.login2 .kanan .wrapper form {
   padding: 10px;
+  width: 300px;
+  /* background-color: bisque; */
+  text-align: start;
 }
 
-/* register page  */
-
-.register {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url("../public/img/register.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+.login2 .kanan .wrapper input {
+  border: none;
+  border-bottom: 1px solid black;
 }
 
-.register .register-box {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.login2 .kanan .wrapper button {
+  background-color: orange;
 }
 
-.register .card-body-flex {
-  display: flex;
-  justify-content: space-between;
-  column-gap: 20px;
+.login2 .kanan .wrapper .form-check-input {
+  border: 1px solid black;
+}
+.login2 .kanan .wrapper .oek {
+  text-decoration: none;
+  color: green;
+  font-weight: bold;
 }
 
-.register .card-body-flex .card-body1 {
-  width: 50%;
-}
-
-.register .card-body-flex .card-body2 {
-  width: 50%;
-}
-
-.register .card-body-flex input {
-  width: 100%;
-}
-
-.register .err-msg {
-  color: red;
-  font-size: 12px;
-}
-
-.register .form-control {
-  margin-bottom: 0;
-}
-
-.register .card {
-  padding: 20px;
+.login2 .kanan p .link {
+  text-decoration: none;
 }
 
 /* register 2 */
@@ -189,39 +153,43 @@ body {
   padding: 60px 0;
 }
 
-.kanan .wrapper h3 {
+.register2 .kanan .wrapper h3 {
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 50px;
 }
 
-.kanan .wrapper span {
+.register2 .kanan .wrapper span {
   color: orange;
 }
 
-.kanan .wrapper form {
+.register2 .kanan .wrapper form {
   padding: 10px;
   width: 300px;
   /* background-color: bisque; */
   text-align: start;
 }
 
-.kanan .wrapper input {
+.register2 .kanan .wrapper input {
   border: none;
   border-bottom: 1px solid black;
 }
 
-.kanan .wrapper button {
+.register2 .kanan .wrapper button {
   background-color: orange;
 }
 
-.kanan .wrapper .form-check-input {
+.register2 .kanan .wrapper .form-check-input {
   border: 1px solid black;
 }
-.kanan .wrapper .oek {
+.register2 .kanan .wrapper .oek {
   text-decoration: none;
   color: green;
   font-weight: bold;
+}
+
+.register2 .kanan p .link {
+  text-decoration: none;
 }
 
 /* update Profile page  */
@@ -773,10 +741,16 @@ body {
     height: 450px;
   }
 
+  /* login2 */
+
+  .login2 .kanan {
+    margin: auto;
+  }
+
   /* register2 */
 
-  .register2 .kanan .wrapper {
-    margin-left: auto;
+  .register2 .kanan {
+    margin: auto;
   }
 }
 

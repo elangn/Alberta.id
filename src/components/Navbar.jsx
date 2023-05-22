@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login");
+    navigate("/login2");
     window.location.reload();
   };
 
@@ -118,7 +118,7 @@ const Navbar = () => {
               ) : (
                 <>
                   <li className="nav-item  me-2">
-                    <Link to={`/login`} className="nav-link">
+                    <Link to={`/login2`} className="nav-link">
                       Login
                     </Link>
                   </li>
