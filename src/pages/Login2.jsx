@@ -96,7 +96,9 @@ const Login2 = () => {
                 </div>
 
                 {formik.touched.email && formik.errors.email ? (
-                  <div className="error-msg my-0 ">{formik.errors.email}</div>
+                  <div className="error-msg my-0  py-0 text-danger">
+                    {formik.errors.email}
+                  </div>
                 ) : null}
 
                 <label htmlFor="password" className="mb-1 text-bold">
@@ -119,7 +121,9 @@ const Login2 = () => {
                 </div>
 
                 {formik.touched.password && formik.errors.password ? (
-                  <div className="error-msg my-0">{formik.errors.password}</div>
+                  <div className="error-msg my-0 py-0 text-danger">
+                    {formik.errors.password}
+                  </div>
                 ) : null}
 
                 <div className=" form-check">

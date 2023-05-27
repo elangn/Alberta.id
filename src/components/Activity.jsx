@@ -51,15 +51,11 @@ const Activity = () => {
                       </p>
                     </div>
 
-                    <div className="card-body py-0">
+                    <div className="card-body py-0 px-2 mb-1">
+                      <p className="my-0"> {item.total_reviews} reviews</p>
                       <p className="card-text mb-1">
-                        <img src="img/pin.png" alt="" className="me-1" />
+                        {/* <img src="img/pin.png" alt="" className="me-1" /> */}
                         {item.city}, {item.province}
-                      </p>
-                      {/* <p className="card-text mt-1 mb-3 ">Rp. {item.price}</p> */}
-
-                      <p className="text-secondary">
-                        More <i className="fa-solid fa-circle-arrow-right"></i>
                       </p>
                     </div>
                   </div>

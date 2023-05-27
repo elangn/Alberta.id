@@ -232,7 +232,7 @@ body {
 /* hero  */
 
 .hero {
-  height: 600px;
+  height: 700px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../public/img/background.jpg");
   background-position: center;
@@ -482,8 +482,9 @@ body {
 }
 
 .activity .card {
-  border: none;
+  /* border: none; */
   cursor: pointer;
+  /* box-shadow: 1px 1px 1px rgb(108, 108, 108); */
 }
 
 .activity .card img {

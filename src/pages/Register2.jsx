@@ -100,7 +100,9 @@ const Register2 = () => {
                   value={formik.values.name}
                 />
                 {formik.touched.name && formik.errors.name ? (
-                  <div className="err-msg my-0">{formik.errors.name}</div>
+                  <div className="err-msg my-0 text-danger">
+                    {formik.errors.name}
+                  </div>
                 ) : null}{" "}
                 <br />
                 <label htmlFor="email"> Email </label> <br />
@@ -113,7 +115,9 @@ const Register2 = () => {
                   value={formik.values.email}
                 />{" "}
                 {formik.touched.email && formik.errors.email ? (
-                  <div className="err-msg my-0">{formik.errors.email}</div>
+                  <div className="err-msg my-0 text-danger py-0">
+                    {formik.errors.email}
+                  </div>
                 ) : null}
                 <br />
                 <label htmlFor="phoneNumber"> Phone Number</label> <br />
@@ -126,7 +130,7 @@ const Register2 = () => {
                   value={formik.values.phoneNumber}
                 />{" "}
                 {formik.touched.phoneNumber && formik.errors.phoneNumber ? (
-                  <div className="err-msg my-0">
+                  <div className="err-msg my-0 text-danger">
                     {formik.errors.phoneNumber}
                   </div>
                 ) : null}
@@ -140,7 +144,9 @@ const Register2 = () => {
                   className="input w-100 mb-3"
                 />
                 {formik.touched.password && formik.errors.password ? (
-                  <div className="err-msg my-0">{formik.errors.password}</div>
+                  <div className="err-msg my-0 text-danger">
+                    {formik.errors.password}
+                  </div>
                 ) : null}{" "}
                 <label htmlFor="repeatPassword"> Repeat Password </label> <br />
                 <input
@@ -153,7 +159,7 @@ const Register2 = () => {
                 />{" "}
                 {formik.touched.repeatPassword &&
                 formik.errors.repeatPassword ? (
-                  <div className="err-msg my-0">
+                  <div className="err-msg my-0 text-danger">
                     {formik.errors.repeatPassword}
                   </div>
                 ) : null}
@@ -172,7 +178,9 @@ const Register2 = () => {
                   <option value="admin"> Admin</option>
                 </select>
                 {formik.touched.role && formik.errors.role ? (
-                  <div className="err-msg my-0">{formik.errors.role}</div>
+                  <div className="err-msg my-0 text-danger">
+                    {formik.errors.role}
+                  </div>
                 ) : null}
                 <label htmlFor="profilePicture"> Profile Picture </label> <br />
                 <input
@@ -186,7 +194,9 @@ const Register2 = () => {
                 />{" "}
                 {formik.touched.profilePicture &&
                 formik.errors.profilePicture ? (
-                  <div className="err-msg">{formik.errors.profilePicture}</div>
+                  <div className="err-msg text-danger">
+                    {formik.errors.profilePicture}
+                  </div>
                 ) : null}
                 <br />
                 <div className="mb-3 form-check">

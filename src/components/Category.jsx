@@ -93,16 +93,16 @@ const SliderButtons = () => {
     <div className="r-button">
       <button
         onClick={() => swiper.slidePrev()}
-        className="btn  btn-primary  me-2 btn-sm"
+        className="btn  border border-1  me-2 btn-sm"
       >
-        &lt;
+        <i className="fa-solid fa-arrow-left  "></i>
       </button>
 
       <button
         onClick={() => swiper.slideNext()}
-        className="btn btn-primary btn-sm"
+        className="btn  btn-sm border border-1"
       >
-        &gt;
+        <i className="fa-solid fa-arrow-right"></i>
       </button>
     </div>
   );

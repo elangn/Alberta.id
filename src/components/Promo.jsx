@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Promo = () => {
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
