@@ -35,10 +35,11 @@ body {
   text-decoration: none;
   font-weight: 700;
   color: black;
+  font-size: 24px;
 }
 
 .navbar .nav-brand1 {
-  font-size: 14px;
+  font-size: 18px;
   color: orange;
 }
 
@@ -765,6 +766,15 @@ body {
 
   .navbar span {
     font-size: 16px;
+  }
+
+  .navbar .nav-brand0 {
+    font-size: 20px;
+  }
+
+  .navbar .nav-brand1 {
+    font-size: 16px;
+    color: orange;
   }
 
   /* hero */
