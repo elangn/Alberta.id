@@ -1,6 +1,6 @@
-navbacourageous-buttercream-3754a1*,
 body {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  /* font-family: "Kanit", sans-serif; */
   padding: 0;
   margin: 0;
 }
@@ -30,6 +30,10 @@ body {
 }
 
 /* navbar */
+
+.navbar {
+  font-family: "Kanit", sans-serif;
+}
 
 .navbar .nav-brand0 {
   text-decoration: none;
@@ -233,7 +237,7 @@ body {
 /* hero  */
 
 .hero {
-  height: 700px;
+  height: 450px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../public/img/background.jpg");
   background-position: center;
@@ -244,17 +248,17 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: "Kanit", sans-serif;
 }
 
 .hero h2 {
   color: white;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 500px;
 }
 
 .hero h2 span {
   color: orange;
-  font-size: 34px;
 }
 
 .hero p {
@@ -778,6 +782,10 @@ body {
   }
 
   /* hero */
+
+  .hero {
+    height: 250px;
+  }
 
   .hero h2 {
     font-size: 28px;

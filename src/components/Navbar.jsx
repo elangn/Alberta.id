@@ -21,6 +21,7 @@ const Navbar = () => {
               <i className="fa-solid fa-phone text-light me-1"> </i>
               <span className=" me-4">+62 811-1122</span>
             </div>
+
             <div className="upper-box2">
               <i className="fa-brands fa-twitter text-light me-3 "></i>
               <i className="fa-brands fa-facebook text-light me-3"></i>
@@ -30,7 +31,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg bg-light ">
+      <nav className="navbar navbar-expand-lg bg-transparent ">
         <div className="container">
           <Link to={"/"} className="nav-brand0">
             Alberta<span className="nav-brand1">.id</span>
@@ -118,7 +119,10 @@ const Navbar = () => {
               ) : (
                 <>
                   <li className="nav-item  me-2">
-                    <Link to={`/login2`} className="nav-link">
+                    <Link
+                      to={`/login2`}
+                      className="nav-link btn btn-sm btn-success text-white "
+                    >
                       Login
                     </Link>
                   </li>
