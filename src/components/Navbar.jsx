@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login");
+    navigate("/login2");
     window.location.reload();
   };
 
@@ -20,7 +20,10 @@ const Navbar = () => {
             <div className="upper-box1">
               <i className="fa-solid fa-phone text-light me-1"> </i>
               <span className=" me-4">+62 811-1122</span>
+              <i class="fa-solid fa-envelope text-light me-1"></i>
+              <span className=" me-4">alberta@business.com</span>
             </div>
+
             <div className="upper-box2">
               <i className="fa-brands fa-twitter text-light me-3 "></i>
               <i className="fa-brands fa-facebook text-light me-3"></i>
@@ -30,14 +33,13 @@ const Navbar = () => {
         </div>
       </div>
 
-      <nav className="navbar navbar-expand-lg bg-light ">
+      <nav className="navbar navbar-expand-lg  bg-transparent">
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <img src="img/airplane2.png" alt="" className="me-2" />
-            <span>
-              Alberta<span className="nav-brand1">.id</span>
-            </span>
-          </a>
+          <Link to={"/"} className="nav-brand0">
+            Alberta
+            <span className="nav-brand1">.id</span>
+          </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -120,7 +122,10 @@ const Navbar = () => {
               ) : (
                 <>
                   <li className="nav-item  me-2">
-                    <Link to={`/login`} className="nav-link">
+                    <Link
+                      to={`/login2`}
+                      className="nav-link btn btn-sm btn-success text-white "
+                    >
                       Login
                     </Link>
                   </li>

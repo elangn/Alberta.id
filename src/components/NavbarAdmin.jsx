@@ -8,7 +8,7 @@ const NavbarAdmin = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    navigate("/login");
+    navigate("/login2");
     // window.location.reload();
   };
 
@@ -63,7 +63,7 @@ const NavbarAdmin = () => {
                   <img
                     src={account.profilePictureUrl}
                     alt=""
-                    className="me-2"
+                    className="me-2  ava-admin"
                   />
                   {account.name}
                 </a>

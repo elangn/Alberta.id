@@ -5,9 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
-import Error from "./pages/error";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Error from "./pages/Error";
 import UpdateProfile from "./pages/UpdateProfile";
 import DashboardAdmin from "./pages/DashboardAdmin";
 import AllUserAdmin from "./pages/AllUserAdmin";
@@ -17,6 +15,8 @@ import ActivityAdmin from "./pages/ActivityAdmin";
 import CategoryAdmin from "./pages/CategoryAdmin";
 import UpdateProfileAdmin from "./pages/UpdateProfileAdmin";
 import Residencies from "./components/Residencies";
+import Register2 from "./pages/Register2";
+import Login2 from "./pages/Login2";
 
 const router = createBrowserRouter([
   {
@@ -36,22 +36,7 @@ const router = createBrowserRouter([
       </>
     ),
   },
-  {
-    path: "/login",
-    element: (
-      <>
-        <Login />
-      </>
-    ),
-  },
-  {
-    path: "/register",
-    element: (
-      <>
-        <Register />
-      </>
-    ),
-  },
+
   {
     path: "/update-profile",
     element: (
@@ -125,12 +110,24 @@ const router = createBrowserRouter([
       </>
     ),
   },
+  {
+    path: "/register2",
+    element: (
+      <>
+        <Register2 />
+      </>
+    ),
+  },
+  {
+    path: "/login2",
+    element: (
+      <>
+        <Login2 />
+      </>
+    ),
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
-  // <Home />
-  // </React.StrictMode>,
-
   <RouterProvider router={router} />
 );
