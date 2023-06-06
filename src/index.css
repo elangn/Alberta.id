@@ -32,7 +32,7 @@ body {
 /* navbar */
 
 .navbar {
-  font-family: "Kanit", sans-serif;
+  /* font-family: "Kanit", sans-serif; */
 }
 
 .navbar .nav-brand0 {
@@ -40,6 +40,7 @@ body {
   font-weight: 700;
   color: black;
   font-size: 24px;
+  color: black;
 }
 
 .navbar .nav-brand1 {
@@ -51,6 +52,10 @@ body {
   font-size: 14px;
   font-weight: 500;
   transition: 0.5s;
+}
+
+.navbar .nav-link:hover {
+  color: black;
 }
 
 .navbar .dropdown .btn {
@@ -248,7 +253,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Kanit", sans-serif;
 }
 
 .hero h2 {
@@ -263,8 +267,12 @@ body {
 
 .hero p {
   color: rgb(210, 196, 196);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 300;
+}
+
+.hero .hero-box .discover {
+  background-color: orange;
 }
 
 /* category */
@@ -332,6 +340,7 @@ body {
   transition: 0.7s;
   border: none;
   cursor: pointer;
+  /* box-shadow: 10px 10px 10px grey; */
 }
 
 .promo .promo-box .card:hover {
@@ -397,9 +406,9 @@ body {
   font-weight: bold;
 }
 
-/* .benefit .sub-judul {
+.benefit .sub-judul {
   font-size: 20px;
-} */
+}
 
 .benefit p {
   color: grey;
@@ -708,7 +717,8 @@ body {
 @media (max-width: 768px) {
   /*  hero  */
   .hero h2 {
-    font-size: 32px;
+    font-size: 26px;
+    text-align: center;
   }
 
   .hero h2 span {
@@ -716,7 +726,7 @@ body {
   }
 
   .hero p {
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
   }
 
@@ -788,20 +798,22 @@ body {
   }
 
   .hero h2 {
-    font-size: 28px;
+    font-size: 16px;
+    text-align: center;
   }
 
   .hero h2 span {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   .hero p {
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
   }
 
   .hero .btn {
-    font-size: 12px;
+    font-size: 10px;
+    padding: 5px;
   }
 
   /* footer */

@@ -24,7 +24,7 @@ const Home = () => {
 
           <div className="benefit-box mt-4 ">
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-6 kiri ">
                 <div className="box-nomer">
                   <p className="nomer me-2  my-1">1</p>
                   <p className="fw-bold text-dark my-0 sub-judul">
@@ -61,9 +61,9 @@ const Home = () => {
                   Ipsa, itaque excepturi vel ratione possimus deleniti!
                 </p>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 kanan">
                 <div className="box-gambar">
-                  <img src="img/gambar2.jpg" className="w-75 border " alt="" />
+                  <img src="img/annie.jpg" className="w-75 border " alt="" />
                 </div>
               </div>
             </div>

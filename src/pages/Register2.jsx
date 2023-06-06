@@ -65,7 +65,7 @@ const Register2 = () => {
           // console.log(response);
           alert("sukes membuat akun");
           // window.location.reload();
-          navigate("/login");
+          navigate("/login2");
         })
         .catch(function (error) {
           alert("masih error cuy");
@@ -91,11 +91,14 @@ const Register2 = () => {
 
               <form action="" onSubmit={formik.handleSubmit}>
                 <label htmlFor="name"> Name </label> <br />
+                <span className=" me-2" id="basic-addon1 ">
+                  <i class="fa-solid fa-user text-secondary"></i>
+                </span>
                 <input
                   id="name"
                   name="name"
                   type="text"
-                  className="input w-100 mb-3"
+                  className="input w-75 mb-3"
                   onChange={formik.handleChange}
                   value={formik.values.name}
                 />
@@ -106,11 +109,14 @@ const Register2 = () => {
                 ) : null}{" "}
                 <br />
                 <label htmlFor="email"> Email </label> <br />
+                <span className=" me-2" id="basic-addon1 ">
+                  <i className="fa-solid fa-envelope text-secondary "></i>
+                </span>
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  className="input w-100 mb-3"
+                  className="input w-75 mb-3"
                   onChange={formik.handleChange}
                   value={formik.values.email}
                 />{" "}
@@ -121,11 +127,14 @@ const Register2 = () => {
                 ) : null}
                 <br />
                 <label htmlFor="phoneNumber"> Phone Number</label> <br />
+                <span className=" me-2" id="basic-addon1 ">
+                  <i class="fa-solid fa-phone text-secondary"></i>
+                </span>
                 <input
                   id="phoneNumber"
                   name="phoneNumber"
                   type="text"
-                  className="input w-100 mb-3"
+                  className="input w-75 mb-3 "
                   onChange={formik.handleChange}
                   value={formik.values.phoneNumber}
                 />{" "}
@@ -135,13 +144,16 @@ const Register2 = () => {
                   </div>
                 ) : null}
                 <label htmlFor="password"> Password</label> <br />
+                <span className=" me-2" id="basic-addon1 ">
+                  <i class="fa-solid fa-lock text-secondary"></i>
+                </span>
                 <input
                   id="password"
                   name="password"
                   type="password"
                   onChange={formik.handleChange}
                   value={formik.values.password}
-                  className="input w-100 mb-3"
+                  className="input w-75 mb-3"
                 />
                 {formik.touched.password && formik.errors.password ? (
                   <div className="err-msg my-0 text-danger">
@@ -149,13 +161,16 @@ const Register2 = () => {
                   </div>
                 ) : null}{" "}
                 <label htmlFor="repeatPassword"> Repeat Password </label> <br />
+                <span className=" me-2" id="basic-addon1 ">
+                  <i class="fa-solid fa-repeat text-secondary"></i>
+                </span>
                 <input
                   id="repeatPassword"
                   name="repeatPassword"
                   type="password"
                   onChange={formik.handleChange}
                   value={formik.values.repeatPassword}
-                  className="input w-100 mb-3"
+                  className="input w-75 mb-3"
                 />{" "}
                 {formik.touched.repeatPassword &&
                 formik.errors.repeatPassword ? (
@@ -183,6 +198,9 @@ const Register2 = () => {
                   </div>
                 ) : null}
                 <label htmlFor="profilePicture"> Profile Picture </label> <br />
+                <span className=" me-2" id="basic-addon1 ">
+                  <i class="fa-solid fa-link text-secondary"></i>
+                </span>
                 <input
                   as="select"
                   id="profilePicture"
@@ -190,7 +208,7 @@ const Register2 = () => {
                   type="text"
                   onChange={formik.handleChange}
                   value={formik.values.profilePicture}
-                  className="input w-100 mb-4"
+                  className="input w-75 mb-4"
                 />{" "}
                 {formik.touched.profilePicture &&
                 formik.errors.profilePicture ? (

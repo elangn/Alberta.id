@@ -20,7 +20,7 @@ const Login2 = () => {
     validationSchema: Yup.object({
       email: Yup.string().email("Invalid email address").required("Required"),
       password: Yup.string()
-        .min(8, "Must be 8 character or more ")
+        .min(6, "Must be 6 character or more ")
         .max(15, " max 15 character password")
         .required("Required"),
     }),

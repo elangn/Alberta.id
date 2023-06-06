@@ -8,12 +8,15 @@ const Hero = () => {
         <div className="hero">
           <h2>
             {" "}
-            Explore New Places , <span>Enjoy every good moment </span>{" "}
+            Explore new places , Enjoy every <span>GOOD MOMENT </span>{" "}
           </h2>
 
           <p> Guides for your next vacation </p>
           <div className="hero-box">
-            <Link to={"/explore"} className="btn btn-outline-light me-3">
+            <Link
+              to={"/explore"}
+              className="btn btn-outline-light  me-1 me-lg-2 "
+            >
               Discover More
             </Link>
             <Link to={"/register2"} className="btn btn-success">
