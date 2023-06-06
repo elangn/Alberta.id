@@ -10,7 +10,9 @@ const UpdateProfileAdmin = () => {
   const [name, setName] = useState(account.name);
   const [email, setEmail] = useState(account.email);
   const [phone, setPhone] = useState(account.phoneNumber);
-  const [imageUrl, setImageUrl] = useState(account.profilePictureUrl);
+  // const [image, setImage] = useState(account.profilePictureUrl);
+  const [imagePreview, setImagePreview] = useState();
+  const [image, setImage] = useState(account.profilePictureUrl);
 
   const handleEditName = (e) => {
     console.log(e.target.value);
@@ -28,12 +30,15 @@ const UpdateProfileAdmin = () => {
   };
 
   const handleEditImage = (e) => {
-    console.log(e.target.value);
-    setImageUrl(e.target.value);
+    console.log(e.target.files[0]);
+    setImagePreview(URL.createObjectURL(e.target.files[0]));
+    setImage(e.target.files[0]);
   };
 
   const handleSubmit = (e) => {
     console.log(e.target.value);
+    const formData = new FormData();
+    formData.append("iamge", image);
 
     axios
       .post(
@@ -41,7 +46,7 @@ const UpdateProfileAdmin = () => {
         {
           name: name,
           email: email,
-          profilePictureUrl: imageUrl,
+          profilePictureUrl: imagePreview,
           phoneNumber: phone,
         },
         {
@@ -160,8 +165,12 @@ const UpdateProfileAdmin = () => {
                       <label htmlFor=""> Image </label>
                     </div>
                     <div className="col-sm-9">
+                      <img src={imagePreview} className="mb-2"></img>
                       <input
-                        type="text"
+                        type="file"
+                        accept="image/*"
+                        // type="text"
+                        // name="file"
                         className="w-100 "
                         onChange={handleEditImage}
                       />
