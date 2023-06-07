@@ -10,8 +10,9 @@ const UpdateProfileAdmin = () => {
   const [name, setName] = useState(account.name);
   const [email, setEmail] = useState(account.email);
   const [phone, setPhone] = useState(account.phoneNumber);
-  const [image, setImage] = useState(account.profilePictureUrl);
+  const [image, setImage] = useState();
   const [imagePreview, setImagePreview] = useState();
+  // const [pictureEdit, setPictureEdit] = useState("");
 
   const handleEditName = (e) => {
     console.log(e.target.value);
@@ -37,15 +38,36 @@ const UpdateProfileAdmin = () => {
   const handleSubmit = (e) => {
     console.log(e.target.value);
     const formData = new FormData();
-    formData.append("iamge", image);
+    formData.append("image", image);
 
+    let imageUrl = {
+      // url: pictureEdit,
+    };
+
+    // api upload image
+    axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        imageUrl = response.data;
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // api edit profile
     axios
       .post(
         `${baseUrl}/api/v1/update-profile`,
         {
           name: name,
           email: email,
-          profilePictureUrl: imagePreview,
+          profilePictureUrl: imageUrl.url,
           phoneNumber: phone,
         },
         {
