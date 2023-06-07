@@ -10,9 +10,8 @@ const UpdateProfileAdmin = () => {
   const [name, setName] = useState(account.name);
   const [email, setEmail] = useState(account.email);
   const [phone, setPhone] = useState(account.phoneNumber);
-  // const [image, setImage] = useState(account.profilePictureUrl);
-  const [imagePreview, setImagePreview] = useState();
   const [image, setImage] = useState(account.profilePictureUrl);
+  const [imagePreview, setImagePreview] = useState();
 
   const handleEditName = (e) => {
     console.log(e.target.value);
@@ -87,8 +86,12 @@ const UpdateProfileAdmin = () => {
         <div className="container">
           <h4>
             {" "}
-            <img src="./img/update.png" alt="" className="me-2" /> Update
-            Profile{" "}
+            <img
+              src="./img/update.png"
+              alt=""
+              className="me-2 img-preview"
+            />{" "}
+            Update Profile{" "}
           </h4>
           <hr />
           <div className="update-box">
@@ -96,7 +99,7 @@ const UpdateProfileAdmin = () => {
               <div className="card  p-2 ">
                 <img
                   src={account.profilePictureUrl}
-                  className="card-img-top mx-auto "
+                  className="card-img-top mx-auto"
                   alt="..."
                 />
                 <h4> {account.name} </h4>
@@ -126,7 +129,6 @@ const UpdateProfileAdmin = () => {
                         type="text"
                         className="w-75"
                         onChange={handleEditName}
-                        // value={name}
                       />
                     </div>
                   </div>

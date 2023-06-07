@@ -72,7 +72,9 @@ body {
 
 .navbar .avatar {
   border-radius: 50%;
-  width: 30px;
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
 }
 
 .navbar .dropdrown img {
@@ -566,7 +568,9 @@ body {
 
 .navbar-admin .navbar img {
   border-radius: 50%;
-  width: 30px;
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
 }
 
 .navbar-admin .navbar .navbar-brand {
@@ -692,6 +696,13 @@ body {
 
 .update-profile-admin .update-box1 img {
   width: 100px;
+  height: 100px;
+  /* border-radius: 50%; */
+  object-fit: cover;
+}
+
+.update-profile-admin .update-box1 .img-preview {
+  border-radius: 100%;
 }
 
 .update-profile-admin .update-box1 h4 {
