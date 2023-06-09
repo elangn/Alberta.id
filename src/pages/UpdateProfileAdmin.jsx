@@ -10,9 +10,9 @@ const UpdateProfileAdmin = () => {
   const [name, setName] = useState(account.name);
   const [email, setEmail] = useState(account.email);
   const [phone, setPhone] = useState(account.phoneNumber);
-  const [image, setImage] = useState();
+  const [image, setImage] = useState(account.profilePictureUrl);
   const [imagePreview, setImagePreview] = useState();
-  // const [pictureEdit, setPictureEdit] = useState("");
+  const [imageUrls, setImageUrls] = useState();
 
   const handleEditName = (e) => {
     console.log(e.target.value);
@@ -36,13 +36,10 @@ const UpdateProfileAdmin = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log(e.target.value);
     const formData = new FormData();
     formData.append("image", image);
 
-    let imageUrl = {
-      // url: pictureEdit,
-    };
+    let imageUrl = {};
 
     // api upload image
     axios
@@ -53,8 +50,8 @@ const UpdateProfileAdmin = () => {
         },
       })
       .then(function (response) {
-        imageUrl = response.data;
-        console.log(response.data);
+        setImageUrls(response.data.url);
+        console.log(response.data.url);
       })
       .catch(function (error) {
         console.log(error);
@@ -67,7 +64,7 @@ const UpdateProfileAdmin = () => {
         {
           name: name,
           email: email,
-          profilePictureUrl: imageUrl.url,
+          profilePictureUrl: imageUrls,
           phoneNumber: phone,
         },
         {
@@ -90,7 +87,7 @@ const UpdateProfileAdmin = () => {
           .then(function (response) {
             console.log(response);
             localStorage.setItem("account", JSON.stringify(response.data.data));
-            window.location.reload();
+            // window.location.reload();
           })
           .catch(function (error) {
             console.log(error);
@@ -99,6 +96,64 @@ const UpdateProfileAdmin = () => {
       .catch(function (error) {
         console.log(error);
       });
+
+    //  =============================
+
+    // // api upload image
+    // axios
+    //   .post(`${baseUrl}/api/v1/upload-image`, formData, {
+    //     headers: {
+    //       apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+    //       Authorization: `Bearer ${isLogin}`,
+    //     },
+    //   })
+    //   .then(function (response) {
+    //     // api edit profile
+    //     axios
+    //       .post(
+    //         `${baseUrl}/api/v1/update-profile`,
+    //         {
+    //           name: name,
+    //           email: email,
+    //           profilePictureUrl: response.data.url,
+    //           phoneNumber: phone,
+    //         },
+    //         {
+    //           headers: {
+    //             apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+    //             Authorization: `Bearer ${isLogin}`,
+    //           },
+    //         }
+    //       )
+    //       .then(function (response) {
+    //         console.log(response);
+    //         alert("update profile sukses");
+    //         axios
+    //           .get(`${baseUrl}/api/v1/user`, {
+    //             headers: {
+    //               apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+    //               Authorization: `Bearer ${isLogin}`,
+    //             },
+    //           })
+    //           .then(function (response) {
+    //             console.log(response);
+    //             localStorage.setItem(
+    //               "account",
+    //               JSON.stringify(response.data.data)
+    //             );
+    //             window.location.reload();
+    //           })
+    //           .catch(function (error) {
+    //             console.log(error);
+    //           });
+    //       })
+    //       .catch(function (error) {
+    //         console.log(error);
+    //       });
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   };
 
   return (
@@ -189,6 +244,7 @@ const UpdateProfileAdmin = () => {
                       <label htmlFor=""> Image </label>
                     </div>
                     <div className="col-sm-9">
+                      {/* image preview */}
                       <img src={imagePreview} className="mb-2"></img>
                       <input
                         type="file"

@@ -340,14 +340,14 @@ body {
 
 .promo .promo-box .card {
   transition: 0.7s;
-  border: none;
   cursor: pointer;
-  /* box-shadow: 10px 10px 10px grey; */
+}
+
+.promo .promo-box .card .card-img-top {
+  padding: 5px;
 }
 
 .promo .promo-box .card:hover {
-  /* opacity: 70%; */
-
   transform: scale(1.05);
 }
 
