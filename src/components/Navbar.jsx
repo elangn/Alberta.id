@@ -20,7 +20,7 @@ const Navbar = () => {
             <div className="upper-box1">
               <i className="fa-solid fa-phone text-light me-1"> </i>
               <span className=" me-4">+62 811-1122</span>
-              <i class="fa-solid fa-envelope text-light me-1"></i>
+              <i className="fa-solid fa-envelope text-light me-1"></i>
               <span className=" me-4">alberta@business.com</span>
             </div>
 

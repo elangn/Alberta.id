@@ -62,7 +62,6 @@ const Category = () => {
             }}
             className="slider "
           >
-            <SliderButtons />
             {category.map((item, i) => {
               return (
                 <SwiperSlide key={i}>
@@ -78,6 +77,8 @@ const Category = () => {
                 </SwiperSlide>
               );
             })}
+
+            <SliderButtons />
           </Swiper>
         </div>
       </div>

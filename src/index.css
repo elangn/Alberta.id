@@ -72,7 +72,9 @@ body {
 
 .navbar .avatar {
   border-radius: 50%;
-  width: 30px;
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
 }
 
 .navbar .dropdrown img {
@@ -338,14 +340,14 @@ body {
 
 .promo .promo-box .card {
   transition: 0.7s;
-  border: none;
   cursor: pointer;
-  /* box-shadow: 10px 10px 10px grey; */
+}
+
+.promo .promo-box .card .card-img-top {
+  padding: 5px;
 }
 
 .promo .promo-box .card:hover {
-  /* opacity: 70%; */
-
   transform: scale(1.05);
 }
 
@@ -566,7 +568,9 @@ body {
 
 .navbar-admin .navbar img {
   border-radius: 50%;
-  width: 30px;
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
 }
 
 .navbar-admin .navbar .navbar-brand {
@@ -692,6 +696,13 @@ body {
 
 .update-profile-admin .update-box1 img {
   width: 100px;
+  height: 100px;
+  /* border-radius: 50%; */
+  object-fit: cover;
+}
+
+.update-profile-admin .update-box1 .img-preview {
+  border-radius: 100%;
 }
 
 .update-profile-admin .update-box1 h4 {
