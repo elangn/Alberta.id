@@ -320,11 +320,8 @@ body {
   border-radius: 0;
 }
 
-.r-button {
+.category-button {
   text-align: end;
-  /* position: absolute; */
-  /* top: 0px;
-  right: 0px; */
 }
 
 /* promo  */
@@ -340,14 +337,15 @@ body {
 
 .promo .promo-box .card {
   transition: 0.7s;
-  border: none;
   cursor: pointer;
-  /* box-shadow: 10px 10px 10px grey; */
+  /* opacity: 40%; */
+}
+
+.promo .promo-box .card .card-img-top {
+  padding: 5px;
 }
 
 .promo .promo-box .card:hover {
-  /* opacity: 70%; */
-
   transform: scale(1.05);
 }
 
@@ -383,7 +381,6 @@ body {
 
 .promo p:nth-child(3) {
   color: rgb(11, 11, 141);
-  /* color: rgb(12, 195, 91); */
   font-weight: bold;
 }
 
@@ -395,12 +392,18 @@ body {
   font-size: 14px;
 }
 
+/*  ---- slider promo ----- */
+
+.promo-button {
+  padding-top: 20px;
+  text-align: end;
+}
+
 /* benefit at page Home  */
 
 .benefit {
   margin-top: 50px;
   padding: 50px 0;
-  /* background-color: rgba(118, 204, 232, 0.205); */
 }
 
 .benefit h2 {

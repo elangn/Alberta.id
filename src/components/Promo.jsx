@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import "swiper/css";
 
 const Promo = () => {
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
@@ -15,7 +16,7 @@ const Promo = () => {
       })
       .then(function (response) {
         // console.log(response.data.data);
-        setPromo(response.data.data.slice(0, 4));
+        setPromo(response.data.data);
       })
       .catch(function (error) {
         // handle error
@@ -32,15 +33,28 @@ const Promo = () => {
         </p>
 
         <div className="promo-box">
-          <div className="row">
+          <Swiper
+            spaceBetween={20}
+            breakpoints={{
+              0: {
+                slidesPerView: 2,
+                // spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                // spaceBetween: 20,
+              },
+              968: {
+                slidesPerView: 4,
+                // spaceBetween: 20,
+              },
+            }}
+            className="swiper-promo"
+          >
             {promo.map((item, i) => {
               return (
-                <div className="col-sm-6 col-md-3" key={i}>
-                  <div
-                    className="card my-2"
-                    data-bs-toggle="modal"
-                    data-bs-target={`#promo${item.id}`}
-                  >
+                <SwiperSlide key={i}>
+                  <div className="card">
                     <img
                       src={item.imageUrl}
                       className="card-img-top"
@@ -64,66 +78,13 @@ const Promo = () => {
                       </p>
                     </div>
                   </div>
-
-                  <div>
-                    {/* Modal */}
-                    <div
-                      className="modal fade"
-                      id={`promo${item.id}`}
-                      tabIndex={-1}
-                      aria-labelledby="exampleModalLabel"
-                      aria-hidden="true"
-                    >
-                      <div className="modal-dialog">
-                        <div className="modal-content">
-                          <div className="modal-header">
-                            <h3
-                              className="modal-title fs-5"
-                              id="exampleModalLabel"
-                            >
-                              {item.title}
-                            </h3>
-                          </div>
-                          <div className="modal-body cek">
-                            <img src={item.imageUrl} alt="" />
-                            <hr />
-                            <p className="my-0">
-                              {" "}
-                              Description : {item.description}
-                            </p>
-                            <p className="my-0">
-                              {" "}
-                              Promo code : {item.promo_code}
-                            </p>
-                            <p className="my-0">
-                              {" "}
-                              Promo discount price : {
-                                item.promo_discount_price
-                              }{" "}
-                            </p>
-                            <p className="my-0">
-                              {" "}
-                              Minimun discount price :{" "}
-                              {item.minimum_claim_price}
-                            </p>
-                          </div>
-                          <div className="modal-footer">
-                            <button
-                              type="button"
-                              className="btn btn-secondary"
-                              data-bs-dismiss="modal"
-                            >
-                              Close
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </SwiperSlide>
               );
             })}
-          </div>
+
+            <SliderButtons />
+          </Swiper>
+          {/* <SliderButtons /> */}
         </div>
       </div>
     </div>
@@ -131,3 +92,24 @@ const Promo = () => {
 };
 
 export default Promo;
+
+const SliderButtons = () => {
+  const swiper = useSwiper();
+  return (
+    <div className="promo-button ">
+      <button
+        onClick={() => swiper.slidePrev()}
+        className="btn  border border-1  me-2 btn-sm"
+      >
+        <i className="fa-solid fa-arrow-left  "></i>
+      </button>
+
+      <button
+        onClick={() => swiper.slideNext()}
+        className="btn  btn-sm border border-1"
+      >
+        <i className="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  );
+};

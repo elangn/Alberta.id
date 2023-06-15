@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 
@@ -62,7 +61,6 @@ const Category = () => {
             }}
             className="slider "
           >
-            <SliderButtons />
             {category.map((item, i) => {
               return (
                 <SwiperSlide key={i}>
@@ -78,6 +76,8 @@ const Category = () => {
                 </SwiperSlide>
               );
             })}
+
+            <SliderButtons />
           </Swiper>
         </div>
       </div>
@@ -90,7 +90,7 @@ export default Category;
 const SliderButtons = () => {
   const swiper = useSwiper();
   return (
-    <div className="r-button">
+    <div className="category-button">
       <button
         onClick={() => swiper.slidePrev()}
         className="btn  border border-1  me-2 btn-sm"

@@ -10,7 +10,7 @@ const UpdateProfileAdmin = () => {
   const [name, setName] = useState(account.name);
   const [email, setEmail] = useState(account.email);
   const [phone, setPhone] = useState(account.phoneNumber);
-  const [image, setImage] = useState(account.profilePictureUrl);
+  const [image, setImage] = useState();
   const [imagePreview, setImagePreview] = useState();
 
   const handleEditName = (e) => {
@@ -34,18 +34,37 @@ const UpdateProfileAdmin = () => {
     setImage(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
-    console.log(e.target.value);
-    const formData = new FormData();
-    formData.append("iamge", image);
+  const handleSubmit = async (e) => {
+    let defaultImageUrl = account.profilePictureUrl;
 
-    axios
+    if (image) {
+      const formData = new FormData();
+      formData.append("image", image);
+
+      // api upload image
+      await axios
+        .post(`${baseUrl}/api/v1/upload-image`, formData, {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            Authorization: `Bearer ${isLogin}`,
+          },
+        })
+        .then(function (response) {
+          defaultImageUrl = response.data.url;
+          console.log(response.data.url);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+    // api edit profile
+    await axios
       .post(
         `${baseUrl}/api/v1/update-profile`,
         {
           name: name,
           email: email,
-          profilePictureUrl: imagePreview,
+          profilePictureUrl: defaultImageUrl,
           phoneNumber: phone,
         },
         {
@@ -96,13 +115,13 @@ const UpdateProfileAdmin = () => {
           <hr />
           <div className="update-box">
             <div className="update-box1 text-center">
-              <div className="card  p-2 ">
+              <div className="card  py-4 px-2 ">
                 <img
                   src={account.profilePictureUrl}
                   className="card-img-top mx-auto"
                   alt="..."
                 />
-                <h4> {account.name} </h4>
+                <h4 className="mt-4"> {account.name} </h4>
                 <p className="my-0">
                   {" "}
                   <i className="fa-solid fa-envelope me-2"></i> {account.email}{" "}
@@ -167,12 +186,16 @@ const UpdateProfileAdmin = () => {
                       <label htmlFor=""> Image </label>
                     </div>
                     <div className="col-sm-9">
-                      <img src={imagePreview} className="mb-2"></img>
+                      {/* image preview */}
+                      {imagePreview ? (
+                        <img src={imagePreview} className="mb-2"></img>
+                      ) : (
+                        <p> choose your image</p>
+                      )}
+
                       <input
                         type="file"
                         accept="image/*"
-                        // type="text"
-                        // name="file"
                         className="w-100 "
                         onChange={handleEditImage}
                       />
