@@ -38,10 +38,10 @@ const UpdateProfileAdmin = () => {
     let defaultImageUrl = account.profilePictureUrl;
 
     if (image) {
-      // api upload image
       const formData = new FormData();
       formData.append("image", image);
 
+      // api upload image
       await axios
         .post(`${baseUrl}/api/v1/upload-image`, formData, {
           headers: {
@@ -87,8 +87,7 @@ const UpdateProfileAdmin = () => {
           .then(function (response) {
             console.log(response);
             localStorage.setItem("account", JSON.stringify(response.data.data));
-            setImagePreview(defaultImageUrl);
-            // window.location.reload();
+            window.location.reload();
           })
           .catch(function (error) {
             console.log(error);
@@ -97,64 +96,6 @@ const UpdateProfileAdmin = () => {
       .catch(function (error) {
         console.log(error);
       });
-
-    //  =============================
-
-    // api upload image
-    // axios
-    //   .post(`${baseUrl}/api/v1/upload-image`, formData, {
-    //     headers: {
-    //       apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-    //       Authorization: `Bearer ${isLogin}`,
-    //     },
-    //   })
-    //   .then(function (response) {
-    //     // api edit profile
-    //     axios
-    //       .post(
-    //         `${baseUrl}/api/v1/update-profile`,
-    //         {
-    //           name: name,
-    //           email: email,
-    //           profilePictureUrl: response.data.url,
-    //           phoneNumber: phone,
-    //         },
-    //         {
-    //           headers: {
-    //             apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-    //             Authorization: `Bearer ${isLogin}`,
-    //           },
-    //         }
-    //       )
-    //       .then(function (response) {
-    //         console.log(response);
-    //         alert("update profile sukses");
-    //         axios
-    //           .get(`${baseUrl}/api/v1/user`, {
-    //             headers: {
-    //               apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-    //               Authorization: `Bearer ${isLogin}`,
-    //             },
-    //           })
-    //           .then(function (response) {
-    //             console.log(response);
-    //             localStorage.setItem(
-    //               "account",
-    //               JSON.stringify(response.data.data)
-    //             );
-    //             window.location.reload();
-    //           })
-    //           .catch(function (error) {
-    //             console.log(error);
-    //           });
-    //       })
-    //       .catch(function (error) {
-    //         console.log(error);
-    //       });
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
   };
 
   return (
@@ -255,8 +196,6 @@ const UpdateProfileAdmin = () => {
                       <input
                         type="file"
                         accept="image/*"
-                        // type="text"
-                        // name="file"
                         className="w-100 "
                         onChange={handleEditImage}
                       />
