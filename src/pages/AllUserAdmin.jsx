@@ -65,31 +65,6 @@ const AllUserAdmin = () => {
       });
   };
 
-  // const handleSubmit = (e) => {
-  //   console.log(roleCreate);
-  //   // bikin di handle change
-
-  //   axios
-  //     .post(
-  //       `${baseUrl}/api/v1/update-user-role/${userID}`,
-  //       {
-  //         role: roleCreate,
-  //       },
-  //       {
-  //         headers: {
-  //           apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-  //           Authorization: `Bearer ${isLogin}`,
-  //         },
-  //       }
-  //     )
-  //     .then(function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // };
-
   return (
     <>
       <NavbarAdmin />
@@ -102,8 +77,8 @@ const AllUserAdmin = () => {
           <hr />
 
           <div className="all-user-box">
-            <table className="table">
-              <thead className="table-dark">
+            <table className="table table-striped">
+              <thead className="table-dark ">
                 <tr>
                   <th scope="col">Username</th>
                   <th scope="col">Email</th>

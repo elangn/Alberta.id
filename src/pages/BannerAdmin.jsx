@@ -9,10 +9,12 @@ const BannerAdmin = () => {
 
   const [banner, setBanner] = useState([]);
   const [name, setName] = useState("");
-  const [bannerUrl, setBannerUrl] = useState("");
+  const [image, setImage] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
 
   const [editName, setEditName] = useState("");
-  const [editimage, setEditImage] = useState("");
+  const [editImage, setEditImage] = useState("");
+  const [editImagePrev, setEditImagePrev] = useState("");
 
   useEffect(() => {
     axios
@@ -32,20 +34,41 @@ const BannerAdmin = () => {
     setName(e.target.value);
   };
 
-  const handleChangeUrl = (e) => {
+  const handleChangeImage = (e) => {
     console.log(e.target.value);
-    setBannerUrl(e.target.value);
+    setImagePreview(URL.createObjectURL(e.target.files[0]));
+    setImage(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
-    // console.log();
+  const handleSubmit = async (e) => {
+    let defaultImageUrl = "";
 
-    axios
+    const formData = new FormData();
+    formData.append("image", image);
+
+    // upload image
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImageUrl = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // create banner
+    await axios
       .post(
         `${baseUrl}/api/v1/create-banner`,
         {
           name: name,
-          imageUrl: bannerUrl,
+          imageUrl: defaultImageUrl,
         },
         {
           headers: {
@@ -69,6 +92,7 @@ const BannerAdmin = () => {
           .catch(function (error) {
             console.log(error);
           });
+        window.location.reload();
       });
   };
 
@@ -78,17 +102,40 @@ const BannerAdmin = () => {
   };
 
   const handleEditImage = (e) => {
-    console.log(e.target.value);
-    setEditImage(e.target.value);
+    console.log(e.target.files[0]);
+    setEditImagePrev(URL.createObjectURL(e.target.files[0]));
+    setEditImage(e.target.files[0]);
   };
 
-  const handleEditSubmit = (bannerId) => {
-    axios
+  const handleEditSubmit = async (bannerId) => {
+    let defaultImage = "";
+
+    const formData = new FormData();
+    formData.append("image", editImage);
+
+    // upload image
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImage = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // edit banner by ID
+    await axios
       .post(
         `${baseUrl}/api/v1/update-banner/${bannerId}`,
         {
           name: editName,
-          imageUrl: editimage,
+          imageUrl: defaultImage,
         },
         {
           headers: {
@@ -108,6 +155,7 @@ const BannerAdmin = () => {
           .then(function (response) {
             // console.log(response.data.data);
             setBanner(response.data.data);
+            window.location.reload();
           });
       })
       .catch(function (error) {
@@ -159,8 +207,6 @@ const BannerAdmin = () => {
           </h4>
           <hr />
           <div className="banner-admin-box">
-            {/* <button className="btn btn-success mb-4"> Add New Banner </button> */}
-
             <div>
               {/* Button trigger modal */}
               <button
@@ -188,6 +234,19 @@ const BannerAdmin = () => {
                     </div>
                     <div className="modal-body">
                       <form action="">
+                        <label htmlFor="bannerUrl" className="me-2 mb-2">
+                          Image
+                        </label>{" "}
+                        <br />
+                        <img src={imagePreview} alt="" className="mb-2 w-100" />
+                        <input
+                          type="file"
+                          accept="image/*"
+                          id="bannerUrl"
+                          className="w-75"
+                          onChange={handleChangeImage}
+                        />
+                        <br /> <br />
                         <label htmlFor="name" className="me-2">
                           Name
                         </label>{" "}
@@ -197,17 +256,6 @@ const BannerAdmin = () => {
                           id="name"
                           className="w-50"
                           onChange={handleChangeName}
-                        />
-                        <br /> <br />
-                        <label htmlFor="bannerUrl" className="me-2">
-                          Url
-                        </label>{" "}
-                        <br />
-                        <input
-                          type="text"
-                          id="bannerUrl"
-                          className="w-75"
-                          onChange={handleChangeUrl}
                         />
                       </form>
                     </div>
@@ -278,6 +326,20 @@ const BannerAdmin = () => {
                               </div>
                               <div className="modal-body">
                                 <form action="">
+                                  <label htmlFor=""> Image </label> <br />
+                                  <img
+                                    src={editImagePrev}
+                                    alt=""
+                                    className="w-100 my-3"
+                                  />
+                                  <input
+                                    type="file"
+                                    accept="image/*"
+                                    className="w-75"
+                                    onChange={handleEditImage}
+                                  />{" "}
+                                  <br />
+                                  <br />
                                   <label htmlFor=""> Name </label> <br />
                                   <input
                                     type="text"
@@ -285,15 +347,6 @@ const BannerAdmin = () => {
                                     onChange={handleEditName}
                                     value={editName}
                                   />{" "}
-                                  <br />
-                                  <label htmlFor=""> Image Url </label> <br />
-                                  <input
-                                    type="text"
-                                    className="w-75"
-                                    onChange={handleEditImage}
-                                    // value={editimage}
-                                  />{" "}
-                                  <br />
                                 </form>
                               </div>
                               <div className="modal-footer">
