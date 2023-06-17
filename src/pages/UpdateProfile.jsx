@@ -1,74 +1,103 @@
-import React from "react";
+import { React, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 
 const UpdateProfile = () => {
   const isLogin = JSON.parse(localStorage.getItem("token"));
   const account = JSON.parse(localStorage.getItem("account"));
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
 
-  const formik = useFormik({
-    initialValues: {
-      name: account.name,
-      email: account.email,
-      profilePictureUrl: account.profilePictureUrl,
-      phoneNumber: account.phoneNumber,
-    },
-    validationSchema: Yup.object({
-      name: Yup.string().max(15, "Must be 15 characters or less"),
-      profilePictureUrl: Yup.string().min(5, "Must be 5 characters or more"),
-      email: Yup.string().email("Invalid email address"),
-      phoneNumber: Yup.string().max(15, "Must be 15 characters or less"),
-    }),
-    onSubmit: (values) => {
-      // alert(JSON.stringify(values, null, 2));
+  const [name, setName] = useState(account.name);
+  const [email, setEmail] = useState(account.email);
+  const [phone, setPhone] = useState(account.phoneNumber);
+  const [image, setImage] = useState();
+  const [imagePreview, setImagePreview] = useState();
 
-      axios
-        .post(
-          `${baseUrl}/api/v1/update-profile`,
-          {
-            name: values.name,
-            email: values.email,
-            profilePictureUrl: values.profilePictureUrl,
-            phoneNumber: values.phoneNumber,
+  const handleEditName = (e) => {
+    console.log(e.target.value);
+    setName(e.target.value);
+  };
+
+  const handleEditEmail = (e) => {
+    console.log(e.target.value);
+    setEmail(e.target.value);
+  };
+
+  const handleEditPhone = (e) => {
+    console.log(e.target.value);
+    setPhone(e.target.value);
+  };
+
+  const handleEditImage = (e) => {
+    console.log(e.target.files[0]);
+    setImagePreview(URL.createObjectURL(e.target.files[0]));
+    setImage(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    let defaultImageUrl = account.profilePictureUrl;
+
+    if (image) {
+      const formData = new FormData();
+      formData.append("image", image);
+
+      // api upload image
+      await axios
+        .post(`${baseUrl}/api/v1/upload-image`, formData, {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            Authorization: `Bearer ${isLogin}`,
           },
-          {
-            headers: {
-              apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-              Authorization: `Bearer ${isLogin}`,
-            },
-          }
-        )
+        })
         .then(function (response) {
-          console.log(response);
-          alert("update profile sukses");
-          axios
-            .get(`${baseUrl}/api/v1/user`, {
-              headers: {
-                apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-                Authorization: `Bearer ${isLogin}`,
-              },
-            })
-            .then(function (response) {
-              console.log(response);
-              localStorage.setItem(
-                "account",
-                JSON.stringify(response.data.data)
-              );
-              window.location.reload();
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+          defaultImageUrl = response.data.url;
+          console.log(response.data.url);
         })
         .catch(function (error) {
           console.log(error);
         });
-    },
-  });
+    }
+    // api edit profile
+    await axios
+      .post(
+        `${baseUrl}/api/v1/update-profile`,
+        {
+          name: name,
+          email: email,
+          profilePictureUrl: defaultImageUrl,
+          phoneNumber: phone,
+        },
+        {
+          headers: {
+            apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+            Authorization: `Bearer ${isLogin}`,
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response);
+        alert("update profile sukses");
+        axios
+          .get(`${baseUrl}/api/v1/user`, {
+            headers: {
+              apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+              Authorization: `Bearer ${isLogin}`,
+            },
+          })
+          .then(function (response) {
+            console.log(response);
+            localStorage.setItem("account", JSON.stringify(response.data.data));
+            window.location.reload();
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -115,97 +144,85 @@ const UpdateProfile = () => {
 
                     <h4 className="mt-4"> Edit Profile</h4>
 
-                    <form onSubmit={formik.handleSubmit}>
-                      <div className="row mb-3">
-                        <div className="col-sm-4">
-                          <label htmlFor="name"> Name</label>
-                        </div>
-
-                        <div className="col-sm-8">
-                          <input
-                            id="name"
-                            name="name"
-                            type="text"
-                            onChange={formik.handleChange}
-                            // value={formik.values.name}
-                            className="w-75"
-                          />
-
-                          {formik.touched.name && formik.errors.name ? (
-                            <div>{formik.errors.name}</div>
-                          ) : null}
-                        </div>
+                    <div className="row mb-3">
+                      <div className="col-sm-4">
+                        <label htmlFor="name"> Name</label>
                       </div>
 
-                      <div className="row mb-3">
-                        <div className="col-sm-4">
-                          <label htmlFor="email">Email </label>
-                        </div>
+                      <div className="col-sm-8">
+                        <input
+                          id="name"
+                          name="name"
+                          type="text"
+                          onChange={handleEditName}
+                          className="w-75"
+                        />
+                      </div>
+                    </div>
 
-                        <div className="col-sm-8">
-                          <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            onChange={formik.handleChange}
-                            // value={formik.values.email}
-                            className="w-100"
-                          />
-
-                          {formik.touched.email && formik.errors.email ? (
-                            <div>{formik.errors.email}</div>
-                          ) : null}
-                        </div>
+                    <div className="row mb-3">
+                      <div className="col-sm-4">
+                        <label htmlFor="email">Email </label>
                       </div>
 
-                      <div className="row mb-3">
-                        <div className="col-sm-4">
-                          <label htmlFor="profilePictureUrl">
-                            Profile Picture
-                          </label>
-                        </div>
+                      <div className="col-sm-8">
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          onChange={handleEditEmail}
+                          className="w-100"
+                        />
+                      </div>
+                    </div>
 
-                        <div className="col-sm-8">
-                          <input
-                            id="profilePictureUrl"
-                            name="profilePictureUrl"
-                            type="text"
-                            onChange={formik.handleChange}
-                            // value={formik.values.profilePictureUrl}
-                            className="w-100"
-                          />
-                          {formik.touched.profilePictureUrl &&
-                          formik.errors.profilePictureUrl ? (
-                            <div>{formik.errors.profilePictureUrl}</div>
-                          ) : null}
-                        </div>
+                    <div className="row mb-3">
+                      <div className="col-sm-4">
+                        <label htmlFor="phoneNumber">Phone Number</label>
                       </div>
 
-                      <div className="row mb-3">
-                        <div className="col-sm-4">
-                          <label htmlFor="phoneNumber">Phone Number</label>
-                        </div>
+                      <div className="col-sm-8">
+                        <input
+                          id="phoneNumber"
+                          name="phoneNumber"
+                          type="text"
+                          onChange={handleEditPhone}
+                          className="w-100"
+                        />
+                      </div>
+                    </div>
 
-                        <div className="col-sm-8">
-                          <input
-                            id="phoneNumber"
-                            name="phoneNumber"
-                            type="text"
-                            onChange={formik.handleChange}
-                            // value={formik.values.phoneNumber}
-                            className="w-100"
-                          />
-                          {formik.touched.phoneNumber &&
-                          formik.errors.phoneNumber ? (
-                            <div>{formik.errors.phoneNumber}</div>
-                          ) : null}
-                        </div>
+                    <div className="row mb-3">
+                      <div className="col-sm-4">
+                        <label htmlFor="profilePictureUrl">
+                          Profile Picture
+                        </label>
                       </div>
 
-                      <button type="submit" className="btn btn-success mt-4">
-                        Submit
-                      </button>
-                    </form>
+                      <div className="col-sm-8">
+                        {imagePreview ? (
+                          <img src={imagePreview} className="mb-2"></img>
+                        ) : (
+                          <p> choose your image</p>
+                        )}
+                        <input
+                          id="profilePictureUrl"
+                          name="profilePictureUrl"
+                          type="file"
+                          accept="image/*"
+                          onChange={handleEditImage}
+                          className="w-100"
+                        />
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="btn btn-success mt-4"
+                      onClick={handleSubmit}
+                    >
+                      Submit
+                    </button>
                   </div>
                 </div>
               </div>
