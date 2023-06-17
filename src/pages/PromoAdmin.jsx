@@ -13,6 +13,7 @@ const PromoAdmin = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
   const [terms, setTerms] = useState("");
   const [promoCode, setPromoCode] = useState("");
   const [discPrice, setDiscPrice] = useState(0);
@@ -22,6 +23,7 @@ const PromoAdmin = () => {
   const [editTitle, setEditTitle] = useState("");
   const [editDescription, setEditDescription] = useState("");
   const [editImageUrl, setEditImageUrl] = useState("");
+  const [editImagePrev, setEditImagePrev] = useState("");
   const [editTerms, setEditTerms] = useState("");
   const [editPromoCode, setEditPromoCode] = useState("");
   const [editDiscPrice, setEditDiscPrice] = useState(0);
@@ -54,8 +56,9 @@ const PromoAdmin = () => {
   };
 
   const handleImageUrl = (e) => {
-    console.log(e.target.value);
-    setImageUrl(e.target.value);
+    console.log(e.target.files[0]);
+    setImagePreview(URL.createObjectURL(e.target.files[0]));
+    setImageUrl(e.target.files[0]);
   };
 
   const handleTerms = (e) => {
@@ -78,15 +81,36 @@ const PromoAdmin = () => {
     setClaimPrice(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
-    axios
+  const handleSubmit = async (e) => {
+    let defaultImage = "";
+
+    const formData = new FormData();
+    formData.append("image", imageUrl);
+
+    // upload image
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImage = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // create promo
+    await axios
       .post(
         `${baseUrl}/api/v1/create-promo`,
         {
           title: title,
           description: description,
-          imageUrl: imageUrl,
+          imageUrl: defaultImage,
           terms_condition: terms,
           promo_code: promoCode,
           promo_discount_price: parseInt(discPrice),
@@ -110,6 +134,7 @@ const PromoAdmin = () => {
           .then(function (response) {
             // console.log(response.data.data);
             setPromo(response.data.data);
+            window.location.reload();
           })
           .catch(function (error) {
             console.log(error);
@@ -132,8 +157,9 @@ const PromoAdmin = () => {
   };
 
   const handleEditImage = (e) => {
-    console.log(e.target.value);
-    setEditImageUrl(e.target.value);
+    console.log(e.target.files[0]);
+    setEditImagePrev(URL.createObjectURL(e.target.files[0]));
+    setEditImageUrl(e.target.files[0]);
   };
 
   const handleEditTerm = (e) => {
@@ -156,14 +182,37 @@ const PromoAdmin = () => {
     setEditClaimPrice(e.target.value);
   };
 
-  const handleEditSubmit = (promoId) => {
-    axios
+  const handleEditSubmit = async (promoId) => {
+    let defaultImage2 = "";
+
+    const formData = new FormData();
+    formData.append("image", editImageUrl);
+
+    // upload image
+
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImage2 = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // update promo
+    await axios
       .post(
         `${baseUrl}/api/v1/update-promo/${promoId}`,
         {
           title: editTitle,
           lastName: editDescription,
-          imageUrl: editImageUrl,
+          imageUrl: defaultImage2,
           terms_condition: editTerms,
           promo_code: editPromoCode,
           promo_discount_price: parseInt(editDiscPrice),
@@ -188,6 +237,7 @@ const PromoAdmin = () => {
           .then(function (response) {
             // console.log(response);
             setPromo(response.data.data);
+            window.location.reload();
           })
           .catch(function (error) {
             console.log(error);
@@ -270,6 +320,16 @@ const PromoAdmin = () => {
                     </div>
                     <div className="modal-body">
                       <form action="">
+                        <label htmlFor="imageUrl"> Image </label> <br />
+                        <img src={imagePreview} alt="" className="my-2 w-100" />
+                        <input
+                          type="file"
+                          accept="image/*"
+                          id="imageUrl"
+                          className="mb-2 w-75"
+                          onChange={handleImageUrl}
+                        />{" "}
+                        <br />
                         <label htmlFor="title"> Title</label> <br />
                         <input
                           type="text"
@@ -287,14 +347,6 @@ const PromoAdmin = () => {
                           className="mb-2 w-75"
                           onChange={handleDescription}
                         ></textarea>
-                        <br />
-                        <label htmlFor="imageUrl"> Image Url</label> <br />
-                        <input
-                          type="text"
-                          id="imageUrl"
-                          className="mb-2 w-75"
-                          onChange={handleImageUrl}
-                        />{" "}
                         <br />
                         <label htmlFor="term"> Term and condition</label> <br />
                         <textarea
@@ -409,11 +461,17 @@ const PromoAdmin = () => {
                               </div>
                               <div className="modal-body">
                                 <form action="">
-                                  <label htmlFor=""> Title</label> <br />
+                                  <label htmlFor=""> Image Url</label> <br />
+                                  <img
+                                    src={editImagePrev}
+                                    alt=""
+                                    className="w-100 my-2 "
+                                  />
                                   <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditTItle}
+                                    type="file"
+                                    accept="image/*"
+                                    className="w-75 mb-2"
+                                    onChange={handleEditImage}
                                   />{" "}
                                   <br />
                                   <label htmlFor=""> Description</label> <br />
@@ -426,11 +484,11 @@ const PromoAdmin = () => {
                                     onChange={handleEditDescription}
                                   ></textarea>{" "}
                                   <br />
-                                  <label htmlFor=""> Image Url</label> <br />
+                                  <label htmlFor=""> Title</label> <br />
                                   <input
                                     type="text"
-                                    className="w-75 mb-2"
-                                    onChange={handleEditImage}
+                                    className="mb-2"
+                                    onChange={handleEditTItle}
                                   />{" "}
                                   <br />
                                   <label htmlFor="">

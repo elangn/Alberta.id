@@ -12,10 +12,12 @@ const CategoryAdmin = () => {
   // state update
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
 
   // state update
   const [editName, setEditName] = useState("");
   const [editImageUrl, setEditImageUrl] = useState("");
+  const [editImagePrev, setEditImagePrev] = useState("");
 
   useEffect(() => {
     axios
@@ -41,17 +43,40 @@ const CategoryAdmin = () => {
   };
 
   const handleImage = (e) => {
-    console.log(e.target.value);
-    setImageUrl(e.target.value);
+    console.log(e.target.files[0]);
+    setImagePreview(URL.createObjectURL(e.target.files[0]));
+    setImageUrl(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
-    axios
+  const handleSubmit = async (e) => {
+    let defaultImage = "";
+
+    const formData = new FormData();
+    formData.append("image", imageUrl);
+
+    // uplaod image
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImage = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // create category
+    await axios
       .post(
         `${baseUrl}/api/v1/create-category`,
         {
           name: name,
-          imageUrl: imageUrl,
+          imageUrl: defaultImage,
         },
         {
           headers: {
@@ -88,17 +113,40 @@ const CategoryAdmin = () => {
   };
 
   const handleEditImage = (e) => {
-    console.log(e.target.value);
-    setEditImageUrl(e.target.value);
+    console.log(e.target.files[0]);
+    setEditImagePrev(URL.createObjectURL(e.target.files[0]));
+    setEditImageUrl(e.target.files[0]);
   };
 
-  const handleEditSubmit = (categoryId) => {
-    axios
+  const handleEditSubmit = async (categoryId) => {
+    let defaultImage2 = "";
+
+    const formData = new FormData();
+    formData.append("image", editImageUrl);
+
+    // uplaod image
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImage2 = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // update category
+    await axios
       .post(
         `${baseUrl}/api/v1/update-category/${categoryId}`,
         {
           name: editName,
-          imageUrl: editImageUrl,
+          imageUrl: defaultImage2,
         },
         {
           headers: {
@@ -118,6 +166,7 @@ const CategoryAdmin = () => {
           .then(function (response) {
             // console.log(response);
             setCategory(response.data.data);
+            window.location.reload();
           })
           .catch(function (error) {
             console.log("error");
@@ -202,19 +251,21 @@ const CategoryAdmin = () => {
                     </div>
                     <div className="modal-body">
                       <form action="">
+                        <label htmlFor="imageUrl"> Image Url</label> <br />
+                        <img src={imagePreview} alt="" className="w-100 my-2" />
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={handleImage}
+                          className="w-75"
+                        />
+                        <br /> <br />
                         <label htmlFor="name"> Name</label> <br />
                         <input
                           type="text"
                           onChange={handleName}
-                          className="mb-2"
+                          className="my-2"
                         />{" "}
-                        <br />
-                        <label htmlFor="imageUrl"> Image Url</label> <br />
-                        <input
-                          type="text"
-                          onChange={handleImage}
-                          className="w-75"
-                        />
                       </form>
                     </div>
                     <div className="modal-footer">
@@ -284,18 +335,24 @@ const CategoryAdmin = () => {
                               </div>
                               <div className="modal-body">
                                 <form action="">
+                                  <label htmlFor=""> Image </label> <br />
+                                  <img
+                                    src={editImagePrev}
+                                    alt=""
+                                    className="my-2 w-100"
+                                  />
+                                  <input
+                                    type="file"
+                                    accept="image/*"
+                                    className="mb-2 w-75"
+                                    onChange={handleEditImage}
+                                  />
+                                  <br />
                                   <label htmlFor=""> Name </label> <br />
                                   <input
                                     type="text"
                                     className="mb-2"
                                     onChange={handleEditName}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor=""> Image Url </label> <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2 w-75"
-                                    onChange={handleEditImage}
                                   />{" "}
                                   <br />
                                 </form>

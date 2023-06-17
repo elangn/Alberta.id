@@ -155,6 +155,7 @@ const BannerAdmin = () => {
           .then(function (response) {
             // console.log(response.data.data);
             setBanner(response.data.data);
+            window.location.reload();
           });
       })
       .catch(function (error) {
@@ -325,8 +326,12 @@ const BannerAdmin = () => {
                               </div>
                               <div className="modal-body">
                                 <form action="">
-                                  <label htmlFor=""> Image Url </label> <br />
-                                  <img src={editImagePrev} alt="" />
+                                  <label htmlFor=""> Image </label> <br />
+                                  <img
+                                    src={editImagePrev}
+                                    alt=""
+                                    className="w-100 my-3"
+                                  />
                                   <input
                                     type="file"
                                     accept="image/*"
