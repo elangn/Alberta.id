@@ -19,7 +19,7 @@ const Activity = () => {
   }, []);
 
   return (
-    <div className="activity">
+    <div className="activity mb-5">
       <div className="container">
         <h2> Destinations </h2>
         <p className="text-secondary">Explore all destinations</p>
@@ -28,7 +28,7 @@ const Activity = () => {
           <div className="row">
             {activity.map((item, i) => {
               return (
-                <div className="col-sm-6 col-md-3 mb-4" key={i}>
+                <div className="col-sm-6 col-md-4 col-lg-3 mb-4" key={i}>
                   <div
                     className="card"
                     data-bs-toggle="modal"
@@ -52,11 +52,13 @@ const Activity = () => {
                     </div>
 
                     <div className="card-body py-0 px-2 mb-1">
-                      <p className="my-0"> {item.total_reviews} reviews</p>
+                      {/* <p className="my-0"> {item.total_reviews} reviews</p> */}
                       <p className="card-text mb-1">
-                        {/* <img src="img/pin.png" alt="" className="me-1" /> */}
+                        <img src="img/pin.png" alt="" className="me-1" />
                         {item.city}, {item.province}
                       </p>
+                      <p className="mb-0 text-secondary"> Start form</p>
+                      <p className="mb-0 price"> IDR {item.price}</p>
                     </div>
                   </div>
                   <div>

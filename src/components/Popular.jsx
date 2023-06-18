@@ -58,7 +58,7 @@ const Popular = () => {
 
                     <div className="card-body py-0">
                       <p className="card-text mb-1">
-                        <img src="img/pin.png" alt="" className="me-1" />
+                        <img src="img/pin.png" alt="" className="me-1 p-0" />
                         {item.city}, {item.province}
                       </p>
                       {/* <p className="card-text mt-1 mb-3 ">Rp. {item.price}</p> */}
