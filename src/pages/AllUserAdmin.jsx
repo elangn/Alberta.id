@@ -76,7 +76,7 @@ const AllUserAdmin = () => {
           </h4>
           <hr />
 
-          <div className="all-user-box">
+          <div className="all-user-box table-responsive">
             <table className="table table-striped">
               <thead className="table-dark ">
                 <tr>

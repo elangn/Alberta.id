@@ -14,7 +14,9 @@ const ActivityAdmin = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrls, setImageUrl] = useState("");
+  const [imagePreview1, setImagePreview1] = useState("");
   const [imageUrls2, setImageUrl2] = useState("");
+  const [imagePreview2, setImagePreview2] = useState("");
   const [price, setPrice] = useState(0);
   const [price_discount, setPrice_Discount] = useState(0);
   const [rating, setRating] = useState(0);
@@ -30,7 +32,9 @@ const ActivityAdmin = () => {
   const [editTitle, setEditTitle] = useState("");
   const [editDescription, setEditDescription] = useState("");
   const [editImageUrls, setEditImageUrl] = useState("");
+  const [imagePreview3, setImagePreview3] = useState("");
   const [editImageUrls2, setEditImageUrl2] = useState("");
+  const [imagePreview4, setImagePreview4] = useState("");
   const [editPrice, setEditPrice] = useState(0);
   const [editPrice_discount, setEditPrice_Discount] = useState(0);
   const [editRating, setEditRating] = useState(0);
@@ -75,13 +79,15 @@ const ActivityAdmin = () => {
   };
 
   const handleImageUrl = (e) => {
-    console.log(e.target.value);
-    setImageUrl(e.target.value);
+    console.log(e.target.files[0]);
+    setImagePreview1(URL.createObjectURL(e.target.files[0]));
+    setImageUrl(e.target.files[0]);
   };
 
   const handleImageUrl2 = (e) => {
-    console.log(e.target.value);
-    setImageUrl2(e.target.value);
+    console.log(e.target.files[0]);
+    setImagePreview2(URL.createObjectURL(e.target.files[0]));
+    setImageUrl2(e.target.files[0]);
   };
 
   const handlePrice = (e) => {
@@ -129,15 +135,60 @@ const ActivityAdmin = () => {
     setLocation_Maps(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    axios
+  const handleSubmit = async (e) => {
+    let defaultImage1 = "";
+    let defaultImage2 = "";
+    // let gambar = [defaultImage1, defaultImage2];
+
+    const formData = new FormData();
+    formData.append("image", imageUrls);
+
+    // upload image 1
+
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImage1 = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    const formData2 = new FormData();
+    formData2.append("image", imageUrls2);
+
+    // upload image 2
+
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData2, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImage2 = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // create activity
+    await axios
       .post(
         `${baseUrl}/api/v1/create-activity`,
         {
           categoryId: categoryId,
           title: title,
           description: description,
-          imageUrls: [imageUrls, imageUrls2],
+          imageUrls: [defaultImage1, defaultImage2],
           price: parseInt(price),
           price_discount: parseInt(price_discount),
           rating: parseInt(rating),
@@ -193,13 +244,15 @@ const ActivityAdmin = () => {
   };
 
   const handleEditImageUrl = (e) => {
-    console.log(e.target.value);
-    setEditImageUrl(e.target.value);
+    console.log(e.target.files[0]);
+    setImagePreview3(URL.createObjectURL(e.target.files[0]));
+    setEditImageUrl(e.target.files[0]);
   };
 
   const handleEditImageUrl2 = (e) => {
-    console.log(e.target.value);
-    setEditImageUrl2(e.target.value);
+    console.log(e.target.files[0]);
+    setImagePreview4(URL.createObjectURL(e.target.files[0]));
+    setEditImageUrl2(e.target.files[0]);
   };
 
   const handleEditPrice = (e) => {
@@ -247,15 +300,59 @@ const ActivityAdmin = () => {
     setEditLocation_Maps(e.target.value);
   };
 
-  const handleEditSubmit = (activityId) => {
-    axios
+  const handleEditSubmit = async (activityId) => {
+    let defaultImage3 = "";
+    let defaultImage4 = "";
+
+    const formData3 = new FormData();
+    formData.append("image", editImageUrls);
+
+    // upload image 3
+
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData3, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImage3 = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    const formData4 = new FormData();
+    formData2.append("image", editImageUrls2);
+
+    // upload image 2
+
+    await axios
+      .post(`${baseUrl}/api/v1/upload-image`, formData4, {
+        headers: {
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+          Authorization: `Bearer ${isLogin}`,
+        },
+      })
+      .then(function (response) {
+        defaultImage4 = response.data.url;
+        console.log(response.data.url);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // update activity
+    await axios
       .post(
         `${baseUrl}/api/v1/update-activity/${activityId}`,
         {
           categoryId: EditCategoryId,
           title: editTitle,
           description: editDescription,
-          imageUrls: [editImageUrls, editImageUrls2],
+          imageUrls: [defaultImage3, defaultImage4],
           price: parseInt(editPrice),
           price_discount: parseInt(editPrice_discount),
           rating: parseInt(editRating),
@@ -368,12 +465,46 @@ const ActivityAdmin = () => {
                       <form action="">
                         <label htmlFor="" className="mb-1">
                           {" "}
+                          Image 1
+                        </label>
+                        <br />
+                        <img
+                          src={imagePreview1}
+                          alt=""
+                          className="w-100 my-2"
+                        />
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="mb-2 w-75"
+                          onChange={handleImageUrl}
+                        />{" "}
+                        <br />
+                        <label htmlFor="" className="mb-1">
+                          {" "}
+                          Image 2
+                        </label>
+                        <br />
+                        <img
+                          src={imagePreview2}
+                          alt=""
+                          className="w-100 my-2"
+                        />
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="mb-2 w-75"
+                          onChange={handleImageUrl2}
+                        />{" "}
+                        <br />
+                        <label htmlFor="" className="mb-1">
+                          {" "}
                           CategoryId
                         </label>
                         <br />
                         <input
                           type="text"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleCategoryId}
                         />{" "}
                         <br />
@@ -384,7 +515,7 @@ const ActivityAdmin = () => {
                         <br />
                         <input
                           type="text"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleTitle}
                         />{" "}
                         <br />
@@ -398,31 +529,9 @@ const ActivityAdmin = () => {
                           id=""
                           cols="50"
                           rows="3"
-                          className="mb-2"
+                          className="form-control w-75"
                           onChange={handleDescription}
                         ></textarea>
-                        <br />
-                        <label htmlFor="" className="mb-1">
-                          {" "}
-                          Image Url
-                        </label>
-                        <br />
-                        <input
-                          type="text"
-                          className="mb-2 w-75"
-                          onChange={handleImageUrl}
-                        />{" "}
-                        <br />
-                        <label htmlFor="" className="mb-1">
-                          {" "}
-                          Image Url 2
-                        </label>
-                        <br />
-                        <input
-                          type="text"
-                          className="mb-2 w-75"
-                          onChange={handleImageUrl2}
-                        />{" "}
                         <br />
                         <label htmlFor="" className="mb-1">
                           {" "}
@@ -431,7 +540,7 @@ const ActivityAdmin = () => {
                         <br />
                         <input
                           type="number"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handlePrice}
                         />{" "}
                         <br />
@@ -442,7 +551,7 @@ const ActivityAdmin = () => {
                         <br />
                         <input
                           type="number"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleDiscountPrice}
                         />{" "}
                         <br />
@@ -453,7 +562,7 @@ const ActivityAdmin = () => {
                         <br />
                         <input
                           type="number"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleRating}
                         />{" "}
                         <br />
@@ -464,7 +573,7 @@ const ActivityAdmin = () => {
                         <br />
                         <input
                           type="number"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleReview}
                         />{" "}
                         <br />
@@ -475,7 +584,7 @@ const ActivityAdmin = () => {
                         <br />
                         <input
                           type="text"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleFacilities}
                         />{" "}
                         <br />
@@ -489,7 +598,7 @@ const ActivityAdmin = () => {
                           id=""
                           cols="50"
                           rows="2"
-                          className="mb-2"
+                          className="form-control w-75"
                           onChange={handleAddress}
                         ></textarea>{" "}
                         <br />
@@ -500,7 +609,7 @@ const ActivityAdmin = () => {
                         <br />
                         <input
                           type="text"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleProvince}
                         />{" "}
                         <br />
@@ -511,7 +620,7 @@ const ActivityAdmin = () => {
                         <br />
                         <input
                           type="text"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleCity}
                         />{" "}
                         <br />
@@ -525,7 +634,7 @@ const ActivityAdmin = () => {
                           id=""
                           cols="50"
                           rows="2"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleMap}
                         ></textarea>
                       </form>
@@ -551,250 +660,264 @@ const ActivityAdmin = () => {
               </div>
             </div>
 
-            <table className="table">
-              <thead className="table-dark">
-                <tr>
-                  <th scope="col">Image</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Kategori</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {activity.map((item, i) => {
-                  return (
-                    <tr key={i}>
-                      <th scope="row">
-                        <img src={item.imageUrls} alt="" />
-                      </th>
-                      <td> {item.title}</td>
-                      <td>{item.category.name}</td>
-                      <td>
-                        {/* Button trigger modal */}
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-sm me-2"
-                          data-bs-toggle="modal"
-                          data-bs-target={`#activity${item.id}`}
-                        >
-                          Update
-                        </button>
-                        {/* Modal */}
-                        <div
-                          className="modal fade"
-                          id={`activity${item.id}`}
-                          tabIndex={-1}
-                          aria-labelledby="exampleModalLabel"
-                          aria-hidden="true"
-                        >
-                          <div className="modal-dialog">
-                            <div className="modal-content">
-                              <div className="modal-header">
-                                <h1
-                                  className="modal-title fs-5"
-                                  id="exampleModalLabel"
-                                >
-                                  Update Activity
-                                </h1>
-                              </div>
-                              <div className="modal-body">
-                                <form action="">
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Category Id
-                                  </label>
-                                  <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditCategoryId}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Title
-                                  </label>
-                                  <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditTitle}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Description
-                                  </label>
-                                  <br />
-                                  <textarea
-                                    name=""
-                                    id=""
-                                    cols="50"
-                                    rows="3"
-                                    className="mb-2"
-                                    onChange={handleEditDescription}
-                                  ></textarea>
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Image Url
-                                  </label>
-                                  <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2 w-75"
-                                    onChange={handleEditImageUrl}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Image Url 2
-                                  </label>
-                                  <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2 w-75"
-                                    onChange={handleEditImageUrl2}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Price
-                                  </label>
-                                  <br />
-                                  <input
-                                    type="number"
-                                    className="mb-2"
-                                    onChange={handleEditPrice}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Discount Price
-                                  </label>
-                                  <br />
-                                  <input
-                                    type="number"
-                                    className="mb-2"
-                                    onChange={handleEditDiscountPrice}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Rating
-                                  </label>
-                                  <br />
-                                  <input
-                                    type="number"
-                                    className="mb-2"
-                                    onChange={handleEditRating}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Total Reviews
-                                  </label>
-                                  <br />
-                                  <input
-                                    type="number"
-                                    className="mb-2"
-                                    onChange={handleEditReview}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Facilities
-                                  </label>
-                                  <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditFacilities}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Address
-                                  </label>
-                                  <br />
-                                  <textarea
-                                    name=""
-                                    id=""
-                                    cols="50"
-                                    rows="2"
-                                    className="mb-2"
-                                    onChange={handleEditAddress}
-                                  ></textarea>{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Province
-                                  </label>{" "}
-                                  <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditProvince}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    City
-                                  </label>{" "}
-                                  <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditCity}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="" className="mb-1">
-                                    {" "}
-                                    Map Location
-                                  </label>
-                                  <br />
-                                  <textarea
-                                    name=""
-                                    id=""
-                                    cols="50"
-                                    rows="2"
-                                    className="mb-2"
-                                    onChange={handleEditMap}
-                                  ></textarea>
-                                </form>
-                              </div>
-                              <div className="modal-footer">
-                                <button
-                                  type="button"
-                                  className="btn btn-secondary"
-                                  data-bs-dismiss="modal"
-                                >
-                                  Close
-                                </button>
-                                <button
-                                  type="button"
-                                  className="btn btn-primary"
-                                  onClick={() => handleEditSubmit(item.id)}
-                                >
-                                  Submit
-                                </button>
+            <div className="table-responsive">
+              <table className="table">
+                <thead className="table-dark">
+                  <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Kategori</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {activity.map((item, i) => {
+                    return (
+                      <tr key={i}>
+                        <th scope="row">
+                          <img src={item.imageUrls} alt="" />
+                        </th>
+                        <td> {item.title}</td>
+                        <td>{item.category.name}</td>
+                        <td>
+                          {/* Button trigger modal */}
+                          <button
+                            type="button"
+                            className="btn btn-primary btn-sm me-2 mb-2"
+                            data-bs-toggle="modal"
+                            data-bs-target={`#activity${item.id}`}
+                          >
+                            Update
+                          </button>
+                          {/* Modal */}
+                          <div
+                            className="modal fade"
+                            id={`activity${item.id}`}
+                            tabIndex={-1}
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div className="modal-dialog">
+                              <div className="modal-content">
+                                <div className="modal-header">
+                                  <h1
+                                    className="modal-title fs-5"
+                                    id="exampleModalLabel"
+                                  >
+                                    Update Activity
+                                  </h1>
+                                </div>
+                                <div className="modal-body">
+                                  <form action="">
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Image
+                                    </label>
+                                    <br />
+                                    <img
+                                      src={imagePreview3}
+                                      alt=""
+                                      className="my-3 w-100"
+                                    />
+                                    <input
+                                      type="file"
+                                      accept="image/*"
+                                      className="mb-2 w-75"
+                                      onChange={handleEditImageUrl}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Image 2
+                                    </label>
+                                    <br />
+                                    <img
+                                      src={imagePreview4}
+                                      alt=""
+                                      className="my-3 w-100"
+                                    />
+                                    <input
+                                      type="file"
+                                      accept="image/*"
+                                      className="mb-2 w-75"
+                                      onChange={handleEditImageUrl2}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Category Id
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="form-control w-50"
+                                      onChange={handleEditCategoryId}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Title
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="form-control w-50"
+                                      onChange={handleEditTitle}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Description
+                                    </label>
+                                    <br />
+                                    <textarea
+                                      name=""
+                                      id=""
+                                      cols="50"
+                                      rows="3"
+                                      className="form-control w-75"
+                                      onChange={handleEditDescription}
+                                    ></textarea>
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Price
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="number"
+                                      className="form-control w-50"
+                                      onChange={handleEditPrice}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Discount Price
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="number"
+                                      className="form-control w-50"
+                                      onChange={handleEditDiscountPrice}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Rating
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="number"
+                                      className="form-control w-50"
+                                      onChange={handleEditRating}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Total Reviews
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="number"
+                                      className="form-control w-50"
+                                      onChange={handleEditReview}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Facilities
+                                    </label>
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="form-control w-50"
+                                      onChange={handleEditFacilities}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Address
+                                    </label>
+                                    <br />
+                                    <textarea
+                                      name=""
+                                      id=""
+                                      cols="50"
+                                      rows="2"
+                                      className="form-control w-75"
+                                      onChange={handleEditAddress}
+                                    ></textarea>{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Province
+                                    </label>{" "}
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="form-control w-50"
+                                      onChange={handleEditProvince}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      City
+                                    </label>{" "}
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="form-control w-50"
+                                      onChange={handleEditCity}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Map Location
+                                    </label>
+                                    <br />
+                                    <textarea
+                                      name=""
+                                      id=""
+                                      cols="50"
+                                      rows="2"
+                                      className="form-control w-75 mb-2"
+                                      onChange={handleEditMap}
+                                    ></textarea>
+                                  </form>
+                                </div>
+                                <div className="modal-footer">
+                                  <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    Close
+                                  </button>
+                                  <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                    onClick={() => handleEditSubmit(item.id)}
+                                  >
+                                    Submit
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
 
-                        <button
-                          className="btn btn-danger btn-sm"
-                          onClick={() => handleDelete(item.id)}
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                          <button
+                            className="btn btn-danger btn-sm mb-2"
+                            onClick={() => handleDelete(item.id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

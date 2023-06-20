@@ -115,7 +115,7 @@ const UpdateProfileAdmin = () => {
           <hr />
           <div className="update-box">
             <div className="update-box1 text-center">
-              <div className="card  py-4 px-2 ">
+              <div className="card    ">
                 <img
                   src={account.profilePictureUrl}
                   className="card-img-top mx-auto"
@@ -141,12 +141,15 @@ const UpdateProfileAdmin = () => {
                   <div className="row mb-3">
                     <div className="col-sm-3">
                       {" "}
-                      <label htmlFor=""> Name </label>
+                      <label htmlFor="" className="mb-1">
+                        {" "}
+                        Name{" "}
+                      </label>
                     </div>
                     <div className="col-sm-9">
                       <input
                         type="text"
-                        className="w-75"
+                        className="w-75 form-control"
                         onChange={handleEditName}
                       />
                     </div>
@@ -155,12 +158,15 @@ const UpdateProfileAdmin = () => {
                   <div className="row mb-3">
                     <div className="col-sm-3">
                       {" "}
-                      <label htmlFor=""> Email </label>
+                      <label htmlFor="" className="mb-1">
+                        {" "}
+                        Email{" "}
+                      </label>
                     </div>
                     <div className="col-sm-9">
                       <input
                         type="email "
-                        className="w-100"
+                        className="w-100 form-control"
                         onChange={handleEditEmail}
                       />
                     </div>
@@ -169,12 +175,15 @@ const UpdateProfileAdmin = () => {
                   <div className="row mb-3">
                     <div className="col-sm-3">
                       {" "}
-                      <label htmlFor=""> Phone </label>
+                      <label htmlFor="" className="mb-1">
+                        {" "}
+                        Phone{" "}
+                      </label>
                     </div>
                     <div className="col-sm-9">
                       <input
                         type="number"
-                        className="w-100"
+                        className="w-100 form-control"
                         onChange={handleEditPhone}
                       />
                     </div>
@@ -205,10 +214,10 @@ const UpdateProfileAdmin = () => {
                   <br />
 
                   <button
-                    className="btn btn-success my-0"
+                    className="btn btn-success my-0 button-54"
                     onClick={handleSubmit}
                   >
-                    Submit
+                    Save
                   </button>
                 </div>
               </div>

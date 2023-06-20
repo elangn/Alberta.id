@@ -4,7 +4,6 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Explore from "./pages/Explore";
 import Error from "./pages/Error";
 import UpdateProfile from "./pages/UpdateProfile";
 import DashboardAdmin from "./pages/DashboardAdmin";
@@ -17,6 +16,9 @@ import UpdateProfileAdmin from "./pages/UpdateProfileAdmin";
 import Residencies from "./components/Residencies";
 import Register2 from "./pages/Register2";
 import Login2 from "./pages/Login2";
+import Promo from "./components/Promo";
+import PromoPage from "./pages/PromoPage";
+import Destinations from "./pages/Destinations";
 
 const router = createBrowserRouter([
   {
@@ -29,10 +31,18 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "/explore",
+    path: "/promo",
     element: (
       <>
-        <Explore />
+        <PromoPage />
+      </>
+    ),
+  },
+  {
+    path: "/destinations",
+    element: (
+      <>
+        <Destinations />
       </>
     ),
   },

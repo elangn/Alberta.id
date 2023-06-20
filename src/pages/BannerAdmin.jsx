@@ -207,7 +207,7 @@ const BannerAdmin = () => {
           </h4>
           <hr />
           <div className="banner-admin-box">
-            <div>
+            <div className="modal-new">
               {/* Button trigger modal */}
               <button
                 type="button"
@@ -247,14 +247,14 @@ const BannerAdmin = () => {
                           onChange={handleChangeImage}
                         />
                         <br /> <br />
-                        <label htmlFor="name" className="me-2">
+                        <label htmlFor="name" className="mb-1">
                           Name
                         </label>{" "}
                         <br />
                         <input
                           type="text"
                           id="name"
-                          className="w-50"
+                          className="w-50 form-control"
                           onChange={handleChangeName}
                         />
                       </form>
@@ -280,107 +280,117 @@ const BannerAdmin = () => {
               </div>
             </div>
 
-            <table className="table ">
-              <thead className="table-dark">
-                <tr>
-                  <th scope="col">Image</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {banner.map((item, i) => {
-                  return (
-                    <tr key={i}>
-                      <th scope="row">
-                        <img src={item.imageUrl} alt="" />
-                      </th>
-                      <td>{item.name}</td>
-                      <td>
-                        {/* Button trigger modal */}
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-sm me-2"
-                          data-bs-toggle="modal"
-                          data-bs-target={`#banner${item.id}`}
-                        >
-                          Update
-                        </button>
-                        {/* Modal */}
-                        <div
-                          className="modal fade"
-                          id={`banner${item.id}`}
-                          tabIndex={-1}
-                          aria-labelledby="exampleModalLabel"
-                          aria-hidden="true"
-                        >
-                          <div className="modal-dialog">
-                            <div className="modal-content">
-                              <div className="modal-header">
-                                <h1
-                                  className="modal-title fs-5"
-                                  id="exampleModalLabel"
-                                >
-                                  Update Banner
-                                </h1>
-                              </div>
-                              <div className="modal-body">
-                                <form action="">
-                                  <label htmlFor=""> Image </label> <br />
-                                  <img
-                                    src={editImagePrev}
-                                    alt=""
-                                    className="w-100 my-3"
-                                  />
-                                  <input
-                                    type="file"
-                                    accept="image/*"
-                                    className="w-75"
-                                    onChange={handleEditImage}
-                                  />{" "}
-                                  <br />
-                                  <br />
-                                  <label htmlFor=""> Name </label> <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditName}
-                                    value={editName}
-                                  />{" "}
-                                </form>
-                              </div>
-                              <div className="modal-footer">
-                                <button
-                                  type="button"
-                                  className="btn btn-secondary"
-                                  data-bs-dismiss="modal"
-                                >
-                                  Close
-                                </button>
-                                <button
-                                  type="button"
-                                  className="btn btn-primary"
-                                  onClick={() => handleEditSubmit(item.id)}
-                                >
-                                  Submit
-                                </button>
+            <div className="table-responsive">
+              <table className="table ">
+                <thead className="table-dark">
+                  <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {banner.map((item, i) => {
+                    return (
+                      <tr key={i}>
+                        <th scope="row">
+                          <img src={item.imageUrl} alt="" />
+                        </th>
+                        <td>{item.name}</td>
+                        <td>
+                          {/* Button trigger modal */}
+                          <button
+                            type="button"
+                            className="btn btn-primary btn-sm me-2 mb-2"
+                            data-bs-toggle="modal"
+                            data-bs-target={`#banner${item.id}`}
+                          >
+                            Update
+                          </button>
+                          {/* Modal */}
+                          <div
+                            className="modal fade"
+                            id={`banner${item.id}`}
+                            tabIndex={-1}
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div className="modal-dialog">
+                              <div className="modal-content ">
+                                <div className="modal-header">
+                                  <h1
+                                    className="modal-title fs-5"
+                                    id="exampleModalLabel"
+                                  >
+                                    Update Banner
+                                  </h1>
+                                </div>
+                                <div className="modal-body">
+                                  <form action="">
+                                    <label htmlFor="" className="mb-2">
+                                      {" "}
+                                      Image{" "}
+                                    </label>{" "}
+                                    <br />
+                                    <img
+                                      src={editImagePrev}
+                                      alt=""
+                                      className="w-100 my-3"
+                                    />
+                                    <input
+                                      type="file"
+                                      accept="image/*"
+                                      className="w-75"
+                                      onChange={handleEditImage}
+                                    />{" "}
+                                    <br />
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Name{" "}
+                                    </label>{" "}
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="form-control w-50"
+                                      onChange={handleEditName}
+                                      value={editName}
+                                    />{" "}
+                                  </form>
+                                </div>
+                                <div className="modal-footer">
+                                  <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    Close
+                                  </button>
+                                  <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                    onClick={() => handleEditSubmit(item.id)}
+                                  >
+                                    Submit
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
 
-                        <button
-                          className="btn btn-danger btn-sm"
-                          onClick={() => handleDelete(item.id)}
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                          <button
+                            className="btn btn-danger btn-sm mb-2"
+                            onClick={() => handleDelete(item.id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
