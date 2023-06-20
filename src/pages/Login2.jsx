@@ -44,7 +44,6 @@ const Login2 = () => {
           localStorage.setItem("token", JSON.stringify(response.data.token));
           localStorage.setItem("account", JSON.stringify(response.data.data));
           const account = JSON.parse(localStorage.getItem("account"));
-          // const account = JSON.parse(localStorage.getItem("account"));
           // navigate("/");
 
           if (account.role == "admin") {
@@ -55,6 +54,7 @@ const Login2 = () => {
         })
         .catch(function (error) {
           console.log(error);
+          alert("email / password salah");
         });
     },
   });

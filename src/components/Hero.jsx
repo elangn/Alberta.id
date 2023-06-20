@@ -14,12 +14,13 @@ const Hero = () => {
           <p> Guides for your next vacation </p>
           <div className="hero-box">
             <Link
-              to={"/explore"}
-              className="btn btn-outline-light  me-1 me-lg-2 "
+              to={"/destinations"}
+              className="btn btn-outline-dark  me-1 me-lg-2 button-93"
             >
-              Discover More
+              Destination
             </Link>
-            <Link to={"/register2"} className="btn btn-success">
+
+            <Link to={"/register2"} className=" btn btn-light button-92">
               Register
             </Link>
           </div>

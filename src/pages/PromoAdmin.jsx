@@ -312,7 +312,7 @@ const PromoAdmin = () => {
                 aria-hidden="true"
               >
                 <div className="modal-dialog">
-                  <div className="modal-content">
+                  <div className="modal-content p-2">
                     <div className="modal-header">
                       <h1 className="modal-title fs-5" id="exampleModalLabel">
                         Add new Promo
@@ -320,8 +320,12 @@ const PromoAdmin = () => {
                     </div>
                     <div className="modal-body">
                       <form action="">
-                        <label htmlFor="imageUrl"> Image </label> <br />
-                        <img src={imagePreview} alt="" className="my-2 w-100" />
+                        <label htmlFor="imageUrl" className="mb-2">
+                          {" "}
+                          Image{" "}
+                        </label>{" "}
+                        <br />
+                        <img src={imagePreview} alt="" className="my-3 w-100" />
                         <input
                           type="file"
                           accept="image/*"
@@ -330,55 +334,70 @@ const PromoAdmin = () => {
                           onChange={handleImageUrl}
                         />{" "}
                         <br />
-                        <label htmlFor="title"> Title</label> <br />
+                        <label htmlFor="title" className="mb-1">
+                          {" "}
+                          Title
+                        </label>{" "}
+                        <br />
                         <input
                           type="text"
                           id="title"
-                          className="mb-2"
+                          className=" my-0 form-control w-50"
                           onChange={handleTitle}
                         />{" "}
                         <br />
-                        <label htmlFor="description"> Description</label> <br />
+                        <label htmlFor="description" className="mb-1">
+                          {" "}
+                          Description
+                        </label>{" "}
+                        <br />
                         <textarea
                           name=""
                           id="description"
                           cols="50"
                           rows="3"
-                          className="mb-2 w-75"
+                          className=" w-75 form-control"
                           onChange={handleDescription}
                         ></textarea>
                         <br />
-                        <label htmlFor="term"> Term and condition</label> <br />
+                        <label htmlFor="term" className="mb-1">
+                          {" "}
+                          Term and condition
+                        </label>{" "}
+                        <br />
                         <textarea
                           name=""
                           id="term"
                           cols="50"
                           rows="2"
-                          className="mb-2 w-75"
+                          className=" w-75 form-control"
                           onChange={handleTerms}
                         ></textarea>
                         <br />
-                        <label htmlFor="code"> Promo Code</label> <br />
+                        <label htmlFor="code" className="mb-1">
+                          {" "}
+                          Promo Code
+                        </label>{" "}
+                        <br />
                         <input
                           type="text"
                           id="code"
-                          className="mb-2"
+                          className=" form-control w-25"
                           onChange={handleCode}
                         />{" "}
                         <br />
-                        <label htmlFor="discPrice">
-                          {" "}
+                        <label htmlFor="discPrice" className="mb-1">
                           Promo Discount Price
-                        </label>{" "}
+                        </label>
                         <br />
                         <input
                           type="number"
                           id="discPrice"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleDiscPrice}
                         />{" "}
                         <br />
-                        <label htmlFor="claimPrice">
+                        <label htmlFor="claimPrice" className="mb-1">
                           {" "}
                           Minimum Claim Price
                         </label>{" "}
@@ -386,7 +405,7 @@ const PromoAdmin = () => {
                         <input
                           type="number"
                           id="claimPrice"
-                          className="mb-2"
+                          className="form-control w-50"
                           onChange={handleClaimPrice}
                         />{" "}
                         <br />
@@ -413,158 +432,176 @@ const PromoAdmin = () => {
               </div>
             </div>
 
-            <table className="table">
-              <thead className="table-dark">
-                <tr>
-                  <th scope="col">Image</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Promo Code</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {promo.map((item, i) => {
-                  return (
-                    <tr key={i}>
-                      <th scope="row">
-                        <img src={item.imageUrl} alt="" />
-                      </th>
-                      <td>{item.title}</td>
-                      <td>{item.promo_code}</td>
-                      <td>
-                        {/* Button trigger modal */}
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-sm me-2"
-                          data-bs-toggle="modal"
-                          data-bs-target={`#category${item.id}`}
-                        >
-                          Update
-                        </button>
-                        {/* Modal */}
-                        <div
-                          className="modal fade"
-                          id={`category${item.id}`}
-                          tabIndex={-1}
-                          aria-labelledby="exampleModalLabel"
-                          aria-hidden="true"
-                        >
-                          <div className="modal-dialog">
-                            <div className="modal-content">
-                              <div className="modal-header">
-                                <h1
-                                  className="modal-title fs-5"
-                                  id="exampleModalLabel"
-                                >
-                                  Update Promo
-                                </h1>
-                              </div>
-                              <div className="modal-body">
-                                <form action="">
-                                  <label htmlFor=""> Image Url</label> <br />
-                                  <img
-                                    src={editImagePrev}
-                                    alt=""
-                                    className="w-100 my-2 "
-                                  />
-                                  <input
-                                    type="file"
-                                    accept="image/*"
-                                    className="w-75 mb-2"
-                                    onChange={handleEditImage}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor=""> Description</label> <br />
-                                  <textarea
-                                    name=""
-                                    id=""
-                                    cols="50"
-                                    rows="3"
-                                    className="mb-2"
-                                    onChange={handleEditDescription}
-                                  ></textarea>{" "}
-                                  <br />
-                                  <label htmlFor=""> Title</label> <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditTItle}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="">
-                                    {" "}
-                                    Term and Condition
-                                  </label>{" "}
-                                  <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditTerm}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor=""> Promo Code</label> <br />
-                                  <input
-                                    type="text"
-                                    className="mb-2"
-                                    onChange={handleEditPromoCode}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="">
-                                    {" "}
-                                    Promo Discount Price
-                                  </label>{" "}
-                                  <br />
-                                  <input
-                                    type="number"
-                                    className="mb-2"
-                                    onChange={handleEditDiscPrice}
-                                  />{" "}
-                                  <br />
-                                  <label htmlFor="">
-                                    {" "}
-                                    Minimum Claim Price
-                                  </label>{" "}
-                                  <br />
-                                  <input
-                                    type="number"
-                                    className="mb-2"
-                                    onChange={handleEditClaimPrice}
-                                  />{" "}
-                                  <br />
-                                </form>
-                              </div>
-                              <div className="modal-footer">
-                                <button
-                                  type="button"
-                                  className="btn btn-secondary"
-                                  data-bs-dismiss="modal"
-                                >
-                                  Close
-                                </button>
-                                <button
-                                  type="button"
-                                  className="btn btn-primary"
-                                  onClick={() => handleEditSubmit(item.id)}
-                                >
-                                  Submit
-                                </button>
+            <div className="table-responsive">
+              <table className="table">
+                <thead className="table-dark">
+                  <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Promo Code</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {promo.map((item, i) => {
+                    return (
+                      <tr key={i}>
+                        <th scope="row">
+                          <img src={item.imageUrl} alt="" />
+                        </th>
+                        <td>{item.title}</td>
+                        <td>{item.promo_code}</td>
+                        <td>
+                          {/* Button trigger modal */}
+                          <button
+                            type="button"
+                            className="btn btn-primary btn-sm me-2 mb-2"
+                            data-bs-toggle="modal"
+                            data-bs-target={`#category${item.id}`}
+                          >
+                            Update
+                          </button>
+                          {/* Modal */}
+                          <div
+                            className="modal fade"
+                            id={`category${item.id}`}
+                            tabIndex={-1}
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                          >
+                            <div className="modal-dialog">
+                              <div className="modal-content">
+                                <div className="modal-header">
+                                  <h1
+                                    className="modal-title fs-5"
+                                    id="exampleModalLabel"
+                                  >
+                                    Update Promo
+                                  </h1>
+                                </div>
+                                <div className="modal-body">
+                                  <form action="">
+                                    <label htmlFor="" className="mb-2">
+                                      {" "}
+                                      Image Url
+                                    </label>{" "}
+                                    <br />
+                                    <img
+                                      src={editImagePrev}
+                                      alt=""
+                                      className="w-100 my-3 "
+                                    />
+                                    <input
+                                      type="file"
+                                      accept="image/*"
+                                      className="w-75 mb-2"
+                                      onChange={handleEditImage}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Description
+                                    </label>{" "}
+                                    <br />
+                                    <textarea
+                                      name=""
+                                      id=""
+                                      cols="50"
+                                      rows="3"
+                                      className="form-control w-75"
+                                      onChange={handleEditDescription}
+                                    ></textarea>{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Title
+                                    </label>{" "}
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="form-control w-50"
+                                      onChange={handleEditTItle}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="">
+                                      {" "}
+                                      Term and Condition
+                                    </label>{" "}
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="form-control w-50"
+                                      onChange={handleEditTerm}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Promo Code
+                                    </label>{" "}
+                                    <br />
+                                    <input
+                                      type="text"
+                                      className="form-control w-50"
+                                      onChange={handleEditPromoCode}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Promo Discount Price
+                                    </label>{" "}
+                                    <br />
+                                    <input
+                                      type="number"
+                                      className="form-control w-50"
+                                      onChange={handleEditDiscPrice}
+                                    />{" "}
+                                    <br />
+                                    <label htmlFor="" className="mb-1">
+                                      {" "}
+                                      Minimum Claim Price
+                                    </label>{" "}
+                                    <br />
+                                    <input
+                                      type="number"
+                                      className="mb-2 form-control w-50"
+                                      onChange={handleEditClaimPrice}
+                                    />{" "}
+                                    <br />
+                                  </form>
+                                </div>
+                                <div className="modal-footer">
+                                  <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    Close
+                                  </button>
+                                  <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                    onClick={() => handleEditSubmit(item.id)}
+                                  >
+                                    Submit
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
 
-                        <button
-                          className="btn btn-danger btn-sm"
-                          onClick={() => handleDelete(item.id)}
-                        >
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                          <button
+                            className="btn btn-danger btn-sm mb-2"
+                            onClick={() => handleDelete(item.id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

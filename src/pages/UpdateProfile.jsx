@@ -111,7 +111,11 @@ const UpdateProfile = () => {
               <div className="kiri col-sm-2 my-2">
                 <ul>
                   <li>
-                    <a href=""> Edit </a>
+                    <i className="fa-solid fa-pen-to-square"></i>
+                    <a href="" className="text-dark">
+                      {" "}
+                      Edit{" "}
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -122,11 +126,15 @@ const UpdateProfile = () => {
                     <p className="card-text fw-bold">Profile Picture</p>
                     <div className="row">
                       <div className="col-sm-3">
-                        <img src={account.profilePictureUrl} alt="" />
+                        <img
+                          src={account.profilePictureUrl}
+                          alt=""
+                          className="border me-4"
+                        />
                       </div>
 
-                      <div className="col-sm-9">
-                        <p className=" fw-bold my-0 nama"> {account.name}</p>
+                      <div className="col-sm-9 ps-4">
+                        <p className=" fw-bold mb-2 nama"> {account.name}</p>
                         <p className="my-0 detil">
                           <i className="fa-solid fa-envelope me-2"></i>
                           {account.email}
@@ -142,11 +150,14 @@ const UpdateProfile = () => {
                       </div>
                     </div>
 
-                    <h4 className="mt-4"> Edit Profile</h4>
+                    <h4 className="mt-5 mb-4"> Edit Profile</h4>
 
                     <div className="row mb-3">
                       <div className="col-sm-4">
-                        <label htmlFor="name"> Name</label>
+                        <label htmlFor="name" className="mb-1">
+                          {" "}
+                          Name
+                        </label>
                       </div>
 
                       <div className="col-sm-8">
@@ -155,14 +166,16 @@ const UpdateProfile = () => {
                           name="name"
                           type="text"
                           onChange={handleEditName}
-                          className="w-75"
+                          className="w-75 form-control "
                         />
                       </div>
                     </div>
 
                     <div className="row mb-3">
                       <div className="col-sm-4">
-                        <label htmlFor="email">Email </label>
+                        <label htmlFor="email" className="mb-1">
+                          Email{" "}
+                        </label>
                       </div>
 
                       <div className="col-sm-8">
@@ -171,14 +184,16 @@ const UpdateProfile = () => {
                           name="email"
                           type="email"
                           onChange={handleEditEmail}
-                          className="w-100"
+                          className="w-100 form-control"
                         />
                       </div>
                     </div>
 
                     <div className="row mb-3">
                       <div className="col-sm-4">
-                        <label htmlFor="phoneNumber">Phone Number</label>
+                        <label htmlFor="phoneNumber" className="mb-1">
+                          Phone Number
+                        </label>
                       </div>
 
                       <div className="col-sm-8">
@@ -187,7 +202,7 @@ const UpdateProfile = () => {
                           name="phoneNumber"
                           type="text"
                           onChange={handleEditPhone}
-                          className="w-100"
+                          className="w-100 form-control"
                         />
                       </div>
                     </div>
@@ -218,10 +233,10 @@ const UpdateProfile = () => {
 
                     <button
                       type="submit"
-                      className="btn btn-success mt-4"
+                      className="btn btn-success mt-4 button-54"
                       onClick={handleSubmit}
                     >
-                      Submit
+                      Save
                     </button>
                   </div>
                 </div>

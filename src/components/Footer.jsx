@@ -6,60 +6,80 @@ const Footer = () => {
     <div className="footer">
       <div className="container">
         <div className="footer-atas mb-4">
-          <div className="atas-1">
-            <h5 className="fw-bold"> Contact us </h5>
-            <p className="my-0 py-0">
-              <i className="fa-solid fa-phone text-dark me-1 "> </i>
-              <span className=" me-4">+62 811-1122</span>
-            </p>
+          <div className="row">
+            <div className="col-sm-6 col-lg-4">
+              <div className="atas-1 mb-3">
+                <h5 className="fw-bold"> Contact us </h5>
+                <p className="my-0 py-0">
+                  <i className="fa-solid fa-phone text-dark me-1 "> </i>
+                  <span className=" me-4">+62 811-1122</span>
+                </p>
 
-            <p className="my-0 py-0">
-              <i className="fa-solid fa-envelope text-dark me-1"> </i>
-              <span className=" me-4">alberta@business.com</span>
-            </p>
+                <p className="my-0 py-0">
+                  <i className="fa-solid fa-envelope text-dark me-1"> </i>
+                  <span className=" me-4">alberta@business.com</span>
+                </p>
 
-            <div className="icon">
-              <i className="fa-brands fa-twitter text-info icon-footer me-3 "></i>
-              <i className="fa-brands fa-facebook text-primary icon-footer me-3"></i>
-              <i className="fa-brands fa-youtube text-danger ix me-3"></i>
+                <div className="icon">
+                  <i className="fa-brands fa-twitter text-info icon-footer me-3 "></i>
+                  <i className="fa-brands fa-facebook text-primary icon-footer me-3"></i>
+                  <i className="fa-brands fa-youtube text-danger ix me-3"></i>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="atas-2">
-            <h5 className="fw-bold"> Menu </h5>
+            <div className="col-sm-6 col-lg-4">
+              <div className="atas-2 mb-3">
+                <h5 className="fw-bold"> Menu </h5>
 
-            <Link to={`/`} className="nav-link">
-              Home
-            </Link>
+                <Link to={`/`} className="nav-link">
+                  Home
+                </Link>
 
-            <Link to={`/promo`} className="nav-link">
-              Promo
-            </Link>
+                <Link to={`/promo`} className="nav-link">
+                  Promo
+                </Link>
 
-            <Link to={`/destinations`} className="nav-link">
-              Destinations
-            </Link>
+                <Link to={`/destinations`} className="nav-link">
+                  Destinations
+                </Link>
 
-            <a className="nav-link " href="#">
-              About Us
-            </a>
-          </div>
-          <div className="atas-3">
-            <h5 className="fw-bold mb-3"> Payment Method</h5>
-            <div className="payment d-flex gap-4">
-              <div className="card">
-                <img src="img/dana.png" className="card-img-top" alt="..." />
+                <a className="nav-link " href="#">
+                  About Us
+                </a>
               </div>
-              <div className="card">
-                <img src="img/visa.png" className="card-img-top" alt="..." />
-              </div>
-              <div className="card">
-                <img src="img/bni.jpg" className="card-img-top" alt="..." />
-              </div>
-              <div className="card">
-                <img src="img/ovo.png" className="card-img-top" alt="..." />
-              </div>
-              <div className="card">
-                <img src="img/gopay.jpg" className="card-img-top" alt="..." />
+            </div>
+            <div className="col-sm-12 col-lg-4">
+              <div className="atas-3 mb-3">
+                <h5 className="fw-bold mb-3"> Payment Method</h5>
+                <div className="payment d-flex gap-4">
+                  <div className="card">
+                    <img
+                      src="img/dana.png"
+                      className="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                  <div className="card">
+                    <img
+                      src="img/visa.png"
+                      className="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                  <div className="card">
+                    <img src="img/bni.jpg" className="card-img-top" alt="..." />
+                  </div>
+                  <div className="card">
+                    <img src="img/ovo.png" className="card-img-top" alt="..." />
+                  </div>
+                  <div className="card">
+                    <img
+                      src="img/gopay.jpg"
+                      className="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
