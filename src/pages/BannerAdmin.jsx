@@ -301,7 +301,7 @@ const BannerAdmin = () => {
                           {/* Button trigger modal */}
                           <button
                             type="button"
-                            className="btn btn-primary btn-sm me-2 mb-2"
+                            className="btn btn-primary btn-sm me-2 mb-2 "
                             data-bs-toggle="modal"
                             data-bs-target={`#banner${item.id}`}
                           >
@@ -379,7 +379,7 @@ const BannerAdmin = () => {
                           </div>
 
                           <button
-                            className="btn btn-danger btn-sm mb-2"
+                            className="btn btn-danger btn-sm mb-2 "
                             onClick={() => handleDelete(item.id)}
                           >
                             Delete

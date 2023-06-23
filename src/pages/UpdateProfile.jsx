@@ -217,16 +217,14 @@ const UpdateProfile = () => {
                       <div className="col-sm-8">
                         {imagePreview ? (
                           <img src={imagePreview} className="mb-2"></img>
-                        ) : (
-                          <p> choose your image</p>
-                        )}
+                        ) : null}
                         <input
                           id="profilePictureUrl"
                           name="profilePictureUrl"
                           type="file"
                           accept="image/*"
                           onChange={handleEditImage}
-                          className="w-100"
+                          className="w-100 form-control "
                         />
                       </div>
                     </div>
