@@ -5,6 +5,7 @@ import Popular from "../components/Popular";
 import Footer from "../components/Footer";
 import Category from "../components/Category";
 import Hero from "../components/Hero";
+import Test from "../components/Test";
 
 const Home = () => {
   return (

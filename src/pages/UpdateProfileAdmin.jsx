@@ -198,14 +198,12 @@ const UpdateProfileAdmin = () => {
                       {/* image preview */}
                       {imagePreview ? (
                         <img src={imagePreview} className="mb-2"></img>
-                      ) : (
-                        <p> choose your image</p>
-                      )}
+                      ) : null}
 
                       <input
                         type="file"
                         accept="image/*"
-                        className="w-100 "
+                        className="w-100 form-control "
                         onChange={handleEditImage}
                       />
                     </div>

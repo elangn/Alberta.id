@@ -905,7 +905,8 @@ body {
 }
 
 /* Banner - admin page */
-.banner-admin {
+
+/ .banner-admin {
   padding: 20px;
 }
 
