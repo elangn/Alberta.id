@@ -1,6 +1,4 @@
 body {
-  /* font-family: "Roboto", sans-serif; */
-  /* font-family: "Kanit", sans-serif; */
   padding: 0;
   margin: 0;
 }
@@ -8,7 +6,6 @@ body {
 /* upper  */
 .upper {
   background-color: rgb(11, 32, 101);
-  /* background-color: #222937 */
 }
 
 .upper img {
@@ -30,10 +27,6 @@ body {
 }
 
 /* navbar */
-
-.navbar {
-  /* font-family: "Kanit", sans-serif; */
-}
 
 .navbar .nav-brand0 {
   text-decoration: none;
@@ -117,7 +110,6 @@ body {
 .login2 .kanan .wrapper form {
   padding: 10px;
   width: 300px;
-  /* background-color: bisque; */
   text-align: start;
 }
 
@@ -156,7 +148,6 @@ body {
 }
 
 .register2 .kanan {
-  /* height: 100vh; */
   width: 500px;
   margin-top: auto;
   display: flex;
@@ -178,7 +169,6 @@ body {
 .register2 .kanan .wrapper form {
   padding: 10px;
   width: 300px;
-  /* background-color: bisque; */
   text-align: start;
 }
 
@@ -539,9 +529,9 @@ body {
   padding: 5px;
 }
 
-.promo-full .promo-box .card:hover {
+/* .promo-full .promo-box .card:hover {
   transform: scale(1.05);
-}
+} */
 
 .promo-full .card .diskon {
   position: absolute;
@@ -586,6 +576,18 @@ body {
   font-size: 14px;
 }
 
+/* Promo-detail page*/
+
+.detailpromo h4 {
+  font-size: 22px;
+  font-weight: bold;
+  border-left: 5px solid orange;
+  padding-left: 5px;
+}
+
+.detailpromo .detailpromo-box {
+}
+
 /* benefit at page Home  */
 
 .benefit {
@@ -607,11 +609,7 @@ body {
 }
 
 .benefit-box {
-  /* display: flex; */
   padding-top: 30px;
-
-  /* justify-content: center;
-  gap: 50px; */
 }
 
 .benefit .benefit-box .nomer {
@@ -629,8 +627,6 @@ body {
   object-fit: cover;
   height: 450px;
 }
-
-/* recidencies */
 
 /* popular */
 
@@ -698,10 +694,8 @@ body {
 }
 
 .activity .card {
-  /* border: none; */
   padding: 5px;
   cursor: pointer;
-  /* box-shadow: 1px 1px 1px rgb(108, 108, 108); */
 }
 
 .activity .card img {
@@ -918,11 +912,6 @@ body {
   width: 150px;
 }
 
-.banner-admin .modal-new .modal-body {
-  /* background-color: red; */
-  /* text-align: center; */
-}
-
 /* category - admin page */
 
 .category-admin {
@@ -1084,10 +1073,6 @@ body {
   }
 
   /* footer */
-
-  /* .footer .footer-atas {
-    flex-direction: column;
-  } */
 
   .footer .box-3 {
     text-align: center;
