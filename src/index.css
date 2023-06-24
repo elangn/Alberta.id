@@ -585,7 +585,36 @@ body {
   padding-left: 5px;
 }
 
-.detailpromo .detailpromo-box {
+.detailpromo .detailpromo-box img {
+  width: 500px;
+  text-align: center;
+  margin: auto;
+}
+
+.detailpromo .detailpromo-box .card {
+  border: none;
+}
+
+.detailpromo .detailpromo-box .kiri {
+  padding: 20px;
+}
+
+.detailpromo .detailpromo-box .kanan .atas {
+  border: 1px solid rgb(98, 98, 98);
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.detailpromo .detailpromo-box .kanan .bawah {
+  background-color: #bcdbf1;
+  margin-top: 20px;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.detailpromo .detailpromo-box .kanan .bawah .harga {
+  font-size: 16px;
 }
 
 /* benefit at page Home  */
@@ -1129,7 +1158,11 @@ body {
     width: 100%;
   }
 
-  /*  */
+  /* promo detail page */
+
+  .detailpromo .detailpromo-box img {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 576px) {

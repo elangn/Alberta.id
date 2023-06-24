@@ -36,26 +36,49 @@ const DetailPromoPage = () => {
           </p>
 
           <div className="detailpromo-box mt-4">
-            <div
-              className="card text-center mx-auto"
-              style={{ width: "500px" }}
-            >
+            <div className="card ">
               <img src={promo.imageUrl} alt="" />
             </div>
 
-            <div className="row mt-5">
-              <div className="col">
-                <h3 className="fw-bold"> {promo.title}</h3>
+            <div className=" mt-5">
+              <h5 className="fw-bold border-bottom border-1 border-dark pb-2">
+                {promo.title}
+              </h5>
 
-                <p> {promo.description}</p>
-
-                <p>Term and condition : {promo.terms_condition} </p>
-                <p>
+              <div className="row">
+                <div className="col-sm-9">
                   {" "}
-                  Promo code : {promo.promo_code}
-                  <p> Discrount price : {promo.promo_discount_price}</p>
-                  <p> Minimum claim price : {promo.minimum_claim_price} </p>
-                </p>
+                  <div className="kiri ">
+                    <p> {promo.description}</p>
+
+                    <p>Term and condition : {promo.terms_condition}</p>
+                  </div>
+                </div>
+                <div className="col-sm-3">
+                  <div className="kanan">
+                    <div className="atas">
+                      {" "}
+                      <p className="fw-bold my-0">Promo code :</p>
+                      <p className="text-danger my-0 fw-bold">
+                        {" "}
+                        {promo.promo_code}
+                      </p>
+                    </div>
+
+                    <div className="bawah">
+                      <p className="my-0 "> Discount price :</p>
+                      <p className="harga fw-bold my-0">
+                        {" "}
+                        IDR {promo.promo_discount_price}
+                      </p>
+
+                      <p className="my-0 "> Minimum claim price :</p>
+                      <p className="harga fw-bold my-0">
+                        IDR {promo.minimum_claim_price}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
