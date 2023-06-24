@@ -69,11 +69,6 @@ const Navbar = () => {
                   Destination
                 </Link>
               </li>
-              <li className="nav-item  me-2">
-                <a className="nav-link " href="#">
-                  About Us
-                </a>
-              </li>
 
               {/* tes */}
 

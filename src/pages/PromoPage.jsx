@@ -7,7 +7,6 @@ const PromoPage = () => {
   return (
     <>
       <Navbar />
-      {/* <Promo /> */}
       <PromoFull />
 
       <Footer />

@@ -42,10 +42,6 @@ const Footer = () => {
                 <Link to={`/destinations`} className="nav-link">
                   Destinations
                 </Link>
-
-                <a className="nav-link " href="#">
-                  About Us
-                </a>
               </div>
             </div>
             <div className="col-sm-12 col-lg-4">

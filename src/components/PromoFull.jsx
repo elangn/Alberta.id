@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 const PromoFull = () => {
   const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
@@ -35,8 +36,8 @@ const PromoFull = () => {
           <div className="row">
             {promo.map((item, i) => {
               return (
-                <div className="col-sm-6 col-md-4 col-lg-3">
-                  <div className="card">
+                <div className="col-sm-6 col-md-4 col-lg-3" key={i}>
+                  <div className="card " Link to={`/promo/${item.id}`}>
                     <img
                       src={item.imageUrl}
                       className="card-img-top"
@@ -58,6 +59,14 @@ const PromoFull = () => {
                         {" "}
                         IDR {item.promo_discount_price} ,-
                       </p>
+                      {/* <a href={`/promo/${item.id}`}>lihat detail</a> */}
+                      <Link
+                        to={`/promo/${item.id}`}
+                        className="btn btn-success btn-sm mt-2"
+                      >
+                        {" "}
+                        Lihat Detail
+                      </Link>
                     </div>
                   </div>
                 </div>

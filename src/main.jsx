@@ -19,6 +19,7 @@ import Login2 from "./pages/Login2";
 import Promo from "./components/Promo";
 import PromoPage from "./pages/PromoPage";
 import Destinations from "./pages/Destinations";
+import DetailPromoPage from "./pages/DetailPromoPage";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,14 @@ const router = createBrowserRouter([
     element: (
       <>
         <PromoPage />
+      </>
+    ),
+  },
+  {
+    path: "/promo/:promoId",
+    element: (
+      <>
+        <DetailPromoPage />
       </>
     ),
   },

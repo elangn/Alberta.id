@@ -84,7 +84,6 @@ const Promo = () => {
 
             <SliderButtons />
           </Swiper>
-          {/* <SliderButtons /> */}
         </div>
       </div>
     </div>
