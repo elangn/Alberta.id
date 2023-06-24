@@ -1,5 +1,10 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import danaLogo from "../assets/img/dana.png";
+import ovoLogo from "../assets/img/ovo.png";
+import visaLogo from "../assets/img/visa.png";
+import gopayLogo from "../assets/img/gopay.jpg";
+import bniLogo from "../assets/img/bni.jpg";
 
 const Footer = () => {
   return (
@@ -49,31 +54,19 @@ const Footer = () => {
                 <h5 className="fw-bold mb-3"> Payment Method</h5>
                 <div className="payment d-flex gap-4">
                   <div className="card">
-                    <img
-                      src="img/dana.png"
-                      className="card-img-top"
-                      alt="..."
-                    />
+                    <img src={danaLogo} className="card-img-top" alt="..." />
                   </div>
                   <div className="card">
-                    <img
-                      src="img/visa.png"
-                      className="card-img-top"
-                      alt="..."
-                    />
+                    <img src={visaLogo} className="card-img-top" alt="..." />
                   </div>
                   <div className="card">
-                    <img src="img/bni.jpg" className="card-img-top" alt="..." />
+                    <img src={bniLogo} className="card-img-top" alt="..." />
                   </div>
                   <div className="card">
-                    <img src="img/ovo.png" className="card-img-top" alt="..." />
+                    <img src={ovoLogo} className="card-img-top" alt="..." />
                   </div>
                   <div className="card">
-                    <img
-                      src="img/gopay.jpg"
-                      className="card-img-top"
-                      alt="..."
-                    />
+                    <img src={gopayLogo} className="card-img-top" alt="..." />
                   </div>
                 </div>
               </div>

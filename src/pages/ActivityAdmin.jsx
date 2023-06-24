@@ -136,9 +136,9 @@ const ActivityAdmin = () => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     let defaultImage1 = "";
-    let defaultImage2 = "";
-    // let gambar = [defaultImage1, defaultImage2];
+    // let defaultImage2 = "";
 
     const formData = new FormData();
     formData.append("image", imageUrls);
@@ -160,25 +160,28 @@ const ActivityAdmin = () => {
         console.log(error);
       });
 
-    const formData2 = new FormData();
-    formData2.append("image", imageUrls2);
+    // const formData2 = new FormData();
+    // formData2.append("image", imageUrls2);
 
     // upload image 2
 
-    await axios
-      .post(`${baseUrl}/api/v1/upload-image`, formData2, {
-        headers: {
-          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
-          Authorization: `Bearer ${isLogin}`,
-        },
-      })
-      .then(function (response) {
-        defaultImage2 = response.data.url;
-        console.log(response.data.url);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // await axios
+    //   .post(`${baseUrl}/api/v1/upload-image`, formData2, {
+    //     headers: {
+    //       apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
+    //       Authorization: `Bearer ${isLogin}`,
+    //     },
+    //   })
+    //   .then(function (response) {
+    //     defaultImage2 = response.data.url;
+    //     console.log(response.data.url);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+
+    // console.log(defaultImage1);
+    // console.log(defaultImage2);
 
     // create activity
     await axios
@@ -188,7 +191,7 @@ const ActivityAdmin = () => {
           categoryId: categoryId,
           title: title,
           description: description,
-          imageUrls: [defaultImage1, defaultImage2],
+          imageUrls: [defaultImage1],
           price: parseInt(price),
           price_discount: parseInt(price_discount),
           rating: parseInt(rating),
@@ -480,7 +483,7 @@ const ActivityAdmin = () => {
                           onChange={handleImageUrl}
                         />{" "}
                         <br />
-                        <label htmlFor="" className="mb-1">
+                        {/* <label htmlFor="" className="mb-1">
                           {" "}
                           Image 2
                         </label>
@@ -495,7 +498,7 @@ const ActivityAdmin = () => {
                           accept="image/*"
                           className="mb-2 w-75"
                           onChange={handleImageUrl2}
-                        />{" "}
+                        />{" "} */}
                         <br />
                         <label htmlFor="" className="mb-1">
                           {" "}
