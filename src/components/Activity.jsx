@@ -52,7 +52,6 @@ const Activity = () => {
                     </div>
 
                     <div className="card-body py-0 px-2 mb-1">
-                      {/* <p className="my-0"> {item.total_reviews} reviews</p> */}
                       <p className="card-text mb-1">
                         <img src="img/pin.png" alt="" className="me-1" />
                         {item.city}, {item.province}
@@ -74,7 +73,7 @@ const Activity = () => {
                         <div className="modal-content">
                           <div className="modal-header">
                             <h3
-                              className="modal-title fs-5"
+                              className="modal-title fs-5 fw-bold"
                               id="exampleModalLabel"
                             >
                               {item.title}
@@ -82,27 +81,48 @@ const Activity = () => {
                           </div>
                           <div className="modal-body">
                             <img src={item.imageUrls} alt="" />
-                            <hr />
-                            <p className="my-0">
-                              Description : {item.description}
-                            </p>
-                            <p className="my-0"> Price : {item.price} </p>
-                            <p className="my-0">
+                            <div className="box-atas d-flex justify-content-between">
+                              <div className="kiri">
+                                <p className="mt-2">
+                                  <img
+                                    src="img/pin.png"
+                                    alt=""
+                                    className="me-1"
+                                  />
+                                  {item.city} , {item.province}{" "}
+                                </p>
+                              </div>
+
+                              <div className="kanan">
+                                <p className="mt-2 text-end">
+                                  <i className="fa-solid fa-star text-warning pe-1"></i>{" "}
+                                  {item.rating} / ({item.total_reviews}) Review
+                                </p>
+                              </div>
+                            </div>
+                            <p className="my-0">{item.description}</p> <br />
+                            <p className="my-0 fw-bold">
                               {" "}
-                              Discount price : {item.price_discount}{" "}
+                              <i className="fa-solid fa-circle-info text-info me-2"></i>
+                              Facilities :
                             </p>
-                            <p className="my-0"> Rating : {item.rating} </p>
-                            <p className="my-0">
+                            <p>{item.facilities} </p>
+                            <p className="my-0 fw-bold">
                               {" "}
-                              Total review : {item.total_reviews}{" "}
+                              <i className="fa-solid fa-signs-post text-warning"></i>{" "}
+                              Address :
                             </p>
-                            <p className="my-0">
-                              {" "}
-                              Facilities : {item.facilities}{" "}
+                            <p> {item.address} </p>
+                            <p className="my-0 fw-bold ">
+                              <i className="fa-solid fa-barcode text-danger me-2"></i>
+                              Price :
                             </p>
-                            <p className="my-0"> Address : {item.address} </p>
-                            <p className="my-0"> City : {item.city} </p>
-                            <p className="my-0"> Province : {item.province} </p>
+                            <p> {item.price}</p>
+                            <p className="my-0 fw-bold">
+                              <i className="fa-solid fa-tag text-bg-success me-2"></i>
+                              Discount price :{" "}
+                            </p>
+                            <p> {item.price_discount}</p>
                           </div>
                           <div className="modal-footer">
                             <button
