@@ -483,22 +483,6 @@ const ActivityAdmin = () => {
                           onChange={handleImageUrl}
                         />{" "}
                         <br />
-                        {/* <label htmlFor="" className="mb-1">
-                          {" "}
-                          Image 2
-                        </label>
-                        <br />
-                        <img
-                          src={imagePreview2}
-                          alt=""
-                          className="w-100 my-2"
-                        />
-                        <input
-                          type="file"
-                          accept="image/*"
-                          className="mb-2 w-75"
-                          onChange={handleImageUrl2}
-                        />{" "} */}
                         <br />
                         <label htmlFor="" className="mb-1">
                           {" "}
