@@ -5,14 +5,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const DetailPromoPage = () => {
+  const baseUrl = "https://travel-journal-api-bootcamp.do.dibimbing.id";
   const { promoId } = useParams();
   const [promo, setPromo] = useState({});
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/promo/${promoId}`, {
+      .get(`${baseUrl}/api/v1/promo/${promoId}`, {
         headers: {
-          apiKey: import.meta.env.VITE_API_KEY,
+          apiKey: "24405e01-fbc1-45a5-9f5a-be13afcd757c",
         },
       })
       .then(function (response) {
