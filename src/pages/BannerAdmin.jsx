@@ -35,7 +35,7 @@ const BannerAdmin = () => {
   };
 
   const handleChangeImage = (e) => {
-    console.log(e.target.value);
+    console.log(e.target.files[0]);
     setImagePreview(URL.createObjectURL(e.target.files[0]));
     setImage(e.target.files[0]);
   };

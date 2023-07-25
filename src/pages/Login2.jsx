@@ -1,9 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-
 import { useFormik } from "formik";
-
-import Footer from "../components/Footer";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
@@ -25,7 +22,6 @@ const Login2 = () => {
         .required("Required"),
     }),
     onSubmit: (values) => {
-      // alert(JSON.stringify(values, null, 2));
       axios
         .post(
           `${baseUrl}/api/v1/login`,
@@ -40,11 +36,9 @@ const Login2 = () => {
           }
         )
         .then(function (response) {
-          // console.log(response);
           localStorage.setItem("token", JSON.stringify(response.data.token));
           localStorage.setItem("account", JSON.stringify(response.data.data));
           const account = JSON.parse(localStorage.getItem("account"));
-          // navigate("/");
 
           if (account.role == "admin") {
             navigate("/dashboard");
@@ -53,7 +47,6 @@ const Login2 = () => {
           }
         })
         .catch(function (error) {
-          console.log(error);
           alert("email / password salah");
         });
     },

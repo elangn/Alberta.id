@@ -27,7 +27,7 @@ const Home = () => {
               <div className="col-md-6 kiri ">
                 <div className="box-nomer">
                   <p className="nomer me-2  my-1">1 </p>
-                  <p className="fw-bold text-dark my-0 sub-judul">
+                  <p className="fw-bold text-dark my-0 sub-judul ">
                     We provide the best choice for you
                   </p>
                 </div>

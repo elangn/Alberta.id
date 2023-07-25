@@ -33,16 +33,14 @@ const Register2 = () => {
         .min(6, "Must be 6 character or more")
         .required("Required"),
       phoneNumber: Yup.string()
-        .min(10, "Must be 10 digit or more")
+        .min(6, "Must be 10 digit or more")
         .required("Required"),
       role: Yup.string()
-        .max(10, "Must be 10 digit or more")
+        // .max(10, "Must be 10 digit or more")
         .required("Required"),
       profilePicture: Yup.string(),
     }),
     onSubmit: (values) => {
-      // alert(JSON.stringify(values, null, 2));
-
       axios
         .post(
           `${baseUrl}/api/v1/register`,
@@ -62,13 +60,11 @@ const Register2 = () => {
           }
         )
         .then(function (response) {
-          // console.log(response);
           alert("sukes membuat akun");
-          // window.location.reload();
           navigate("/login2");
         })
         .catch(function (error) {
-          alert("masih error cuy");
+          alert("cek kembali data yang anda input");
         });
     },
   });
@@ -92,7 +88,7 @@ const Register2 = () => {
               <form action="" onSubmit={formik.handleSubmit}>
                 <label htmlFor="name"> Name </label> <br />
                 <span className=" me-2" id="basic-addon1 ">
-                  <i class="fa-solid fa-user text-secondary"></i>
+                  <i className="fa-solid fa-user text-secondary"></i>
                 </span>
                 <input
                   id="name"
@@ -128,7 +124,7 @@ const Register2 = () => {
                 <br />
                 <label htmlFor="phoneNumber"> Phone Number</label> <br />
                 <span className=" me-2" id="basic-addon1 ">
-                  <i class="fa-solid fa-phone text-secondary"></i>
+                  <i className="fa-solid fa-phone text-secondary"></i>
                 </span>
                 <input
                   id="phoneNumber"
@@ -145,7 +141,7 @@ const Register2 = () => {
                 ) : null}
                 <label htmlFor="password"> Password</label> <br />
                 <span className=" me-2" id="basic-addon1 ">
-                  <i class="fa-solid fa-lock text-secondary"></i>
+                  <i className="fa-solid fa-lock text-secondary"></i>
                 </span>
                 <input
                   id="password"
@@ -162,7 +158,7 @@ const Register2 = () => {
                 ) : null}{" "}
                 <label htmlFor="repeatPassword"> Repeat Password </label> <br />
                 <span className=" me-2" id="basic-addon1 ">
-                  <i class="fa-solid fa-repeat text-secondary"></i>
+                  <i className="fa-solid fa-repeat text-secondary"></i>
                 </span>
                 <input
                   id="repeatPassword"
@@ -199,7 +195,7 @@ const Register2 = () => {
                 ) : null}
                 <label htmlFor="profilePicture"> Profile Picture </label> <br />
                 <span className=" me-2" id="basic-addon1 ">
-                  <i class="fa-solid fa-link text-secondary"></i>
+                  <i className="fa-solid fa-link text-secondary"></i>
                 </span>
                 <input
                   as="select"
