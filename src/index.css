@@ -670,6 +670,7 @@ body {
 
 .popular .card {
   cursor: pointer;
+  overflow: hidden;
 }
 
 .popular .card img {
